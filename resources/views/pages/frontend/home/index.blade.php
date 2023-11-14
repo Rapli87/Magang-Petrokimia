@@ -781,90 +781,25 @@
             <h3 class="title-bg">match gallery</h3>
             <div id="gallery-items">
                 <div class="row">
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-gallery">
-                            <img src="frontend/images/gallery2/gallery-list-1.jpg" alt="" />
-                            <div class="heading-conent">
-                                <h4>Photo Title Here</h4>
-                            </div>
-                            <div class="bottom-icons">
-                                <ul>
-                                    <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-1.jpg">
-                                            <i class="fa fa-power-off"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-gallery">
-                            <img src="frontend/images/gallery2/gallery-list-2.jpg" alt="" />
-                            <div class="heading-conent">
-                                <h4>Photo Title Here</h4>
-                            </div>
-                            <div class="bottom-icons">
-                                <ul>
-                                    <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-2.jpg">
-                                            <i class="fa fa-power-off"></i></a></li>
-                                </ul>
+                    @foreach($galleries as $gallery)
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-gallery">
+                                <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->title }}" />
+                                <div class="heading-conent">
+                                    <h4>{{ $gallery->title }}</h4>
+                                </div>
+                                <div class="bottom-icons">
+                                    <ul>
+                                        <li>
+                                            <a class="image-popup" href="{{ asset($gallery->image) }}">
+                                                <i class="fa fa-power-off"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-gallery">
-                            <img src="frontend/images/gallery2/gallery-list-3.jpg" alt="" />
-                            <div class="heading-conent">
-                                <h4>Photo Title Here</h4>
-                            </div>
-                            <div class="bottom-icons">
-                                <ul>
-                                    <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-3.jpg">
-                                            <i class="fa fa-power-off"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-gallery">
-                            <img src="frontend/images/gallery2/gallery-list-4.jpg" alt="" />
-                            <div class="heading-conent">
-                                <h4>Photo Title Here</h4>
-                            </div>
-                            <div class="bottom-icons">
-                                <ul>
-                                    <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-4.jpg">
-                                            <i class="fa fa-power-off"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-gallery">
-                            <img src="frontend/images/gallery2/gallery-list-5.jpg" alt="" />
-                            <div class="heading-conent">
-                                <h4>Photo Title Here</h4>
-                            </div>
-                            <div class="bottom-icons">
-                                <ul>
-                                    <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-5.jpg">
-                                            <i class="fa fa-power-off"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-gallery">
-                            <img src="frontend/images/gallery2/gallery-list-6.jpg" alt="" />
-                            <div class="heading-conent">
-                                <h4>Photo Title Here</h4>
-                            </div>
-                            <div class="bottom-icons">
-                                <ul>
-                                    <li><a class="image-popup" href="frontend/images/gallery2/gallery-list-6.jpg">
-                                            <i class="fa fa-power-off"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>

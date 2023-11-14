@@ -114,13 +114,16 @@
                             <a href="{{ url('admin/categories') }}">Categories</a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/testimonials') }}">Testimonial</a>
-                        </li>
-                        <li>
                             <a href="{{ url('admin/latest-videos') }}">Latest Videos</a>
                         </li>
                         <li>
                             <a href="{{ url('admin/sublatest-videos') }}">Sub Latest Videos</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/galleries') }}">Galleries</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/testimonials') }}">Testimonial</a>
                         </li>
                         <li>
                             <a href="auth-login.html">Aturan</a>
