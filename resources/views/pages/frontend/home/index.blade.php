@@ -778,7 +778,7 @@
     <!-- Gallery Section Start Here-->
     <div class="gallery-section-area pb-70">
         <div class="container" id="grid">
-            <h3 class="title-bg">match gallery</h3>
+            <h3 class="title-bg">PGFC Gallery</h3>
             <div id="gallery-items">
                 <div class="row">
                     @foreach($galleries as $gallery)
