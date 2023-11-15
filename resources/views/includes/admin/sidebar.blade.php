@@ -123,7 +123,10 @@
                             <a href="{{ url('admin/galleries') }}">Galleries</a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/testimonials') }}">Testimonial</a>
+                            <a href="{{ url('admin/testimonials') }}">Testimonials</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/sponsorships') }}">Sponsorships</a>
                         </li>
                         <li>
                             <a href="auth-login.html">Aturan</a>
