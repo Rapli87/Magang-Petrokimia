@@ -10,12 +10,14 @@ use App\Http\Controllers\Admin\{
     DetailBaganController,
     DetailJadwalController,
     DetailPemainController,
-    GrubController,
     GalleryController,
+    GrubController,
     JadwalController,
     LatestVideoController,
+    SponsorshipController,
     SubLatestVideoController,
     TestimonialController,
+    TimelineController,
     UpcomingMatchController,
     UserController
 };
@@ -103,6 +105,8 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::resource('admin/latest-videos', LatestVideoController::class)-> middleware('UserAccess:1');
     Route::resource('admin/sublatest-videos', SubLatestVideoController::class)-> middleware('UserAccess:1');
     Route::resource('admin/galleries', GalleryController::class)-> middleware('UserAccess:1');
+    Route::resource('admin/sponsorships', SponsorshipController::class)-> middleware('UserAccess:1');
+    Route::resource('admin/timelines', TimelineController::class)-> middleware('UserAccess:1');
     
     Route::get('admin/Data-Sekolah', [DataSekolahController::class, 'index'])->name('Data-Sekolah.index')-> middleware('UserAccess:1');
     Route::get('admin/Data-Sekolah/delete/{id}', [DataSekolahController::class, 'delete'])->name('Data-Sekolah.delete')-> middleware('UserAccess:1');
