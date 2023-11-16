@@ -12,7 +12,7 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
+        $galleries = Gallery::orderBy('created_at', 'asc')->get();
         return view('pages.admin.galleries.index', compact('galleries'));
     }
 

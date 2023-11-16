@@ -96,78 +96,18 @@
                                 <div id="gallery" class="tab-pane fade">
                                     <div class="gallery-section-page2 gallery-section-area">
                                         <div class="row">
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/11.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/11.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
+                                            @foreach ($galleries as $gallery)
+                                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                                    <div class="single-gallery">
+                                                        <img src="{{ asset($gallery->image) }}" alt="">
+                                                        <div class="popup-icon">
+                                                            <a class="image-popup"
+                                                                href="{{ asset($gallery->image) }}"><i
+                                                                    class="fa fa-arrows-alt"></i></a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/2.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/2.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/3.webp" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/3.webp"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/4.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/4.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/5.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/5.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/6.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/6.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/10.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/10.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/8.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/8.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
