@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\LatestVideo;
 use App\Models\SubLatestVideo;
 use App\Models\Testimonial;
+use App\Models\Timeline;
 use App\Models\UpcomingMatch;
 use Illuminate\Http\Request;
 
@@ -66,7 +67,8 @@ class HomeController extends Controller
     public function about(Request $request)
     {
         $testimonials = Testimonial::all();
-        return view('pages.frontend.about.about', compact('testimonials'));
+        $timelines = Timeline::take(5)->orderBy('created_at', 'asc')->get();
+        return view('pages.frontend.about.about', compact('testimonials', 'timelines'));
     }  
     public function result(Request $request)
     {

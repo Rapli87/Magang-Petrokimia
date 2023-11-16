@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Sub latest Videos | PGFC Admin')
+@section('title', 'Timelines | PGFC Admin')
 
 @push('addon-style')
     <!-- Datatables css -->
@@ -30,10 +30,10 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Sub latest Videos</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Timelines</a></li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Sub latest Videos </h4>
+                            <h4 class="page-title">Timeline </h4>
                         </div>
                     </div>
                 </div>
@@ -52,40 +52,37 @@
                                 <div class="card-body">
                                     <table id="fixed-columns-datatable"
                                         class="table table-striped nowrap row-border order-column w-100">
-                                        <a href="{{ route('sublatest-videos.create') }}" class="btn btn-primary mb-2">
+                                        <a href="{{ route('timelines.create') }}" class="btn btn-primary mb-2">
                                             <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
                                         </a>
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th>No</th>
-                                                <th>Image</th>
-                                                <th>Url</th>
                                                 <th>Title</th>
+                                                <th>Image</th>
                                                 <th>Date</th>
-                                                <th>Rate</th>
+                                                <th>Description</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @foreach ($sublatestVideos as $sublatestVideo)
+                                            @foreach ($timelines as $timeline)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $timeline->title_timeline }}</td>
                                                     <td>
-                                                        <img src="{{ url($sublatestVideo->image) }}"
-                                                            alt="{{ $sublatestVideo->title }}" width="100px">
+                                                        <img src="{{ url($timeline->image_timeline) }}"
+                                                            alt="{{ $timeline->title_timeline }}" width="100px">
                                                     </td>
-                                                    <td>{{ $sublatestVideo->url }}</td>
-                                                    <td>{{ $sublatestVideo->title }}</td>
-                                                    <td>{{ $sublatestVideo->date }}</td>
-                                                    <td>{{ $sublatestVideo->rate }}</td>
+                                                    <td>{{ $timeline->date_timeline }}</td>
+                                                    <td>{{ $timeline->description }}</td>
                                                     <td>
-                                                        <a href="{{ route('sublatest-videos.edit', $sublatestVideo->id) }}"
+                                                        <a href="{{ route('timelines.edit', $timeline->id) }}"
                                                             class="btn btn-warning">
                                                             <i class="ri-pencil-line text-light"></i>
                                                         </a>
-                                                        <form
-                                                            action="{{ route('sublatest-videos.destroy', $sublatestVideo->id) }}"
+                                                        <form action="{{ route('timelines.destroy', $timeline->id) }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             @method('delete')
