@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\SubLatestVideo;
 use App\Http\Requests\Admin\SubLatestVideoRequest;
+use App\Http\Requests\Admin\UpdateSublatestVideoRequest;
 use Illuminate\Http\Request;
 
 class SubLatestVideoController extends Controller
@@ -49,7 +50,7 @@ class SubLatestVideoController extends Controller
         return view('pages.admin.sublatest-videos.edit', compact('sublatestVideo'));
     }
 
-    public function update(SubLatestVideoRequest $request, SubLatestVideo $sublatestVideo)
+    public function update(UpdateSublatestVideoRequest $request, SubLatestVideo $sublatestVideo)
     {
         if ($request->hasFile('image')) {
             $image = $request->file('image');

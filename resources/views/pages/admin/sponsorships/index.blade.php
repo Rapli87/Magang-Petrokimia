@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Sub latest Videos | PGFC Admin')
-
+@section('title', 'Sponsorship | PGFC Admin')
 @push('addon-style')
     <!-- Datatables css -->
     <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
@@ -19,32 +18,40 @@
 @endpush
 
 @section('content')
+    <!-- ============================================================== -->
     <!-- Start Page Content here -->
+    <!-- ============================================================== -->
 
     <div class="content-page">
         <div class="content">
+
+            <!-- Start Content-->
             <div class="container-fluid">
+
+                <!-- start page title -->
                 <div class="row">
                     <div class="col-12">
                         <div class="page-title-box">
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Sub latest Videos</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Sponsorship</a>
+                                    </li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Sub latest Videos </h4>
+                            <h4 class="page-title">Sponsorship </h4>
                         </div>
                     </div>
                 </div>
+                <!-- end page title -->
 
+                {{-- Konten --}}
                 @if (session('success'))
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <strong>Success!</strong> {{ session('success') }}
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -52,45 +59,38 @@
                                 <div class="card-body">
                                     <table id="fixed-columns-datatable"
                                         class="table table-striped nowrap row-border order-column w-100">
-                                        <a href="{{ route('sublatest-videos.create') }}" class="btn btn-primary mb-2">
+                                        <a href="{{ route('sponsorships.create') }}" class="btn btn-primary mb-2">
                                             <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
                                         </a>
                                         <thead>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Image</th>
-                                                <th>Url</th>
-                                                <th>Title</th>
-                                                <th>Date</th>
-                                                <th>Rate</th>
+                                                <th>Name Sponsorship</th>
+                                                <th>Image Sponshorship</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
 
                                         <tbody>
-                                            @foreach ($sublatestVideos as $sublatestVideo)
+                                            @foreach ($sponsorships as $sponsorship)
                                                 <tr>
                                                     <td>{{ $loop->iteration }}</td>
+                                                    <td>{{ $sponsorship->name_sponsorship }}</td>
                                                     <td>
-                                                        <img src="{{ url($sublatestVideo->image) }}"
-                                                            alt="{{ $sublatestVideo->title }}" width="100px">
+                                                        <img src="{{ url($sponsorship->image_sponsorship) }}" alt="{{ $sponsorship->name_sponsorship }}" width="100px">
                                                     </td>
-                                                    <td>{{ $sublatestVideo->url }}</td>
-                                                    <td>{{ $sublatestVideo->title }}</td>
-                                                    <td>{{ $sublatestVideo->date }}</td>
-                                                    <td>{{ $sublatestVideo->rate }}</td>
                                                     <td>
-                                                        <a href="{{ route('sublatest-videos.edit', $sublatestVideo->id) }}"
+                                                        <a href="{{ route('sponsorships.edit', $sponsorship->id) }}"
                                                             class="btn btn-warning">
-                                                            <i class="ri-pencil-line text-light"></i>
+                                                            <i class="ri-pencil-line text-ligth"></i>
                                                         </a>
                                                         <form
-                                                            action="{{ route('sublatest-videos.destroy', $sublatestVideo->id) }}"
+                                                            action="{{ route('sponsorships.destroy', $sponsorship->id) }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             @method('delete')
                                                             <button class="btn btn-danger">
-                                                                <i class="ri-delete-bin-line text-light"></i>
+                                                                <i class="ri-delete-bin-line text-ligth"></i>
                                                             </button>
                                                         </form>
                                                     </td>
@@ -98,20 +98,20 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-                                </div> <!-- end card body-->
-                            </div> <!-- end card -->
-                        </div><!-- end col-->
-                    </div> <!-- end row-->
-
-                </div>
-                <!-- container -->
+                                </div>
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                </div> <!-- end row-->
+                {{-- End Konten --}}
             </div>
-            <!-- content -->
+            <!-- container -->
         </div>
+        <!-- content -->
+        <!-- ============================================================== -->
         <!-- End Page content -->
-
+        <!-- ============================================================== -->
     @endsection
-
     @push('addon-script')
         <!-- Datatables js -->
         <script src="{{ url('backend/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
