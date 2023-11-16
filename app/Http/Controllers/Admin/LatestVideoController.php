@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\LatestVideo;
 use App\Http\Requests\Admin\LatestVideoRequest;
+use App\Http\Requests\Admin\UpdateLatestVideoRequest;
 use Illuminate\Http\Request;
 
 class LatestVideoController extends Controller
@@ -45,7 +46,7 @@ class LatestVideoController extends Controller
         return view('pages.admin.latest-videos.edit', compact('latestVideo'));
     }
 
-    public function update(LatestVideoRequest $request, LatestVideo $latestVideo)
+    public function update(UpdateLatestVideoRequest $request, LatestVideo $latestVideo)
     {
         if ($request->hasFile('thumbnail')) {
             $thumbnailImage = $request->file('thumbnail');

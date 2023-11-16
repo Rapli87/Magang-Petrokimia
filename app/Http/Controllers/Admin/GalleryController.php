@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
 use App\Http\Requests\Admin\GalleryRequest;
+use App\Http\Requests\Admin\UpdateGalleryRequest;
 use Illuminate\Http\Request;
 
 class GalleryController extends Controller
@@ -44,7 +45,7 @@ class GalleryController extends Controller
         return view('pages.admin.galleries.edit', compact('gallery'));
     }
 
-    public function update(GalleryRequest $request, Gallery $gallery)
+    public function update(UpdateGalleryRequest $request, Gallery $gallery)
     {
         if ($request->hasFile('image')) {
             $image = $request->file('image');

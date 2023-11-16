@@ -55,7 +55,7 @@
                             </ul>
                             <div class="tab-content">
                                 <div id="timeline-list" class="tab-pane fade in active">
-                                    <!--Squad Style Start -->
+                                    <!-- Squad Style Start -->
                                     <div class="timeline-list">
                                         <div class="list-item">
                                             <div class="image">
@@ -63,60 +63,33 @@
                                             </div>
                                             <div class="list-text">
                                                 <div class="name">
-                                                    <h2>Year</h2>
+                                                    <h2>Date</h2>
                                                 </div>
                                                 <div class="designation">
                                                     <h2>Description</h2>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="list-item">
-                                            <div class="image">
-                                                <img src="frontend/images/petro-pgfc/11.jpg" alt="">
-                                            </div>
-                                            <div class="list-text">
-                                                <div class="name">
-                                                    <h4>2014</h4>
+
+                                        @foreach ($timelines as $timeline)
+                                            <div class="list-item">
+                                                <div class="image">
+                                                    <img src="{{ asset($timeline->image_timeline) }}"
+                                                        alt="{{ $timeline->title_timeline }}">
                                                 </div>
-                                                <div class="designation">
-                                                    <p>Petrogres Student Futsal Championship. Diikuti 8 sekolah dari
-                                                        kabupaten Gresik.<br>
-                                                        PGFC 2014 dimenangkan oleh SMAN 1 Manyar sebagai juara I dan
-                                                        SMAN 1 Kebomas sebagai juara 2.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list-item">
-                                            <div class="image">
-                                                <img src="frontend/images/petro-pgfc/11.jpg" alt="">
-                                            </div>
-                                            <div class="list-text">
-                                                <div class="name">
-                                                    <h4>2015</h4>
-                                                </div>
-                                                <div class="designation">
-                                                    <p>Petrogres Student Futsal Championship. Diikuti oleh 16 sekolah
-                                                        dari kabupaten Gresik.<br>
-                                                        PGFC 2015 dimenangkan oleh SMAN 1 Manyar sebagai juara I, SMAN 1
-                                                        Kebomas sebagai juara 2, SMAN 1 Sidayu sebagai juara 3, dan SMAN
-                                                        NU 1 Gresik sebagai juara 4.</p>
+                                                <div class="list-text">
+                                                    <div class="name">
+                                                        {{-- <h4>{{ \Carbon\Carbon::parse($timeline->date_timeline)->isoFormat('DD MMMM YYYY') }}
+                                                        </h4> --}}
+                                                        <h4>{{ \Carbon\Carbon::parse($timeline->date_timeline)->isoFormat('dddd, DD MMMM YYYY') }}</h4>
+                                                    </div>
+                                                    <div class="designation">
+                                                        <p>{{ $timeline->description }}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="list-item">
-                                            <div class="image">
-                                                <img src="frontend/images/petro-pgfc/11.jpg" alt="">
-                                            </div>
-                                            <div class="list-text">
-                                                <div class="name">
-                                                    <h4>2016</h4>
-                                                </div>
-                                                <div class="designation">
-                                                    <p>Petrokimia Gresik Futsal Championship. Diikuti oleh 24 sekolah
-                                                        dan berlangsung di bulan Agustus 2016.<br></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
+
                                     </div>
                                 </div>
                                 <!--Squad Style End -->
@@ -144,9 +117,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
     </div>
     <!-- Point Table Section End -->
 

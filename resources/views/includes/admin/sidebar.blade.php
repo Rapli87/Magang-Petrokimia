@@ -120,6 +120,9 @@
                             <a href="{{ url('admin/sublatest-videos') }}">Sub Latest Videos</a>
                         </li>
                         <li>
+                            <a href="{{ url('admin/timelines') }}">Timelines</a>
+                        </li>
+                        <li>
                             <a href="{{ url('admin/galleries') }}">Galleries</a>
                         </li>
                         <li>

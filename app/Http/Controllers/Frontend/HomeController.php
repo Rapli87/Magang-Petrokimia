@@ -8,6 +8,7 @@ use App\Models\Gallery;
 use App\Models\LatestVideo;
 use App\Models\SubLatestVideo;
 use App\Models\Testimonial;
+use App\Models\Timeline;
 use App\Models\UpcomingMatch;
 use App\Models\Sponsorhip;
 use Illuminate\Http\Request;
@@ -78,8 +79,9 @@ class HomeController extends Controller
         $testimonials = Testimonial::all();
         $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
         $galleries = Gallery::take(12)->orderBy('created_at', 'asc')->get();
-
-        return view('pages.frontend.about.about', compact('testimonials', 'sponsorships', 'galleries'));
+        $timelines = Timeline::take(5)->orderBy('created_at', 'asc')->get();
+      
+        return view('pages.frontend.about.about', compact('testimonials', 'sponsorships', 'galleries','timelines'));
     }  
     public function result(Request $request)
     {
