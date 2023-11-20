@@ -21,6 +21,17 @@ class PjtimController extends Controller
         return view('pages.admin.user.Pj-Tim.create');
     }
 
+    public function show($id) {
+        $pjtim = PjTim::with('grub')->find($id);
+    
+        if (!$pjtim) {
+            abort(404);
+        }
+    
+        return view('Pages.admin.user.Pj-Tim.show', compact('pjtim'));
+    }
+
+
     public function store(PjtimRequest $request)
     {
         $data = $request->all();

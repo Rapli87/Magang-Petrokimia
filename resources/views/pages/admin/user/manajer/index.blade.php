@@ -141,7 +141,7 @@
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <li><a class="dropdown-item"
-                                                                            href="{{ route('Auth-User.show', ['id' => $data->id]) }}">View</a>
+                                                                            href="{{ route('manajer.show', ['id' => $data->id]) }}">View</a>
                                                                     </li>
             
                                                                     <li><a class="dropdown-item"

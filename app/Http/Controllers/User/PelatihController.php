@@ -21,6 +21,16 @@ class PelatihController extends Controller
         return view('pages.admin.user.Pelatih.create');
     }
 
+    public function show($id) {
+        $pelatih = Datapelatih::with('grub')->find($id);
+    
+        if (!$pelatih) {
+            abort(404);
+        }
+    
+        return view('Pages.admin.user.pelatih.show', compact('pelatih'));
+    }
+
     public function store(PelatihRequest $request)
     {
         $data = $request->all();

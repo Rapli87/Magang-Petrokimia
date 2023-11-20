@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('pjtim', function (Blueprint $table) {
             $table->id();
-            $table->integer('pj_tim_id');
+            $table->integer('pj_tim_id')->nullable();
             $table->string('nama');
             $table->string('jabatan'); 
             $table->string('nip');

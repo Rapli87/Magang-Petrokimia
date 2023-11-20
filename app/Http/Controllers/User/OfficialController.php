@@ -21,6 +21,17 @@ class OfficialController extends Controller
         return view('pages.admin.user.Official.create');
     }
 
+    
+    public function show($id) {
+        $official = DataOfficial::with('grub')->find($id);
+    
+        if (!$official) {
+            abort(404);
+        }
+    
+        return view('Pages.admin.user.official.show', compact('official'));
+    }
+
     public function store(OfficialRequest $request)
     {
         $data = $request->all();
