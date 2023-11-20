@@ -15,7 +15,7 @@ protected $fillable = [
         'id',
         'pj_tim_id',
         'nama',
-        'Jabatan',
+        'jabatan',
         'nip',
         'hp',
         'email',

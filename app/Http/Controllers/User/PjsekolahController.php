@@ -22,6 +22,17 @@ class PjsekolahController extends Controller
         return view('pages.admin.user.Pj-Sekolah.create');
     }
 
+    public function show($id) {
+        $pjsekolah = pjsekolah::with('grub')->find($id);
+    
+        if (!$pjsekolah) {
+            abort(404);
+        }
+    
+        return view('Pages.admin.user.Pj-Sekolah.show', compact('pjsekolah'));
+    }
+
+
     public function store(PjsekolahRequest $request)
     {
         $data = $request->all();

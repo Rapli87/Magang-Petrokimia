@@ -15,11 +15,12 @@ protected $fillable = [
         'id',
         'pj_sekolah_id',
         'nama_kepala_sekolah',
-        'alamat_kepala_seklah',
+        'alamat_kepala_sekolah',
         'telp',
         'hp',
         'email',
         'filerekomendasi',
+       
         
     ];
 

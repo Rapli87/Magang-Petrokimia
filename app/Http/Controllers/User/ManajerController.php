@@ -21,6 +21,18 @@ class ManajerController extends Controller
         return view('pages.admin.user.manajer.create');
     }
 
+    public function show($id) {
+        $manajer = Datamanajer::with('grub')->find($id);
+    
+        if (!$manajer) {
+            abort(404);
+        }
+    
+        return view('Pages.admin.user.manajer.show', compact('manajer'));
+    }
+
+
+
     public function store(manajerRequest $request)
     {
         $data = $request->all();

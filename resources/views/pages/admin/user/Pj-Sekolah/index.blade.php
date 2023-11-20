@@ -46,7 +46,7 @@
                                     <div class="mb-2  d-none">
                                         <label for="telp" class="form-label">Telp</label>
                                         <input class="form-control" type="text" name="telp"
-                                            placeholder="Enter Refferal Code (Optional)">
+                                            placeholder="Masukkan Telp">
                                         @error('telp')
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
@@ -62,7 +62,7 @@
                                     <div class="mb-2">
                                         <label for="email" class="form-label">email</label>
                                         <input class="form-control" type="email" required="" name="email"
-                                            placeholder="Enter your password">
+                                            placeholder="Enter your email">
                                         @error('email')
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
@@ -150,7 +150,7 @@
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <li><a class="dropdown-item"
-                                                                            href="{{ route('Auth-User.show', ['id' => $data->id]) }}">View</a>
+                                                                            href="{{ route('Pj-Sekolah.show', ['id' => $data->id]) }}">View</a>
                                                                     </li>
             
                                                                     <li><a class="dropdown-item"

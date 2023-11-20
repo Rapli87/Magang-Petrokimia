@@ -28,6 +28,8 @@ class PjsekolahRequest extends FormRequest
             'hp' =>'required|max:255',
             'email' => 'required|max:255',
             'filerekomendasi' => 'required|image|mimes:jpeg,png,jpg,gif,tmp|max:2048', 
+
+        
         ];
     }
 }

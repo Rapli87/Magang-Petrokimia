@@ -42,15 +42,15 @@
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
-
-                                    <div class="mb-2  d-none">
-                                        <label for="nip" class="form-label">nip</label>
-                                        <input class="form-control" type="text" name="nip"
-                                            placeholder="Enter Refferal Code (Optional)">
-                                        @error('nip')
+                                    <div class="mb-2">
+                                        <label for="nip" class="form-label">Nip</label>
+                                        <input class="form-control" type="text" required="" name="nip"
+                                            placeholder="Enter your No nip">
+                                        @error('hp')
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
+                                  
                                     <div class="mb-2">
                                         <label for="hp" class="form-label">hp</label>
                                         <input class="form-control" type="text" required="" name="hp"
@@ -95,8 +95,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-0 d-grid text-center">
-                                        <button class="btn btn-primary fw-semibold" type="submit" >Sign
-                                            Up</button>
+                                        <button class="btn btn-primary fw-semibold" type="submit" >Submit</button>
                                     </div>
             
             
@@ -161,7 +160,7 @@
                                                                 </button>
                                                                 <ul class="dropdown-menu">
                                                                     <li><a class="dropdown-item"
-                                                                            href="{{ route('Auth-User.show', ['id' => $data->id]) }}">View</a>
+                                                                            href="{{ route('Pj-Tim.show', ['id' => $data->id]) }}">View</a>
                                                                     </li>
             
                                                                     <li><a class="dropdown-item"
