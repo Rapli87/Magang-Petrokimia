@@ -19,14 +19,14 @@ return new class extends Migration
             $table->string('kalah');
             $table->string('seri');
             $table->string('poin');
-            $table->string('gol');
-            $table->string('gol_k');
+            $table->string('gol')->nullable();
+            $table->string('gol_k')->nullable();
             $table->string('selisih');
             $table->string('peringkat');
             $table->string('grup');
-            $table->string('id_sekolah');
-            $table->string('id_user');
-            $table->string('id_lomba');
+            $table->string('id_sekolah')->nullable();
+            $table->string('id_user')->nullable();
+            $table->string('id_lomba')->nullable();
             $table->timestamps();
         });
     }

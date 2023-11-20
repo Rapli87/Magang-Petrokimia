@@ -13,20 +13,20 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->string('grup');
-            $table->string('id_grup');
-            $table->integer('grup_id');
-            $table->string('id_jadwal');
-            $table->string('id_tim');
-            $table->string('id_tim2');
+            $table->string('grup')->nullable();
+            $table->string('id_grup')->nullable();
+            $table->integer('grup_id')->nullable();
+            $table->string('id_jadwal')->nullable();
+            $table->string('id_tim')->nullable();
+            $table->string('id_tim2')->nullable();
             $table->date('tanggal');
             $table->time('mulai');
             $table->time('selesai');
             $table->string('status');
             $table->string('skor');
-            $table->string('id_sekolah');
-            $table->string('id_user');
-            $table->string('id_lomba');                         
+            $table->string('id_sekolah')->nullable();
+            $table->string('id_user')->nullable();
+            $table->string('id_lomba')->nullable();                         
             $table->foreign('grup_id')->references('id')->on('grubs');
             $table->timestamps();
         });

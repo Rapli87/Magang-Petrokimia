@@ -200,19 +200,19 @@
                             <a href="#">Informasi Umum</a>
                         </li>
                         <li>
-                            <a href="#">PJ Sekolah</a>
+                            <a href="{{url('admin/user/Pj-Sekolah')}}">PJ Sekolah</a>
                         </li>
                         <li>
-                            <a href="#">PJ Tim</a>
+                            <a href="{{url('admin/user/Pj-Tim')}}">PJ Tim</a>
                         </li>
                         <li>
-                            <a href="#">Pelatih</a>
+                            <a href="{{url('admin/user/Pelatih')}}">Pelatih</a>
                         </li>
                         <li>
-                            <a href="#">Official</a>
+                            <a href="{{url('admin/user/Official')}}">Official</a>
                         </li>
                         <li>
-                            <a href="#">Manajer</a>
+                            <a href="{{url('admin/user/manajer')}}">Manajer</a>
                         </li>
                         <li>
                             <a href="#">PJ Supporter Guru</a>

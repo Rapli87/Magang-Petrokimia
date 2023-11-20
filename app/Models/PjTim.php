@@ -33,5 +33,9 @@ protected $fillable = [
     public function datasekolah(){
         return $this->hasMany(Datasekolah::class,'pj_tim_id','id');
     }
+    public function grub()
+    {
+        return $this->belongsTo(Grub::class, 'grub_id', 'id');
+    }
 
 }

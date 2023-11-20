@@ -99,7 +99,7 @@
                                                         <td>
                                                             <span class="badge bg-danger">Not Verified</span>
                                                         </td>
-                                                    @else
+                                                    @elsea
                                                         <td>
                                                             <span class="badge bg-success">Verified</span>
                                                         </td>

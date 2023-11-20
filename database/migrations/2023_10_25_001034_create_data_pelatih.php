@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('data_pelatih', function (Blueprint $table) {
             $table->id();
-            $table->integer('data_pelatih_id');
+            $table->integer('data_pelatih_id')->nullable();
             $table->string('nama');
-            $table->integer('id_peserta'); 
+            $table->integer('id_peserta')->nullable(); 
             $table->string('hp');
             $table->string('alamat');
             $table->string('foto');

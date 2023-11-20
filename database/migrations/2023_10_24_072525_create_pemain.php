@@ -24,7 +24,7 @@ return new class extends Migration
             $table->integer('data_supporterguru_id');
             $table->string('No_punggung');
             $table->string('Kelas');
-            $table->string('Tanggal_lahir');
+            $table->dateTime('Tanggal_lahir');
             $table->string('Ijasah');
             $table->string('Rapor');
             $table->string('Keterangan_Siswa');

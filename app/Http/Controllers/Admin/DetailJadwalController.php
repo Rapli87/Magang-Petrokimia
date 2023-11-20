@@ -19,6 +19,11 @@ class DetailJadwalController extends Controller
     
         return view('pages.admin.Jadwal.show', ['detailjadwal' => $detailjadwal]);
     }
+
+    public function create()
+    {
+        return view('pages.admin.Data-Sekolah.createPemain');
+    }
     
   
 }

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('pj_sekolah_id');
             $table->string('nama_kepala_sekolah');
-            $table->integer('alamat_kepala_sekolah'); 
+            $table->string('alamat_kepala_sekolah'); 
             $table->string('telp');
             $table->string('hp');
             $table->string('email');
