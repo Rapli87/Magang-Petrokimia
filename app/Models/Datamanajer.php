@@ -26,4 +26,9 @@ protected $fillable = [
     {
         return $this->hasMany(Pemain::class, 'data_manajer_id', 'id');
     }
+
+    public function grub()
+    {
+        return $this->belongsTo(Grub::class, 'grub_id', 'id');
+    }
 }

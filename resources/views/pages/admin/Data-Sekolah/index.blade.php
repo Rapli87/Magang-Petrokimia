@@ -37,8 +37,9 @@
                             <a type="button" class="btn btn-warning" href="{{route('DataSekolahExport')}}" >Unduh excel</a> --}}
 
 
-                                <a class="btn btn-primary" style="margin-bottom: 10px;">
-                                    <i class="ri-add-circle-line text-ligth"> Add Data </i>
+
+                                <a href="{{ route('Data-Sekolah.create') }}" class="btn btn-primary mb-2">
+                                    <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
                                 </a>
 
                              
@@ -72,7 +73,6 @@
                                             <th data-priority="3">Telepon</th>
                                             <th data-priority="1">Fax</th>
                                             <th data-priority="3">Email</th>
-                                            <th data-priority="3">Password</th>
                                             <th data-priority="6">Tanggal</th>
                                             <th data-priority="6">Logo</th>
                                             <th data-priority="6">Action</th>
@@ -89,15 +89,14 @@
                                                 <td>{{ $Data->Telp }}</td>
                                                 <td>{{ $Data->Fax }}</td>
                                                 <td>{{ $Data->Email }}</td>
-                                                <td>{{ $Data->password }}</td>
+                                              
                                                 <td>{{ $Data->Tanggal_update }}</td>
                                                 {{-- <td>{{ $Data->Logo }}</td> --}}
                                                 <td>
-                                                    {{-- <img src="{{ url('frontend/images/upcoming/LogoSekolah/'.$Data->Logo) }}" alt="" width="100px"> --}}
-
-                                                    <img src="{{ url('frontend/images/upcoming/LogoSekolah/SMA NU 1 GRESIK.jpg') }}" alt="" width="80px">
-
-
+                                                    <img src="{{ url('storage/' . $Data->Logo) }}"
+                                                        alt=""
+                                                        style="width: 150px; height: 150px; object-fit: cover;">
+                                                </td>
                                                 <td>
                                                     <div class="dropdown">
                                                         <button class="btn btn-outline-success dropdown-toggle" type="button"
@@ -106,8 +105,34 @@
                                                             Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="{{ route('Data-Sekolah.show', ['id' => $Data->id]) }}">Show</a>
-                                                            <a class="dropdown-item" href="{{ route('Data-Sekolah.delete', ['id' => $Data->id]) }}">Hapus</a>
+                                                            {{-- <a class="dropdown-item" href="{{ route('Jadwal.edit', ['id' => $Data->id]) }}">Edit</a> --}}
+                                                            <form action="{{ route('Data-Sekolah.edit', $Data->id) }}" method="GET" class="d-inline">
+                                                                @csrf
+                                                                @method('POST')
+                                                                <button type="submit" class="btn btn-danger">
+                                                                    <i class="bi bi-pencil text-light"></i>
+                                                                </button>
+                                                            </form>
+                                                            
+                                                            <form action="{{ route('Data-Sekolah.destroy', $Data->id) }}"
+                                                                method="POST" class="d-inline">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button class="btn btn-warning"
+                                                                    onclick="return confirm('Yakin ingin menghapus data?')">
+                                                                    <i class="ri-delete-bin-line text-light"></i>
+                                                                </button>
+                                                            </form>
+
+                                                            <form action="{{ route('Data-Sekolah.show', $Data->id) }}"
+                                                                method="POST" class="d-inline">
+                                                                @csrf
+                                                                @method('get')
+                                                                <button class="btn btn-warning"
+                                                                    onclick="return confirm('Yakin ingin Ke Detail Sekolah?')">
+                                                                    <i class="ri-delete-bin-line text-light"></i>
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                 </td>
                                             </tr>

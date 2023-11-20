@@ -254,7 +254,7 @@
                                                 <p class="timeline-date text-muted">
                                                     <small>{{ $JadwalPertandingan->mulai }}</small>
                                                 </p>
-                                                <p>{{ $team->tim  }}</p>
+                                                {{-- <p>{{ $team->tim  }}</p> --}}
                                                 {{-- <p>{{ $JadwalPertandingan->grub }}</p>
                                                 <p>{{ $JadwalPertandingan->id_tim }}</p>
                                                 <p>{{ $JadwalPertandingan->id_tim2 }}</p> --}}

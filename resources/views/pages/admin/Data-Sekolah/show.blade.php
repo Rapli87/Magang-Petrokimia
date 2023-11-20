@@ -77,8 +77,8 @@
                             data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
                             <i class="ri-pencil-fill"></i>
                         </a>
-                        <a href="#" class="btn btn-danger btn-sm tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
-                            <i class="ri-close-fill"></i>
+                        <a href="{{ route('Data-Sekolah.create') }}"  class="btn btn-danger btn-sm tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
+                            <i class="ri-add-fill"></i>
                         </a>
                         <a type="button" class="btn btn-success btn-sm tooltips" href="" target="_blank">
                             <i class="ri-file-pdf-fill me-1"></i>
@@ -169,7 +169,7 @@
                         <div class="">
                             <a href="#" class="btn btn-success btn-sm me-1 tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"> <i class="ri-pencil-fill"></i> </a>
                             <a href="#" class="btn btn-danger btn-sm tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"> <i class="ri-close-fill"></i> </a>
-                            <a href="{{route('Data-Sekolah.Showpemain',['id' => $pemain->id])}}" class="btn btn-primary btn-sm me-1 tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Detail" >
+                            <a href="{{route('Data-Sekolah.show',['id' => $pemain->id])}}" class="btn btn-primary btn-sm me-1 tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Detail" >
                                 {{-- {{ route('Data-Sekolah.show', ['id' => $Data->id]) }} --}}
                                 <i class="ri-eye-fill"></i>
                             </a>

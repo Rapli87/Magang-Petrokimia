@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\DataSekolahRequest;
 use App\Models\Pemain;
 use Illuminate\Http\Request;
 use App\Models\DataSekolah;
@@ -25,8 +26,8 @@ class DataSekolahController extends Controller
     
         return view('Pages.admin.Data-Sekolah.show', compact('dataSekolah'));
     }
-    
 
+ 
     public function delete($id){
         $dataSekolah = DataSekolah::find($id);
 
@@ -45,5 +46,42 @@ class DataSekolahController extends Controller
         return view('pages.admin.Data-Sekolah.CetakDataSekolah', compact('dtCetakDataSekolah'));
     }
 
+
+    public function store(DataSekolahRequest $request)
+    {
+        $data = $request->all();
+      
+        $data['Logo'] = $request->file('Logo')->store(
+            'admin/Data_Sekolah/Logo',
+            'public'
+        );
+
+        DataSekolah::create($data);
+
+        return redirect()->route('Data-Sekolah.index')->with('success', 'Upcoming Match successfully created');
+    }
+    public function create()
+    {
+        return view('pages.admin.Data-Sekolah.create');
+    }
+
+    public function update(DataSekolahRequest $request, string $id)
+    {
+        $data = $request->all();
+    
+
+        $item = DataSekolah::findOrFail($id);
+        $item->update($data);
+
+        return redirect()->route('Data-Sekolah.index')->with('success', 'Data-Sekolah  successfully updated');
+    }
+
+    public function destroy(string $id)
+    {
+        $item = DataSekolah::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('Data-Sekolah.index')->with('success', 'Data Sekolah successfully deleted');
+    }
 }
 

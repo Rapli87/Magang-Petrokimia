@@ -37,8 +37,8 @@
                                     <a type="button" class="btn btn-warning" href="{{route('DataSekolahExport')}}" >Unduh excel</a> --}}
         
         
-                                        <a  class="btn btn-primary" style="margin-bottom: 10px;">
-                                            <i class="ri-add-circle-line text-ligth" data-bs-toggle="modal" data-bs-target="#exampleModal" > Add Data </i>
+                                        <a type="button" href="{{route('Jadwal.create')}}" class="btn btn-primary" style="margin-bottom: 10px;">
+                                            <i class="ri-add-circle-line text-ligth"  > Add Data </i>
                                         </a>
         
                                         <br>
@@ -70,6 +70,7 @@
                                                     <th data-priority="3">mulai</th>
                                                     <th data-priority="1">Selesai</th>
                                                    <th data-priority="1">status</th>
+                                                   <th data-priority="1">Action</th>
                                                   
         
         
@@ -85,6 +86,34 @@
                                                         <td>{{ $Data->selesai }}</td>
                                                         <td>{{ $Data->status }}</td>
                                                         <td>{{ $Data->id_grub }}</td>
+                                                        <td>
+                                                            <div class="dropdown">
+                                                                <button class="btn btn-outline-success dropdown-toggle" type="button"
+                                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    Action
+                                                                </button>
+                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                                    {{-- <a class="dropdown-item" href="{{ route('Jadwal.edit', ['id' => $Data->id]) }}">Edit</a> --}}
+                                                                    <form action="{{ route('Jadwal.edit', $Data->id) }}" method="GET" class="d-inline">
+                                                                        @csrf
+                                                                        @method('POST')
+                                                                        <button type="submit" class="btn btn-danger">
+                                                                            <i class="bi bi-pencil text-light"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                    
+                                                                    <form action="{{ route('Jadwal.destroy', $Data->id) }}"
+                                                                        method="POST" class="d-inline">
+                                                                        @csrf
+                                                                        @method('delete')
+                                                                        <button class="btn btn-warning"
+                                                                            onclick="return confirm('Yakin ingin menghapus data?')">
+                                                                            <i class="ri-delete-bin-line text-light"></i>
+                                                                        </button>
+                                                                    </form>
+                                                                </div>
+                                                        </td>
                                                        
                                                     </tr>
                                                 @endforeach
@@ -100,125 +129,6 @@
                     </div> <!-- end card -->
                 </div> <!-- end col -->
             </div>
-            <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <form id="editForm">
-                    @csrf
-                    @method('PUT')
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Tambah Jadwal</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-header">
-                                </div>
-                                <div class="card-body">
-                                       <input type="hidden" id="id" name="id">
-                                        <div class="mb-9">
-                                            <label class="form-label" for="Nama_Sekolah">Nama Sekolah</label>
-                                            <input type="text" class="form-control" id="Nama_Sekolah"
-                                                placeholder="Masukkan Nama Sekolah Anda" required>
-                                            <div class="valid-feedback">
-                                                Looks good!
-                                            </div>
-                                        </div>
-                                        <div class="mb-9">
-                                            <label class="form-label" for="Telp">Telepon</label>
-                                            <input type="text" class="form-control" id="Telp"
-                                                placeholder="Masukkan Nomer Telepon Anda"  required>
-                                            <div class="valid-feedback">
-                                                Looks good!
-                                            </div>
-                                        </div>
-                                        <div class="mb-9">
-                                            <label class="form-label" for="Fax">Fax</label>
-                                            <input type="text" class="form-control" id="Fax"
-                                            placeholder="Masukkan Fax"  required>
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
-                                           
-                                        </div>
-                                        <div class="mb-9">
-                                            <label class="form-label" for="Email">Email</label>
-                                            <input type="text" class="form-control" id="Email"
-                                                placeholder="Masukkan Email Anda" required>
-                                            <div class="invalid-feedback">
-                                                Please provide a valid city.
-                                            </div>
-                                        </div>
-                                        <div class="mb-9">
-                                            <label class="form-label" for="password">Password</label>
-                                            <input type="text" class="form-control" id="password"
-                                                placeholder="Masukkan password" required>
-                                            <div class="invalid-feedback">
-                                                Please provide a valid password.
-                                            </div>
-                                        </div>
-                                        <div class="mb-9">
-                                            <label class="form-label" for="Tanggal_update">Tanggal</label>
-                                            <input type="date" class="form-control" id="datepicker">
-                                            <div class="invalid-feedback">
-                                                Please provide a valid password.
-                                            </div>
-                                        </div>
-                                      
-                                        <div class="mb-9">
-                                            <label class="form-label" for="Tanggal_update">Tanggal update</label>
-                                            <input type="text" class="form-control" id="Tanggal_update"
-                                             required>
-                                            <div class="invalid-feedback">
-                                                Please provide a valid password.
-                                            </div>
-                                        </div>
-                                        <div class="mb-9">
-                                            <label class="form-label" for="Logo">Logo</label>
-                                            <input type="text" class="form-control" id="Logo"
-                                                placeholder="Logo" required>
-                                            <div class="invalid-feedback">
-                                                Please provide a valid logo.
-                                            </div>
-                                        </div>
-                                        <div class="mb-9">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="invalidCheck"
-                                                    required>
-                                                <label class="form-check-label form-label" for="invalidCheck">Agree to
-                                                    terms and conditions</label>
-                                                <div class="invalid-feedback">
-                                                    You must agree before submitting.
-                                                </div>
-                                            </div>
-                                        </div>
-                                </div> <!-- end card-body-->
-                            </div> <!-- end card-->
-                        </div> <!-- end col-->
-                
-                
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" id="submitFormBtn">Save changes</button>
-                </div>
-            </form>
-              </div>
-            </div>
-          </div>
-        
-            <!-- end row -->
-
+         
 @endsection
 
-<script>
-   var datepicker = new bootstrap.Datepicker(document.getElementById('datepicker'), {
-        format: 'dd/mm/yyyy', // Format tanggal
-        todayBtn: true, // Tombol "Today" untuk memilih tanggal hari ini
-        clearBtn: true, // Tombol "Clear" untuk menghapus tanggal yang dipilih
-        autoclose: true, // Menutup datepicker setelah memilih tanggal
-        todayHighlight: true // Membuat hari ini disorot
-    });
-</script>

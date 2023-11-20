@@ -37,7 +37,7 @@
                             <a type="button" class="btn btn-warning" href="{{route('DataSekolahExport')}}" >Unduh excel</a> --}}
 
 
-                                <a class="btn btn-primary" style="margin-bottom: 10px;">
+                                <a type="button" href="{{ route('Bagan-Championship.create') }}" class="btn btn-primary" style="margin-bottom: 10px;">
                                     <i class="ri-add-circle-line text-ligth"> Add Data </i>
                                 </a>
 
@@ -97,8 +97,24 @@
                                                             Action
                                                         </button>
                                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                            <a class="dropdown-item" href="{{ route('Data-Sekolah.show', ['id' => $Data->id]) }}">Show</a>
-                                                            <a class="dropdown-item" href="{{ route('Data-Sekolah.delete', ['id' => $Data->id]) }}">Hapus</a>
+                                                            {{-- <a class="dropdown-item" href="{{ route('Jadwal.edit', ['id' => $Data->id]) }}">Edit</a> --}}
+                                                            <form action="{{ route('Bagan-Championship.edit', $Data->id) }}" method="GET" class="d-inline">
+                                                                @csrf
+                                                                @method('POST')
+                                                                <button type="submit" class="btn btn-danger">
+                                                                    <i class="bi bi-pencil text-light"></i>
+                                                                </button>
+                                                            </form>
+                                                            
+                                                            <form action="{{ route('Bagan-Championship.destroy', $Data->id) }}"
+                                                                method="POST" class="d-inline">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button class="btn btn-warning"
+                                                                    onclick="return confirm('Yakin ingin menghapus data?')">
+                                                                    <i class="ri-delete-bin-line text-light"></i>
+                                                                </button>
+                                                            </form>
                                                         </div>
                                                 </td>
                                             </tr>
