@@ -8,7 +8,10 @@ use App\Models\Gallery;
 use App\Models\LatestVideo;
 use App\Models\SubLatestVideo;
 use App\Models\Testimonial;
+use App\Models\Timeline;
 use App\Models\UpcomingMatch;
+use App\Models\Sponsorhip;
+use App\Models\Klasemen;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,8 +28,23 @@ class HomeController extends Controller
         $latestVideos = LatestVideo::take(1)->latest()->get();
         $sublatestVideos = SubLatestVideo::take(3)->orderBy('date', 'asc')->get();
         $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
+        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $klasemenGroup = Klasemen::select('group')
+            ->groupBy('group')
+            ->first();
 
-        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos', 'galleries'));
+        if ($klasemenGroup) {
+            $groupToDisplay = $klasemenGroup->group;
+
+            $klasemens = Klasemen::where('group', $groupToDisplay)
+                ->orderBy('points', 'desc')
+                ->orderBy('goal_difference', 'desc')
+                ->orderBy('goals_for', 'desc')
+                ->get();
+        } else {
+            $klasemens = collect(); // Atur sebagai koleksi kosong jika tidak ada grup
+        }
+        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos', 'galleries', 'sponsorships', 'klasemens'));
     }
 
     public function blog()
@@ -34,6 +52,7 @@ class HomeController extends Controller
         return view('pages.frontend.blog.blog',[
             'latest_post' => Article::latest()->first(),
             'articles' => Article::with('Category')->whereStatus (1)->latest()->simplePaginate(5),
+            'sponsorships' => Sponsorhip::take(6)->orderBy('created_at', 'asc')->get(),
         ]);
     }
 
@@ -48,33 +67,54 @@ class HomeController extends Controller
 
     public function competition(Request $request)
     {
-        return view('pages.frontend.competition.competition');
+        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+
+        return view('pages.frontend.competition.competition', compact('sponsorships'));
     }
     public function contact(Request $request)
     {
-        return view('pages.frontend.contact.contact');
+        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        return view('pages.frontend.contact.contact', compact('sponsorships'));
     }
     public function gallery(Request $request)
     {
         $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
-        return view('pages.frontend.gallery.gallery', compact('galleries'));
+        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+
+        return view('pages.frontend.gallery.gallery', compact('galleries', 'sponsorships'));
     }
     public function klasmen(Request $request)
     {
-        return view('pages.frontend.klasmen.klasmen');
+        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        // Ambil data klasemen dari model Klasemen
+        // $klasemens = Klasemen::orderBy('group')->orderBy('rank')->get();
+        $klasemens = Klasemen::orderBy('group')
+        ->orderBy('points', 'desc')
+        ->orderBy('goal_difference', 'desc')
+        ->orderBy('goals_for', 'desc')
+        ->get();
+        
+        return view('pages.frontend.klasmen.klasmen', compact('sponsorships', 'klasemens'));
     }
     public function about(Request $request)
     {
         $testimonials = Testimonial::all();
-        return view('pages.frontend.about.about', compact('testimonials'));
+        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $galleries = Gallery::take(12)->orderBy('created_at', 'asc')->get();
+        $timelines = Timeline::take(5)->orderBy('created_at', 'asc')->get();
+      
+        return view('pages.frontend.about.about', compact('testimonials', 'sponsorships', 'galleries','timelines'));
     }  
     public function result(Request $request)
     {
-        return view('pages.frontend.result.result');
+        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+
+        return view('pages.frontend.result.result', compact('sponsorships'));
     }
     public function result_single(Request $request)
     {
-        return view('pages.frontend.result.result-single');
+        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        return view('pages.frontend.result.result-single', compact('sponsorships'));
     }
     public function team(Request $request)
     {

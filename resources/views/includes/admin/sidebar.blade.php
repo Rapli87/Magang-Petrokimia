@@ -50,8 +50,11 @@
                         <li>
                             <a href="{{route('Data-Sekolah.index')}}">Data Sekolah</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('Group-klasmen.index')}}">Group Klasmen</a>
+                        </li> --}}
+                        <li>
+                            <a href="{{ url('admin/group-klasemens') }}">Group Klasmen</a>
                         </li>
                         <li>
                             <a href="pages-profile.html">Hasil Pertandingan</a>
@@ -120,10 +123,16 @@
                             <a href="{{ url('admin/sublatest-videos') }}">Sub Latest Videos</a>
                         </li>
                         <li>
+                            <a href="{{ url('admin/timelines') }}">Timelines</a>
+                        </li>
+                        <li>
                             <a href="{{ url('admin/galleries') }}">Galleries</a>
                         </li>
                         <li>
-                            <a href="{{ url('admin/testimonials') }}">Testimonial</a>
+                            <a href="{{ url('admin/testimonials') }}">Testimonials</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/sponsorships') }}">Sponsorships</a>
                         </li>
                         <li>
                             <a href="auth-login.html">Aturan</a>

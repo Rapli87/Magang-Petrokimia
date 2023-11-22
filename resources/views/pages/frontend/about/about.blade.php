@@ -55,7 +55,7 @@
                             </ul>
                             <div class="tab-content">
                                 <div id="timeline-list" class="tab-pane fade in active">
-                                    <!--Squad Style Start -->
+                                    <!-- Squad Style Start -->
                                     <div class="timeline-list">
                                         <div class="list-item">
                                             <div class="image">
@@ -63,138 +63,51 @@
                                             </div>
                                             <div class="list-text">
                                                 <div class="name">
-                                                    <h2>Year</h2>
+                                                    <h2>Date</h2>
                                                 </div>
                                                 <div class="designation">
                                                     <h2>Description</h2>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="list-item">
-                                            <div class="image">
-                                                <img src="frontend/images/petro-pgfc/11.jpg" alt="">
-                                            </div>
-                                            <div class="list-text">
-                                                <div class="name">
-                                                    <h4>2014</h4>
+
+                                        @foreach ($timelines as $timeline)
+                                            <div class="list-item">
+                                                <div class="image">
+                                                    <img src="{{ asset($timeline->image_timeline) }}"
+                                                        alt="{{ $timeline->title_timeline }}">
                                                 </div>
-                                                <div class="designation">
-                                                    <p>Petrogres Student Futsal Championship. Diikuti 8 sekolah dari
-                                                        kabupaten Gresik.<br>
-                                                        PGFC 2014 dimenangkan oleh SMAN 1 Manyar sebagai juara I dan
-                                                        SMAN 1 Kebomas sebagai juara 2.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="list-item">
-                                            <div class="image">
-                                                <img src="frontend/images/petro-pgfc/11.jpg" alt="">
-                                            </div>
-                                            <div class="list-text">
-                                                <div class="name">
-                                                    <h4>2015</h4>
-                                                </div>
-                                                <div class="designation">
-                                                    <p>Petrogres Student Futsal Championship. Diikuti oleh 16 sekolah
-                                                        dari kabupaten Gresik.<br>
-                                                        PGFC 2015 dimenangkan oleh SMAN 1 Manyar sebagai juara I, SMAN 1
-                                                        Kebomas sebagai juara 2, SMAN 1 Sidayu sebagai juara 3, dan SMAN
-                                                        NU 1 Gresik sebagai juara 4.</p>
+                                                <div class="list-text">
+                                                    <div class="name">
+                                                        {{-- <h4>{{ \Carbon\Carbon::parse($timeline->date_timeline)->isoFormat('DD MMMM YYYY') }}
+                                                        </h4> --}}
+                                                        <h4>{{ \Carbon\Carbon::parse($timeline->date_timeline)->isoFormat('dddd, DD MMMM YYYY') }}</h4>
+                                                    </div>
+                                                    <div class="designation">
+                                                        <p>{{ $timeline->description }}</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="list-item">
-                                            <div class="image">
-                                                <img src="frontend/images/petro-pgfc/11.jpg" alt="">
-                                            </div>
-                                            <div class="list-text">
-                                                <div class="name">
-                                                    <h4>2016</h4>
-                                                </div>
-                                                <div class="designation">
-                                                    <p>Petrokimia Gresik Futsal Championship. Diikuti oleh 24 sekolah
-                                                        dan berlangsung di bulan Agustus 2016.<br></p>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
+
                                     </div>
                                 </div>
                                 <!--Squad Style End -->
                                 <div id="gallery" class="tab-pane fade">
                                     <div class="gallery-section-page2 gallery-section-area">
                                         <div class="row">
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/11.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/11.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
+                                            @foreach ($galleries as $gallery)
+                                                <div class="col-md-3 col-sm-6 col-xs-6">
+                                                    <div class="single-gallery">
+                                                        <img src="{{ asset($gallery->image) }}" alt="">
+                                                        <div class="popup-icon">
+                                                            <a class="image-popup"
+                                                                href="{{ asset($gallery->image) }}"><i
+                                                                    class="fa fa-arrows-alt"></i></a>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/2.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/2.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/3.webp" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/3.webp"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/4.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/4.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/5.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/5.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/6.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/6.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/10.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/10.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 col-sm-6 col-xs-6">
-                                                <div class="single-gallery">
-                                                    <img src="frontend/images/petro-pgfc/8.jpg" alt="">
-                                                    <div class="popup-icon">
-                                                        <a class="image-popup" href="frontend/images/petro-pgfc/8.jpg"><i
-                                                                class="fa fa-arrows-alt"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
@@ -205,12 +118,12 @@
             </div>
         </div>
     </div>
-        <!-- Point Table Section End -->
-        
-        <!-- Testimonials Sections Start Here-->
-        @include('includes.frontend.testimonials')
-        <!-- Testimonials Sections End Here-->
-    
+    <!-- Point Table Section End -->
+
+    <!-- Testimonials Sections Start Here-->
+    @include('includes.frontend.testimonials')
+    <!-- Testimonials Sections End Here-->
+
 @endsection
 
 @push('prepend-style')
@@ -242,29 +155,29 @@
 @endpush
 
 @push('addon-script')
-        <!-- all js here -->
+    <!-- all js here -->
     <!-- jquery latest version -->
-    <script src="{{ url('frontend/js/jquery.min.js')}}"></script>
+    <script src="{{ url('frontend/js/jquery.min.js') }}"></script>
     <!-- Menu js -->
-    <script src="{{ url('frontend/js/rsmenu-main.js')}}"></script>
+    <script src="{{ url('frontend/js/rsmenu-main.js') }}"></script>
     <!-- jquery-ui js -->
-    <script src="{{ url('frontend/js/jquery-ui.min.js')}}"></script>
+    <script src="{{ url('frontend/js/jquery-ui.min.js') }}"></script>
     <!-- bootstrap js -->
-    <script src="{{ url('frontend/js/bootstrap.min.js')}}"></script>
+    <script src="{{ url('frontend/js/bootstrap.min.js') }}"></script>
     <!-- meanmenu js -->
-    <script src="{{ url('frontend/js/jquery.meanmenu.js')}}"></script>
+    <script src="{{ url('frontend/js/jquery.meanmenu.js') }}"></script>
     <!-- wow js -->
-    <script src="{{ url('frontend/js/wow.min.js')}}"></script>
+    <script src="{{ url('frontend/js/wow.min.js') }}"></script>
     <!-- Slick js -->
-    <script src="{{ url('frontend/js/slick.min.js')}}"></script>
+    <script src="{{ url('frontend/js/slick.min.js') }}"></script>
     <!-- masonry js -->
-    <script src="{{ url('frontend/js/masonry.js')}}"></script>
+    <script src="{{ url('frontend/js/masonry.js') }}"></script>
     <!-- magnific-popup js -->
     <!-- owl.carousel js -->
-    <script src="{{ url('frontend/js/owl.carousel.min.js')}}"></script>
-    <script src="{{ url('frontend/js/time-circle.js')}}"></script>
+    <script src="{{ url('frontend/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url('frontend/js/time-circle.js') }}"></script>
     <!-- magnific-popup js -->
-    <script src="{{ url('frontend/js/jquery.magnific-popup.js')}}"></script>
+    <script src="{{ url('frontend/js/jquery.magnific-popup.js') }}"></script>
     <!-- main js -->
-    <script src="{{ url('frontend/js/main.js')}}"></script>
+    <script src="{{ url('frontend/js/main.js') }}"></script>
 @endpush
