@@ -11,6 +11,7 @@ use App\Models\Testimonial;
 use App\Models\Timeline;
 use App\Models\UpcomingMatch;
 use App\Models\Sponsorhip;
+use App\Models\Klasemen;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -28,8 +29,22 @@ class HomeController extends Controller
         $sublatestVideos = SubLatestVideo::take(3)->orderBy('date', 'asc')->get();
         $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
         $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $klasemenGroup = Klasemen::select('group')
+            ->groupBy('group')
+            ->first();
 
-        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos', 'galleries', 'sponsorships'));
+        if ($klasemenGroup) {
+            $groupToDisplay = $klasemenGroup->group;
+
+            $klasemens = Klasemen::where('group', $groupToDisplay)
+                ->orderBy('points', 'desc')
+                ->orderBy('goal_difference', 'desc')
+                ->orderBy('goals_for', 'desc')
+                ->get();
+        } else {
+            $klasemens = collect(); // Atur sebagai koleksi kosong jika tidak ada grup
+        }
+        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos', 'galleries', 'sponsorships', 'klasemens'));
     }
 
     public function blog()
@@ -71,8 +86,15 @@ class HomeController extends Controller
     public function klasmen(Request $request)
     {
         $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
-
-        return view('pages.frontend.klasmen.klasmen', compact('sponsorships'));
+        // Ambil data klasemen dari model Klasemen
+        // $klasemens = Klasemen::orderBy('group')->orderBy('rank')->get();
+        $klasemens = Klasemen::orderBy('group')
+        ->orderBy('points', 'desc')
+        ->orderBy('goal_difference', 'desc')
+        ->orderBy('goals_for', 'desc')
+        ->get();
+        
+        return view('pages.frontend.klasmen.klasmen', compact('sponsorships', 'klasemens'));
     }
     public function about(Request $request)
     {

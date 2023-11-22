@@ -272,57 +272,44 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <h3 class="title-bg">Klasmen</h3>
-                    <div class="point-list text-center">
-                        <table class="point-table">
-                            <tbody>
-                                <tr>
-                                    <td>Rank</td>
-                                    <td class="country-name">Team</td>
-                                    <td>W</td>
-                                    <td>D</td>
-                                    <td>L</td>
-                                    <td>P</td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>SMK YPI DARUSSALAM 1 CERME</td>
-                                    <td>2</td>
-                                    <td>1</td>
-                                    <td>0</td>
-                                    <td>7</td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td class="country-name">SMAN 1 GRESIK</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>1</td>
-                                    <td>4</td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td class="country-name">SMAN 2 LAMONGAN</td>
-                                    <td>1</td>
-                                    <td>0</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>SMAN 1 WRINGINANOM</td>
-                                    <td>1</td>
-                                    <td>0</td>
-                                    <td>2</td>
-                                    <td>3</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <a class="view-more text-left" href="{{ route('pages.klasmen') }}">View
-                            More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                <!-- Di dalam loop -->
+                @foreach ($klasemens->groupBy('group') as $group => $klasemenGroup)
+                    <div class="col-md-4">
+                        <h3 class="title-bg">Klasmen Group {{ $group }}</h3>
+                        <div class="point-list text-center">
+                            <table class="point-table">
+                                <tbody>
+                                    <tr>
+                                        <td>Rank</td>
+                                        <td class="country-name">Team</td>
+                                        <td>W</td>
+                                        <td>D</td>
+                                        <td>L</td>
+                                        <td>P</td>
+                                    </tr>
+                                    <!-- Di dalam loop klasemenGroup -->
+                                    @php
+                                        $currentRank = 0;
+                                    @endphp
+                                    @foreach ($klasemenGroup as $klasemen)
+                                        <tr>
+                                            <td>{{ ++$currentRank }}</td>
+                                            <td class="country-name">{{ $klasemen->team_name }}</td>
+                                            <td>{{ $klasemen->won }}</td>
+                                            <td>{{ $klasemen->drawn }}</td>
+                                            <td>{{ $klasemen->lost }}</td>
+                                            <td>{{ $klasemen->points }}</td>
+                                        </tr>
+                                    @endforeach
+                                    <!-- Akhir dari loop klasemenGroup -->
+                                </tbody>
+                            </table>
+                            <a class="view-more text-left" href="{{ route('pages.klasmen') }}">View More <i
+                                    class="fa fa-angle-double-right" aria-hidden="true"></i></a>
+                        </div>
                     </div>
-                </div>
+                @endforeach
+                <!-- Akhir dari loop -->
             </div>
         </div>
     </div>
@@ -337,7 +324,8 @@
                 @foreach ($latestVideos as $latestVideo)
                     <div class="col-md-8">
                         <div class="video-area mmb-40">
-                            <img src="{{ asset($latestVideo->thumbnail) }}" alt="Video Thumbnail" width="1280" height="720"/>
+                            <img src="{{ asset($latestVideo->thumbnail) }}" alt="Video Thumbnail" width="1280"
+                                height="720" />
                             <div class="videos-icon">
                                 <a class="popup-youtube" href="{{ $latestVideo->url }}">
                                     <i class="fa fa-play" aria-hidden="true"></i>
@@ -351,7 +339,8 @@
                         <div class="inner-news small-news">
                             <div class="news-img">
                                 <a href="{{ $sublatestVideo->url }}" target="_blank">
-                                    <img src="{{ asset($sublatestVideo->image) }}" alt="News" width="200" height="113"/>
+                                    <img src="{{ asset($sublatestVideo->image) }}" alt="News" width="200"
+                                        height="113" />
                                 </a>
                             </div>
                             <div class="news-text">
@@ -781,7 +770,7 @@
             <h3 class="title-bg">PGFC Gallery</h3>
             <div id="gallery-items">
                 <div class="row">
-                    @foreach($galleries as $gallery)
+                    @foreach ($galleries as $gallery)
                         <div class="col-md-4 col-sm-6">
                             <div class="single-gallery">
                                 <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->title }}" />
