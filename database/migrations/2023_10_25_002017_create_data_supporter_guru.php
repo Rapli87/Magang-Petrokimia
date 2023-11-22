@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('data_supporter_guru', function (Blueprint $table) {
             $table->id();
-            $table->integer('data_supporterguru_id');
+            $table->integer('data_supporterguru_id')->nullable();
             $table->string('nama'); 
             $table->string('hp');
             $table->string('alamat');

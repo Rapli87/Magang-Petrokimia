@@ -21,7 +21,7 @@
                             </ol>
                         </div>
                         {{-- <h4 class="page-title">Welcome {{ Auth::user()->name }}!</h4> --}}
-                        <h4 class="page-title">Welcome Manajer!</h4>
+                        <h4 class="page-title">Welcome User!</h4>
                     </div>
                 </div>
             </div>
@@ -58,19 +58,22 @@
                         </a>
                         <div class="info">
                             <h5 class="fs-18 my-1">Nama:</h5>
-                            <p class="text-muted fs-15">{{ $pjsekolah->nama }}</p>
+                            <p class="text-muted fs-15">{{ $pjsekolah->nama_kepala_sekolah }}</p>
 
                              <h5 class="fs-18 my-1">Hp:</h5>
-                            <p class="text-muted fs-15">{{ $pjsekolah->hp }}</p>
+                            <p class="text-muted fs-15">{{ $pjsekolah->alamat_kepala_sekolah }}</p>
 
                             <h5 class="fs-18 my-1">Alamat:</h5>
-                            <p class="text-muted fs-15">{{ $pjsekolah->alamat }}</p>
+                            <p class="text-muted fs-15">{{ $pjsekolah->telp }}</p>
 
                             <h5 class="fs-18 my-1">Foto:</h5>
-                            <p class="text-muted fs-15">{{ $pjsekolah->foto }}</p>
+                            <p class="text-muted fs-15">{{ $pjsekolah->hp }}</p>
 
                             <h5 class="fs-18 my-1">Ktp:</h5>
-                            <p class="text-muted fs-15">{{ $pjsekolah->ktp }}</p>
+                            <p class="text-muted fs-15">{{ $pjsekolah->email }}</p>
+
+                            <h5 class="fs-18 my-1">Ktp:</h5>
+                            <p class="text-muted fs-15">{{ $pjsekolah->filerekomendasi }}</p>
 
                            
                         </div>

@@ -9,6 +9,29 @@ class Pemain extends Model
 {
     protected $table = 'pemain';
 
+    protected $fillable = [
+        'id',
+        'name',
+        'data_sekolah_id',
+        'pj_sekolah_id',
+        'pj_tim_id',
+        'data_pelatih_id',
+        'data_official_id',
+        'data_manajer_id',
+        'data_supportersiswa_id',
+        'data_supporterguru_id',
+        'No_punggung',
+        'Kelas',
+        'Tanggal_lahir',
+        'Ijasah',
+        'Rapor',
+        'Keterangan_Siswa',
+        'Kartu_Siswa',
+        'Foto',
+       
+        
+    ];
+
     // Mendefinisikan relasi bahwa setiap Pemain dimiliki oleh satu DataSekolah
     public function dataSekolah()
     {
@@ -42,4 +65,8 @@ class Pemain extends Model
     public function datasupporterguru(){
         return $this->belongsTo(Datasuporguru::class,'data_supporterguru_id','id');
     }
+
+    // Pemain.php
+
+
 }

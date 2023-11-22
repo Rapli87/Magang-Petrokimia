@@ -25,6 +25,22 @@
                                 <p class="text-muted mb-3">Tambah Manajer di bawah ini </p>
                                 <form action="{{ route('manajer.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+
+                                    <div class="mb-2">
+                                        <label for="data_manajer_id" class="form-label">Pilih ID Sekolah</label>
+                                        <select class="form-select" name="data_manajer_id" required>
+                                            <option value="" disabled selected>Pilih ID Sekolah</option>
+                                            {{-- Loop through numbers 1 to 50 to populate the dropdown options --}}
+                                            @for ($i = 1; $i <= 50; $i++)
+                                                <option value="{{ $i }}">{{ $i }}</option>
+                                            @endfor
+                                        </select>
+                                        @error('data_manajer_id')
+                                            <span style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    
+                                    
                                         <div class="mb-2">
                                         <label for="nama" class="form-label">Nama</label>
                                         <input class="form-control" type="text" name="nama" placeholder="Enter your name" required

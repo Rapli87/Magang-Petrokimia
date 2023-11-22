@@ -86,8 +86,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-0 d-grid text-center">
-                                        <button class="btn btn-primary fw-semibold" type="submit" >Sign
-                                            Up</button>
+                                        <button class="btn btn-primary fw-semibold" type="submit" >Submit</button>
                                     </div>
             
             
@@ -112,7 +111,7 @@
                             <div class="card">
                                 <div class="card-body">
             
-                                    <h5 class="mt-0">Data User</h5>
+                                    <h5 class="mt-0">Data Pj Sekolah</h5>
                                     <p class="sub-header font-13">Inline edit like a spreadsheet, toolbar column with edit
                                         button only and without focus on first input.</p>
                                     <div class="table-responsive">

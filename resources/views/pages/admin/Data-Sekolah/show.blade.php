@@ -169,7 +169,7 @@
                         <div class="">
                             <a href="#" class="btn btn-success btn-sm me-1 tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit"> <i class="ri-pencil-fill"></i> </a>
                             <a href="#" class="btn btn-danger btn-sm tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete"> <i class="ri-close-fill"></i> </a>
-                            <a href="{{route('Data-Sekolah.show',['id' => $pemain->id])}}" class="btn btn-primary btn-sm me-1 tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Detail" >
+                            <a href="{{route('Data-Sekolah.Pemain.show',['id' => $pemain->id])}}" class="btn btn-primary btn-sm me-1 tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Detail" >
                                 {{-- {{ route('Data-Sekolah.show', ['id' => $Data->id]) }} --}}
                                 <i class="ri-eye-fill"></i>
                             </a>

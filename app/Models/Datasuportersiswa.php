@@ -14,6 +14,7 @@ class Datasuportersiswa extends Model
 protected $fillable = [
         'id',
         'data_supportersiswa_id',
+        'nama',
         'hp',
         'alamat',
         'foto',

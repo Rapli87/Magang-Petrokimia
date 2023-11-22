@@ -218,16 +218,19 @@
                             <a href="{{url('admin/user/manajer')}}">Manajer</a>
                         </li>
                         <li>
-                            <a href="#">PJ Supporter Guru</a>
+                            <a href="{{url('admin/user/Pemain')}}">Data Pemain</a>
                         </li>
                         <li>
-                            <a href="#">PJ Supporter Siswa</a>
+                            <a href="{{url('admin/user/Pj-Supporter-Guru')}}">PJ Supporter Guru</a>
                         </li>
                         <li>
-                            <a href="#">PJ Medis</a>
+                            <a href="{{url('admin/user/Pj-Supporter-Siswa')}}">PJ Supporter Siswa</a>
                         </li>
                         <li>
-                            <a href="#">PJ Jurnalis</a>
+                            <a href="{{url('admin/user/Pj-Medis')}}">PJ Medis</a>
+                        </li>
+                        <li>
+                            <a href="{{url('admin/user/Jurnalis')}}"> Jurnalis</a>
                         </li>
                     </ul>
                 </div>

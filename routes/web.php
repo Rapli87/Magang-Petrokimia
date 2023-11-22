@@ -28,11 +28,16 @@ use App\Http\Controllers\Frontend\{
     CategoryController as FrontendCategoryController,
     HomeController
 };
+use App\Http\Controllers\User\jurnalisController;
 use App\Http\Controllers\User\ManajerController;
 use App\Http\Controllers\User\OfficialController;
+use App\Http\Controllers\User\PemainController;
+use App\Http\Controllers\User\pjmedisController;
 use App\Http\Controllers\User\PjsekolahController;
+use App\Http\Controllers\User\pjsupporterguruController;
 use App\Http\Controllers\User\PjtimController;
 use App\Http\Controllers\User\PelatihController;
+use App\Http\Controllers\User\pjsupportersiswaController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -127,8 +132,8 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::Post('admin/Data-Sekolah/store', [DataSekolahController::class, 'store'])->name('Data-Sekolah.store')-> middleware('UserAccess:1');
 
 
-    Route::get('admin/Data-Sekolah/Pemain/show/{id}', [DetailPemainController::class, 'show'])->name('Data-Sekolah.Pemain')-> middleware('UserAccess:1');
-    Route::get('admin/Data-Sekolah/Pemain/create', [DetailPemainController::class, 'create'])->name('Data-Sekolah.Pemain.create')-> middleware('UserAccess:1');
+    Route::get('admin/Data-Sekolah/Pemain/show/{id}', [DetailPemainController::class, 'show'])->name('Data-Sekolah.Pemain.show')-> middleware('UserAccess:1');
+
 
     // Route::get('admin/Pj-Sekolah',[PjsekolahController::class,'index'])->name('Pj-Sekolah.index')-> middleware('UserAccess:2');
     // Route::get('admin/Pj-Sekolah/delete/{id}',[PjsekolahController::class, 'delete'])->name('Pj-Sekolah.delete')-> middleware('UserAccess:2');
@@ -138,12 +143,12 @@ Route::group(['middleware' =>['is_logout']], function(){
     // Route::get('admin/Pj-Sekolah/edit/{id}',[PjsekolahController::class, 'edit'])->name('Pj-Sekolah.edit')-> middleware('UserAccess:2');
     // Route::Post('admin/Pj-Sekolah/store',[PjsekolahController::class, 'store'])->name('Pj-Sekolah.store')-> middleware('UserAccess:2');
     Route::resource('admin/user/Pj-Sekolah', PjsekolahController::class)->middleware('UserAccess:2');
-    Route::get('admin/user/Pj-Sekolah',[PjsekolahController::class,'index'])->name('Pj-Sekolah.index')-> middleware('UserAccess:2');
-    Route::post('admin/user/Pj-Sekolah/store', [PjsekolahController::class, 'store'])->name('Pj-Sekolah.store')-> middleware('UserAccess:2');
-    Route::get('admin/user/pj-Sekolah/edit/{id}', [PjsekolahController::class,'edit'])->name('Pj-Sekolah.edit')-> middleware('UserAccess:2');
-    Route::get('admin/user/pj-Sekolah/delete/{id}', [PjsekolahController::class,'delete'])->name('pj-sekolah.delete')-> middleware('UserAccess:2');
-    Route::Post('admin/user/pj-Sekolah/update/{id}', [PjsekolahController::class,'update'])->name('Pj-Sekolah.update')-> middleware('UserAccess:2');
-    Route::get('admin/user/Pj-Sekolah/show/{id},[PjsekolahController::class,show]')->name('Pj-Sekolah.show')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Sekolah',[PjsekolahController::class,'index'])->name('Pj-Sekolah.index')-> middleware('UserAccess:2');
+Route::post('admin/user/Pj-Sekolah/store', [PjsekolahController::class, 'store'])->name('Pj-Sekolah.store')-> middleware('UserAccess:2');
+Route::get('admin/user/pj-Sekolah/edit/{id}', [PjsekolahController::class,'edit'])->name('Pj-Sekolah.edit')-> middleware('UserAccess:2');
+Route::get('admin/user/pj-Sekolah/delete/{id}', [PjsekolahController::class,'delete'])->name('pj-sekolah.delete')-> middleware('UserAccess:2');
+Route::Post('admin/user/pj-Sekolah/update/{id}', [PjsekolahController::class,'update'])->name('Pj-Sekolah.update')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Sekolah/show/{id},[PjsekolahController::class,show]')->name('Pj-Sekolah.show')-> middleware('UserAccess:2');
 
     Route::resource('admin/user/Pj-Tim', PjtimController::class)->middleware('UserAccess:2');
     Route::get('admin/user/Pj-Tim', [PjtimController::class,'index'])->name('Pj-Tim.index')-> middleware('UserAccess:2');
@@ -169,13 +174,13 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::post('admin/user/Official/update/{id}',[OfficialController::class,'update'])->name('Official.update')-> middleware('UserAccess:2');
     Route::get('admin/user/Official/show/{id}', [OfficialController::class,'show'])->name('Official.show')-> middleware('UserAccess:2');
 
-    Route::resource('admin/user/manajer',ManajerController::class)->middleware('UserAccess:2');
-    Route::get('admin/user/manajer', [ManajerController::class,'index'])->name('manajer.index')-> middleware('UserAccess:2');
-    Route::post('admin/user/manajer/store', [ManajerController::class, 'store'])->name('manajer.store')-> middleware('UserAccess:2');
-    Route::get('admin/user/manajer/edit/{id}', [ManajerController::class,'edit'])->name('manajer.edit')-> middleware('UserAccess:2');
-    Route::get('admin/user/manajer/delete/{id}', [ManajerController::class,'delete'])->name('manajer.delete')-> middleware('UserAccess:2');
-    Route::post('admin/user/manajer/update/{id}',[ManajerController::class,'update'])->name('manajer.update')-> middleware('UserAccess:2');
-    Route::get('admin/user/manajer/show/{id}', [ManajerController::class,'show'])->name('manajer.show')-> middleware('UserAccess:2');
+Route::resource('admin/user/manajer',ManajerController::class)->middleware('UserAccess:2');
+Route::get('admin/user/manajer', [ManajerController::class,'index'])->name('manajer.index')-> middleware('UserAccess:2');
+Route::post('admin/user/manajer/store', [ManajerController::class, 'store'])->name('manajer.store')-> middleware('UserAccess:2');
+Route::get('admin/user/manajer/edit/{id}', [ManajerController::class,'edit'])->name('manajer.edit')-> middleware('UserAccess:2');
+Route::get('admin/user/manajer/delete/{id}', [ManajerController::class,'delete'])->name('manajer.delete')-> middleware('UserAccess:2');
+Route::post('admin/user/manajer/update/{id}',[ManajerController::class,'update'])->name('manajer.update')-> middleware('UserAccess:2');
+Route::get('admin/user/manajer/show/{id}', [ManajerController::class,'show'])->name('manajer.show')-> middleware('UserAccess:2');
 
     Route::get('admin/Bagan-Championship', [BaganChampionshipController::class, 'index'])->name('Bagan-Championship.index')-> middleware('UserAccess:1');
     Route::get('admin/Bagan-Championship/delete/{id}', [BaganChampionshipController::class, 'delete'])->name('Bagan-Championship.delete')-> middleware('UserAccess:1');

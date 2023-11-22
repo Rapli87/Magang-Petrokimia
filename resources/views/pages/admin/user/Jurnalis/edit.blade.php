@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Edit Data Sekolah | PGFC User')
+@section('title', 'Edit jURNALIS | PGFC User')
 
 @section('content')
     <!-- ============================================================== -->
@@ -20,11 +20,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Edit Data Manajer</a>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Edit Pj Pelatih</a>
                                     </li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Edit Data Manajer </h4>
+                            <h4 class="page-title">Edit pJ Pelatih </h4>
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('manajer.update', $data->id) }}" method="POST"enctype="multipart/form-data">
+                        <form action="{{ route('Pelatih.update', $data->id) }}" method="POST"enctype="multipart/form-data">
                             @method('POST')
                             @csrf
                             <div class="row">
@@ -88,18 +88,19 @@
                                             </div>
                                         @enderror
                                     </div>
-                              
-                              
                                     <div class="mb-3">
-                                        <label for="ktp" class="form-label">Foto</label>
-                                        <input type="file" class="form-control @error('ktp') is-invalid @enderror"
-                                            name="ktp" value="{{ old('ktp') }}">
+                                        <label for="ktp" class="form-label">Ktp</label>
+                                        <input type="file"
+                                            class="form-control @error('ktp') is-invalid @enderror"
+                                            name="file"  value="{{ old('ktp') }}">
                                         @error('ktp')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
+                              
+
                             
                                     {{-- <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>

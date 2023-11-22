@@ -127,7 +127,7 @@
                                                                 </tr>
                                                                 </thead>
                                                                 <tbody>
-                                                                    <tr>
+                                                                    {{-- <tr>
                                                                         <td>{{ $pemain->pjsekolah->nama_kepala_sekolah }}</td>
                                                                         <td>{{ $pemain->pjsekolah->alamat_kepala_sekolah }}</td>
                                                                         <td>{{ $pemain->pjsekolah->telp }}</td>
@@ -136,7 +136,18 @@
                                                                         
                                                                         <td class="text-black bold">{{ $pemain->pjsekolah->filerekomendasi }}</td>
 
-                                                                    </tr>
+                                                                    </tr> --}}
+
+                                                                    @if ($pemain->pjsekolah)
+    <td>{{ $pemain->pjsekolah->nama_kepala_sekolah }}</td>
+    <td>{{ $pemain->pjsekolah->alamat_kepala_sekolah }}</td>
+    <td>{{ $pemain->pjsekolah->telp }}</td>
+    <td>{{ $pemain->pjsekolah->hp }}</td>
+    <td>{{ $pemain->pjsekolah->email }}</td>
+@else
+    <td colspan="5">No Data Available</td>
+@endif
+
 
                                                             
                                                                 </tbody>
@@ -214,14 +225,19 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
-                                                                 
-                                                                    <td>{{$pemain->pjtim->nama}}</td>
+                                                                 @if ($pemain->pjtim)
+                                                                      
+                                                                   <td>{{$pemain->pjtim->nama}}</td>
                                                                     <td>{{$pemain->pjtim->jabatan}}</td>
                                                                     <td>{{$pemain->pjtim->nip}}</td>
                                                                     <td>{{$pemain->pjtim->hp}}</td>
                                                                     <td>{{$pemain->pjtim->email}}</td>
                                                                     <td>{{$pemain->pjtim->foto}}</td>
                                                                     <td>{{$pemain->pjtim->ktp}}</td>
+
+                                                                    @else
+                                                                    <td colspan="5">No Data Available</td>
+                                                                    @endif
                                                                 </tr>
 
                                                             
@@ -290,13 +306,15 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
-                                                                 
+                                                                 @if($pemain->datapelatih)
                                                                     <td>{{$pemain->datapelatih->nama}}</td>
                                                                     <td>{{$pemain->datapelatih->hp}}</td>
                                                                     <td>{{$pemain->datapelatih->alamat}}</td>
                                                                     <td>{{$pemain->datapelatih->foto}}</td>
                                                                     <td>{{$pemain->datapelatih->ktp}}</td>
-                                                                  
+                                                                  @else 
+                                                                    <td colspan="5">No Data Available</td>
+                                                                    @endif
                                                                   
                                                                 </tr>
 
@@ -443,6 +461,8 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
+                                                                 @if ($pemain->datamanajer)
+                                                                     
                                                                  
                                                                     <td>{{$pemain->datamanajer->nama}}</td>
                                                                     <td>{{$pemain->datamanajer->hp}}</td>
@@ -450,6 +470,11 @@
                                                                     <td>{{$pemain->datamanajer->alamat}}</td>
                                                                     <td>{{$pemain->datamanajer->foto}}</td>
                                                                     <td>{{$pemain->datamanajer->ktp}}</td>
+
+                                                                    @else
+
+                                                                    <td colspan="5">No Data Available</td>
+                                                                    @endif
 
                                                                 </tr>
 
@@ -520,13 +545,17 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
+                                                                 @if ($pemain->datasupportersiswa)
+                                                                     
                                                                  
                                                                     <td>{{$pemain->datasupportersiswa->nama}}</td>
                                                                     <td>{{$pemain->datasupportersiswa->hp}}</td>
                                                                     <td>{{$pemain->datasupportersiswa->alamat}}</td>
                                                                     <td>{{$pemain->datasupportersiswa->foto}}</td>
                                                                     <td>{{$pemain->datasupportersiswa->ktp}}</td>
-                                                                    
+                                                                    @else
+                                                                    <td colspan="5">No Data Available</td>
+                                                                    @endif
                                                                 </tr>
 
                                                             
@@ -597,12 +626,17 @@
                                                                 </thead>
                                                                 <tbody>
                                                                 <tr>
+                                                                 @if ($pemain->datasupporterguru)
+                                                                     
                                                                  
                                                                     <td>{{$pemain->datasupporterguru->nama}}</td>
                                                                     <td>{{$pemain->datasupporterguru->hp}}</td>
                                                                     <td>{{$pemain->datasupporterguru->alamat}}</td>
                                                                     <td>{{$pemain->datasupporterguru->foto}}</td>
                                                                     <td>{{$pemain->datasupporterguru->ktp}}</td>
+                                                                    @else
+                                                                    <td colspan="5">No Data Available</td>
+                                                                    @endif
                                                                 
                                                                 </tr>
 

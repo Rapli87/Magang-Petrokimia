@@ -14,14 +14,14 @@ return new class extends Migration
         Schema::create('pemain', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('data_sekolah_id'); 
-            $table->integer('pj_sekolah_id');
-            $table->integer('pj_tim_id');
-            $table->integer('data_pelatih_id');
-            $table->integer('data_official_id');
-            $table->integer('data_manajer_id');
-            $table->integer('data_supportersiswa_id');
-            $table->integer('data_supporterguru_id');
+            $table->integer('data_sekolah_id')->nullable(); 
+            $table->integer('pj_sekolah_id')->nullable();
+            $table->integer('pj_tim_id')->nullable();
+            $table->integer('data_pelatih_id')->nullable();
+            $table->integer('data_official_id')->nullable();
+            $table->integer('data_manajer_id')->nullable();
+            $table->integer('data_supportersiswa_id')->nullable();
+            $table->integer('data_supporterguru_id')->nullable();
             $table->string('No_punggung');
             $table->string('Kelas');
             $table->dateTime('Tanggal_lahir');
