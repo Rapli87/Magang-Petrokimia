@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\{
     GalleryController,
     GrubController,
     JadwalController,
+    KlasemenController,
     LatestVideoController,
     SponsorshipController,
     SubLatestVideoController,
@@ -111,6 +112,7 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::resource('admin/galleries', GalleryController::class)-> middleware('UserAccess:1');
     Route::resource('admin/sponsorships', SponsorshipController::class)-> middleware('UserAccess:1');
     Route::resource('admin/timelines', TimelineController::class)-> middleware('UserAccess:1');
+    Route::resource('admin/group-klasemens', KlasemenController::class)-> middleware('UserAccess:1');
     
   
 
@@ -136,44 +138,44 @@ Route::group(['middleware' =>['is_logout']], function(){
     // Route::get('admin/Pj-Sekolah/edit/{id}',[PjsekolahController::class, 'edit'])->name('Pj-Sekolah.edit')-> middleware('UserAccess:2');
     // Route::Post('admin/Pj-Sekolah/store',[PjsekolahController::class, 'store'])->name('Pj-Sekolah.store')-> middleware('UserAccess:2');
     Route::resource('admin/user/Pj-Sekolah', PjsekolahController::class)->middleware('UserAccess:2');
-Route::get('admin/user/Pj-Sekolah',[PjsekolahController::class,'index'])->name('Pj-Sekolah.index')-> middleware('UserAccess:2');
-Route::post('admin/user/Pj-Sekolah/store', [PjsekolahController::class, 'store'])->name('Pj-Sekolah.store')-> middleware('UserAccess:2');
-Route::get('admin/user/pj-Sekolah/edit/{id}', [PjsekolahController::class,'edit'])->name('Pj-Sekolah.edit')-> middleware('UserAccess:2');
-Route::get('admin/user/pj-Sekolah/delete/{id}', [PjsekolahController::class,'delete'])->name('pj-sekolah.delete')-> middleware('UserAccess:2');
-Route::Post('admin/user/pj-Sekolah/update/{id}', [PjsekolahController::class,'update'])->name('Pj-Sekolah.update')-> middleware('UserAccess:2');
-Route::get('admin/user/Pj-Sekolah/show/{id},[PjsekolahController::class,show]')->name('Pj-Sekolah.show')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pj-Sekolah',[PjsekolahController::class,'index'])->name('Pj-Sekolah.index')-> middleware('UserAccess:2');
+    Route::post('admin/user/Pj-Sekolah/store', [PjsekolahController::class, 'store'])->name('Pj-Sekolah.store')-> middleware('UserAccess:2');
+    Route::get('admin/user/pj-Sekolah/edit/{id}', [PjsekolahController::class,'edit'])->name('Pj-Sekolah.edit')-> middleware('UserAccess:2');
+    Route::get('admin/user/pj-Sekolah/delete/{id}', [PjsekolahController::class,'delete'])->name('pj-sekolah.delete')-> middleware('UserAccess:2');
+    Route::Post('admin/user/pj-Sekolah/update/{id}', [PjsekolahController::class,'update'])->name('Pj-Sekolah.update')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pj-Sekolah/show/{id},[PjsekolahController::class,show]')->name('Pj-Sekolah.show')-> middleware('UserAccess:2');
 
-Route::resource('admin/user/Pj-Tim', PjtimController::class)->middleware('UserAccess:2');
-Route::get('admin/user/Pj-Tim', [PjtimController::class,'index'])->name('Pj-Tim.index')-> middleware('UserAccess:2');
-Route::post('admin/user/Pj-Tim/store', [PjtimController::class, 'store'])->name('Pj-Tim.store')-> middleware('UserAccess:2');
-Route::get('admin/user/Pj-Tim/edit/{id}', [PjtimController::class,'edit'])->name('Pj-Tim.edit')-> middleware('UserAccess:2');
-Route::get('admin/user/Pj-Tim/delete/{id}', [PjtimController::class,'delete'])->name('Pj-Tim.delete')-> middleware('UserAccess:2');
-Route::post('admin/user/Pj-Tim/update/{id}',[PjtimController::class,'update'])->name('Pj-Tim.update')-> middleware('UserAccess:2');
-Route::get('admin/user/Pj-Tim/show/{id}', [PjtimController::class,'show'])->name('Pj-Tim.show')-> middleware('UserAccess:2');
-Route::resource('admin/user/Pelatih', PelatihController::class)->middleware('UserAccess:2');
-Route::get('admin/user/Pelatih', [PelatihController::class,'index'])->name('Pelatih.index')-> middleware('UserAccess:2');
-Route::post('admin/user/Pelatih/store', [PelatihController::class, 'store'])->name('Pelatih.store')-> middleware('UserAccess:2');
-Route::get('admin/user/Pelatih/edit/{id}', [PelatihController::class,'edit'])->name('Pelatih.edit')-> middleware('UserAccess:2');
-Route::get('admin/user/Pelatih/delete/{id}', [PelatihController::class,'delete'])->name('Pelatih.delete')-> middleware('UserAccess:2');
-Route::post('admin/user/Pelatih/update/{id}',[PelatihController::class,'update'])->name('Pelatih.update')-> middleware('UserAccess:2');
-Route::get('admin/user/Pelatih/show/{id}', [PelatihController::class,'show'])->name('Pelatih.show')-> middleware('UserAccess:2');
+    Route::resource('admin/user/Pj-Tim', PjtimController::class)->middleware('UserAccess:2');
+    Route::get('admin/user/Pj-Tim', [PjtimController::class,'index'])->name('Pj-Tim.index')-> middleware('UserAccess:2');
+    Route::post('admin/user/Pj-Tim/store', [PjtimController::class, 'store'])->name('Pj-Tim.store')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pj-Tim/edit/{id}', [PjtimController::class,'edit'])->name('Pj-Tim.edit')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pj-Tim/delete/{id}', [PjtimController::class,'delete'])->name('Pj-Tim.delete')-> middleware('UserAccess:2');
+    Route::post('admin/user/Pj-Tim/update/{id}',[PjtimController::class,'update'])->name('Pj-Tim.update')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pj-Tim/show/{id}', [PjtimController::class,'show'])->name('Pj-Tim.show')-> middleware('UserAccess:2');
+    Route::resource('admin/user/Pelatih', PelatihController::class)->middleware('UserAccess:2');
+    Route::get('admin/user/Pelatih', [PelatihController::class,'index'])->name('Pelatih.index')-> middleware('UserAccess:2');
+    Route::post('admin/user/Pelatih/store', [PelatihController::class, 'store'])->name('Pelatih.store')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pelatih/edit/{id}', [PelatihController::class,'edit'])->name('Pelatih.edit')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pelatih/delete/{id}', [PelatihController::class,'delete'])->name('Pelatih.delete')-> middleware('UserAccess:2');
+    Route::post('admin/user/Pelatih/update/{id}',[PelatihController::class,'update'])->name('Pelatih.update')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pelatih/show/{id}', [PelatihController::class,'show'])->name('Pelatih.show')-> middleware('UserAccess:2');
 
 
-Route::resource('admin/user/Official', OfficialController::class)->middleware('UserAccess:2');
-Route::get('admin/user/Official', [OfficialController::class,'index'])->name('Official.index')-> middleware('UserAccess:2');
-Route::post('admin/user/Official/store', [OfficialController::class, 'store'])->name('Official.store')-> middleware('UserAccess:2');
-Route::get('admin/user/Official/edit/{id}', [OfficialController::class,'edit'])->name('Official.edit')-> middleware('UserAccess:2');
-Route::get('admin/user/Official/delete/{id}', [OfficialController::class,'delete'])->name('Official.delete')-> middleware('UserAccess:2');
-Route::post('admin/user/Official/update/{id}',[OfficialController::class,'update'])->name('Official.update')-> middleware('UserAccess:2');
-Route::get('admin/user/Official/show/{id}', [OfficialController::class,'show'])->name('Official.show')-> middleware('UserAccess:2');
+    Route::resource('admin/user/Official', OfficialController::class)->middleware('UserAccess:2');
+    Route::get('admin/user/Official', [OfficialController::class,'index'])->name('Official.index')-> middleware('UserAccess:2');
+    Route::post('admin/user/Official/store', [OfficialController::class, 'store'])->name('Official.store')-> middleware('UserAccess:2');
+    Route::get('admin/user/Official/edit/{id}', [OfficialController::class,'edit'])->name('Official.edit')-> middleware('UserAccess:2');
+    Route::get('admin/user/Official/delete/{id}', [OfficialController::class,'delete'])->name('Official.delete')-> middleware('UserAccess:2');
+    Route::post('admin/user/Official/update/{id}',[OfficialController::class,'update'])->name('Official.update')-> middleware('UserAccess:2');
+    Route::get('admin/user/Official/show/{id}', [OfficialController::class,'show'])->name('Official.show')-> middleware('UserAccess:2');
 
-Route::resource('admin/user/manajer',ManajerController::class)->middleware('UserAccess:2');
-Route::get('admin/user/manajer', [ManajerController::class,'index'])->name('manajer.index')-> middleware('UserAccess:2');
-Route::post('admin/user/manajer/store', [ManajerController::class, 'store'])->name('manajer.store')-> middleware('UserAccess:2');
-Route::get('admin/user/manajer/edit/{id}', [ManajerController::class,'edit'])->name('manajer.edit')-> middleware('UserAccess:2');
-Route::get('admin/user/manajer/delete/{id}', [ManajerController::class,'delete'])->name('manajer.delete')-> middleware('UserAccess:2');
-Route::post('admin/user/manajer/update/{id}',[ManajerController::class,'update'])->name('manajer.update')-> middleware('UserAccess:2');
-Route::get('admin/user/manajer/show/{id}', [ManajerController::class,'show'])->name('manajer.show')-> middleware('UserAccess:2');
+    Route::resource('admin/user/manajer',ManajerController::class)->middleware('UserAccess:2');
+    Route::get('admin/user/manajer', [ManajerController::class,'index'])->name('manajer.index')-> middleware('UserAccess:2');
+    Route::post('admin/user/manajer/store', [ManajerController::class, 'store'])->name('manajer.store')-> middleware('UserAccess:2');
+    Route::get('admin/user/manajer/edit/{id}', [ManajerController::class,'edit'])->name('manajer.edit')-> middleware('UserAccess:2');
+    Route::get('admin/user/manajer/delete/{id}', [ManajerController::class,'delete'])->name('manajer.delete')-> middleware('UserAccess:2');
+    Route::post('admin/user/manajer/update/{id}',[ManajerController::class,'update'])->name('manajer.update')-> middleware('UserAccess:2');
+    Route::get('admin/user/manajer/show/{id}', [ManajerController::class,'show'])->name('manajer.show')-> middleware('UserAccess:2');
 
     Route::get('admin/Bagan-Championship', [BaganChampionshipController::class, 'index'])->name('Bagan-Championship.index')-> middleware('UserAccess:1');
     Route::get('admin/Bagan-Championship/delete/{id}', [BaganChampionshipController::class, 'delete'])->name('Bagan-Championship.delete')-> middleware('UserAccess:1');
@@ -182,7 +184,7 @@ Route::get('admin/user/manajer/show/{id}', [ManajerController::class,'show'])->n
     Route::delete('admin/Bagan-Championship/destroy/{id}', [BaganChampionshipController::class, 'destroy'])->name('Bagan-Championship.destroy')-> middleware('UserAccess:1');
 
 
-Route::get('admin/Bagan-Championship/create', [BaganChampionshipController::class, 'create'])->name('Bagan-Championship.create')-> middleware('UserAccess:1');
+    Route::get('admin/Bagan-Championship/create', [BaganChampionshipController::class, 'create'])->name('Bagan-Championship.create')-> middleware('UserAccess:1');
       Route::post('admin/Bagan-Championship/store', [BaganChampionshipController::class, 'store'])->name('Bagan-Championship.store')-> middleware('UserAccess:1');
     Route::get('admin/Bagan-Championship/index', [BaganChampionshipController::class, 'index'])->name('Bagan-Championship.index')-> middleware('UserAccess:1');
     Route::get('admin/Bagan-Championship/show', [BaganChampionshipController::class, 'show'])->name('Bagan-Championship.show')-> middleware('UserAccess:1');
@@ -199,11 +201,11 @@ Route::get('admin/Bagan-Championship/create', [BaganChampionshipController::clas
 
 
         
-    Route::resource('admin/Group-klasmen', GrubController::class)-> middleware('UserAccess:1');
-    Route::get('admin/Group-klasmen/',[GrubController::class,'index'])->name('Group-klasmen.index')-> middleware('UserAccess:1');
-    Route::get('admin/Group-Klasmen/edit/{id}', [GrubController::class, 'edit'])->name('Group-klasmen.edit')-> middleware('UserAccess:1');
-    Route::Post('admin/Group-Klasmen/update/{id}', [GrubController::class, 'update'])->name('Group-klasmen.update')-> middleware('UserAccess:1');
-    Route::delete('admin/Group-Klasmen/destroy/{id}', [GrubController::class, 'destroy'])->name('Group-klasmen.destroy')-> middleware('UserAccess:1');
+    // Route::resource('admin/Group-klasmen', GrubController::class)-> middleware('UserAccess:1');
+    // Route::get('admin/Group-klasmen/',[GrubController::class,'index'])->name('Group-klasmen.index')-> middleware('UserAccess:1');
+    // Route::get('admin/Group-Klasmen/edit/{id}', [GrubController::class, 'edit'])->name('Group-klasmen.edit')-> middleware('UserAccess:1');
+    // Route::Post('admin/Group-Klasmen/update/{id}', [GrubController::class, 'update'])->name('Group-klasmen.update')-> middleware('UserAccess:1');
+    // Route::delete('admin/Group-Klasmen/destroy/{id}', [GrubController::class, 'destroy'])->name('Group-klasmen.destroy')-> middleware('UserAccess:1');
     // Route::get('admin/Group-klasmen', [GrubController::class, 'index'])->name('Group-klasmen.index')-> middleware('UserAccess:1');
     Route::get('admin/Auth-User', [AuthUserController::class, 'index'])->name('Auth-User.index')-> middleware('UserAccess:1');
     Route::get('admin/Auth-User/delete/{id}',[AuthUserController::class, 'delete'])->name('Auth-User.delete')-> middleware('UserAccess:1');

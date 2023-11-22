@@ -50,8 +50,11 @@
                         <li>
                             <a href="{{route('Data-Sekolah.index')}}">Data Sekolah</a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="{{route('Group-klasmen.index')}}">Group Klasmen</a>
+                        </li> --}}
+                        <li>
+                            <a href="{{ url('admin/group-klasemens') }}">Group Klasmen</a>
                         </li>
                         <li>
                             <a href="pages-profile.html">Hasil Pertandingan</a>
