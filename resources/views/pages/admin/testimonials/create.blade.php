@@ -44,7 +44,8 @@
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="photo">Foto</label>
-                                                    <input type="file" name="photo" class="form-control @error('photo') is-invalid @enderror">
+                                                    <input type="file" name="photo"
+                                                        class="form-control @error('photo') is-invalid @enderror">
                                                     @error('photo')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -52,11 +53,12 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="name">Nama</label>
-                                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror">
+                                                    <input type="text" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror">
                                                     @error('name')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -64,11 +66,12 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="position">Posisi</label>
-                                                    <input type="text" name="position" class="form-control @error('position') is-invalid @enderror">
+                                                    <input type="text" name="position"
+                                                        class="form-control @error('position') is-invalid @enderror">
                                                     @error('position')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -76,11 +79,13 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="rate">Rate</label>
-                                                    <input type="number" name="rate" class="form-control @error('rate') is-invalid @enderror" min="1" max="5">
+                                                    <input type="number" name="rate"
+                                                        class="form-control @error('rate') is-invalid @enderror"
+                                                        min="1" max="5">
                                                     @error('rate')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -88,14 +93,13 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mb-3">
                                                 <label for="description" class="form-label">Description</label>
                                                 <textarea class="form-control" name="description" placeholder="Description">{{ old('description') }}</textarea>
-                                            </div>                        
+                                            </div>
                                             <button type="submit" class="btn btn-primary">Submit</button>
                                         </div>
-                                    </div>
                                 </form>
                             </div>
                         </div>

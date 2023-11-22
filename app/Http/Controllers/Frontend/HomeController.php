@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Gallery;
 use App\Models\LatestVideo;
 use App\Models\SubLatestVideo;
 use App\Models\Testimonial;
@@ -23,8 +24,9 @@ class HomeController extends Controller
         $upcomings = UpcomingMatch::take(4)->orderBy('match_datetime', 'desc')->get();
         $latestVideos = LatestVideo::take(1)->latest()->get();
         $sublatestVideos = SubLatestVideo::take(3)->orderBy('date', 'asc')->get();
+        $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
 
-        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos'));
+        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos', 'galleries'));
     }
 
     public function blog()
@@ -54,7 +56,8 @@ class HomeController extends Controller
     }
     public function gallery(Request $request)
     {
-        return view('pages.frontend.gallery.gallery');
+        $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
+        return view('pages.frontend.gallery.gallery', compact('galleries'));
     }
     public function klasmen(Request $request)
     {

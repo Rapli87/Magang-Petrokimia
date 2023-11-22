@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\{
     DetailJadwalController,
     DetailPemainController,
     GrubController,
+    GalleryController,
     JadwalController,
     LatestVideoController,
     SubLatestVideoController,
@@ -110,6 +111,7 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::resource('admin/testimonials', TestimonialController::class)-> middleware('UserAccess:1');
     Route::resource('admin/latest-videos', LatestVideoController::class)-> middleware('UserAccess:1');
     Route::resource('admin/sublatest-videos', SubLatestVideoController::class)-> middleware('UserAccess:1');
+    Route::resource('admin/galleries', GalleryController::class)-> middleware('UserAccess:1');
     
   
 

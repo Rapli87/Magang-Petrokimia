@@ -45,7 +45,14 @@
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="photo">Foto</label>
-                                                    <input type="file" name="photo" class="form-control @error('photo') is-invalid @enderror" accept="image/*">
+                                                    <input type="file" name="photo"
+                                                        class="form-control @error('photo') is-invalid @enderror"
+                                                        accept="image/*">
+                                                    <div class="mt-1">
+                                                        <small><b>Gambar Lama :</b></small><br>
+                                                        <img src="{{ url($testimonial->photo) }}"
+                                                            class="img-thumbnail img-preview" width="100px">
+                                                    </div>
                                                     @error('photo')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -53,11 +60,13 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="name">Nama</label>
-                                                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{ $testimonial->name }}">
+                                                    <input type="text" name="name"
+                                                        class="form-control @error('name') is-invalid @enderror"
+                                                        value="{{ $testimonial->name }}">
                                                     @error('name')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -65,11 +74,13 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="position">Posisi</label>
-                                                    <input type="text" name="position" class="form-control @error('position') is-invalid @enderror" value="{{ $testimonial->position }}">
+                                                    <input type="text" name="position"
+                                                        class="form-control @error('position') is-invalid @enderror"
+                                                        value="{{ $testimonial->position }}">
                                                     @error('position')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -77,11 +88,13 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="rate">Rate</label>
-                                                    <input type="number" name="rate" class="form-control @error('rate') is-invalid @enderror" min="1" max="5" value="{{ $testimonial->rate }}">
+                                                    <input type="number" name="rate"
+                                                        class="form-control @error('rate') is-invalid @enderror"
+                                                        min="1" max="5" value="{{ $testimonial->rate }}">
                                                     @error('rate')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
@@ -89,15 +102,14 @@
                                                     @enderror
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="mb-3">
                                                 <label for="description" class="form-label">Deskripsi</label>
                                                 <textarea class="form-control" name="description" placeholder="Deskripsi">{{ $testimonial->description }}</textarea>
                                             </div>
-                                            
+
                                             <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
                                         </div>
-                                    </div>
                                 </form>
                             </div>
                         </div>
