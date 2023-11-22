@@ -128,9 +128,9 @@
                                                                 method="POST" class="d-inline">
                                                                 @csrf
                                                                 @method('get')
-                                                                <button class="btn btn-warning"
+                                                                <button class="btn btn-success"
                                                                     onclick="return confirm('Yakin ingin Ke Detail Sekolah?')">
-                                                                    <i class="ri-delete-bin-line text-light"></i>
+                                                                    <i class="bi bi-box-arrow-right"></i>
                                                                 </button>
                                                             </form>
                                                         </div>

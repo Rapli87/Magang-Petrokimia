@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_pj_supporter_siswa', function (Blueprint $table) {
+        Schema::create('jurnalis', function (Blueprint $table) {
             $table->id();
-            $table->integer('data_supportersiswa_id')->nullable();
+            $table->integer('data_jurnallis_id')->nullable();
             $table->string('nama'); 
             $table->string('hp');
             $table->string('alamat');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_pj_supporter_siswa');
+        Schema::dropIfExists('jurnalis');
     }
 };

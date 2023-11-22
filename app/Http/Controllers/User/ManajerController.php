@@ -22,7 +22,7 @@ class ManajerController extends Controller
     }
 
     public function show($id) {
-        $manajer = Datamanajer::with('grub')->find($id);
+        $manajer = Datamanajer::with('grub,pemain')->find($id);
     
         if (!$manajer) {
             abort(404);
