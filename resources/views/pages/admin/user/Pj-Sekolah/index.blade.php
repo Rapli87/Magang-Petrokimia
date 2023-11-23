@@ -114,8 +114,7 @@
                                 <div class="card-body">
             
                                     <h5 class="mt-0">Data Pj Sekolah</h5>
-                                    <p class="sub-header font-13">Inline edit like a spreadsheet, toolbar column with edit
-                                        button only and without focus on first input.</p>
+                                    <p class="sub-header font-13">List Data Tabel Pj Sekolah di bawah ini  </p>
                                     <div class="table-responsive">
                                         <table class="table table-centered mb-0">
                                             <thead>
