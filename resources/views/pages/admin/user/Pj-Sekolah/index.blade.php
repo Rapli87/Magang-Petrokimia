@@ -20,14 +20,15 @@
                                 </ol>
                             </div>
 
+                    
                             <div class="p-4 my-auto">
                                 <h4 class="fs-20">Tambah Data Pj Sekolah</h4>
                                 <p class="text-muted mb-3">Tambah pJ Sekolah di bawah ini </p>
                                 <form action="{{ route('Pj-Sekolah.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                         <div class="mb-2">
-                                        <label for="nama_kepala_sekolah" class="form-label">Nama Kepala Sekolah</label>
-                                        <input class="form-control" type="text" name="nama_kepala_sekolah" placeholder="Enter your name" required
+                                        <label for="nama_kepala_sekolah" class="form-label">nama_kepala_sekolah</label>
+                                        <input class="form-control" type="text" name="nama_kepala_sekolah" placeholder="Enter your nama_kepala_sekolah" required
                                             autofocus>
                                         @error('nama_kepala_sekolah')
                                             <span style="color: red">{{ $message }}</span>
@@ -35,22 +36,22 @@
                                     </div>
 
                                     <div class="mb-2">
-                                        <label for="alamat_kepala_sekolah" class="form-label">alamat kepala sekolah</label>
-                                        <input class="form-control" type="text" name="alamat_kepala_sekolah" placeholder="Enter your Alamat Kepala Sekolah" required
+                                        <label for="alamat_kepala_sekolah" class="form-label">alamat_kepala_sekolah</label>
+                                        <input class="form-control" type="text" name="alamat_kepala_sekolah" placeholder="alamat_kepala_sekolah" required
                                             autofocus>
                                         @error('alamat_kepala_sekolah')
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
-
-                                    <div class="mb-2  d-none">
-                                        <label for="telp" class="form-label">Telp</label>
-                                        <input class="form-control" type="text" name="telp"
-                                            placeholder="Masukkan Telp">
+                                    <div class="mb-2">
+                                        <label for="telp" class="form-label">telp</label>
+                                        <input class="form-control" type="text" required="" name="telp"
+                                            placeholder="Enter your No telp">
                                         @error('telp')
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
+                                  
                                     <div class="mb-2">
                                         <label for="hp" class="form-label">hp</label>
                                         <input class="form-control" type="text" required="" name="hp"
@@ -62,20 +63,21 @@
                                     <div class="mb-2">
                                         <label for="email" class="form-label">email</label>
                                         <input class="form-control" type="email" required="" name="email"
-                                            placeholder="Enter your email">
+                                            placeholder="Enter your password">
                                         @error('email')
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
 
                                     <div class="mb-2">
-                                        <label for="filerekomendasi" class="form-label">file rekomendasi</label>
+                                        <label for="filerekomendasi" class="form-label">filerekomendasi</label>
                                         <input class="form-control" type="file" required="" name="filerekomendasi"
                                            
                                         @error('filerekomendasi')
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
+
 
                                     <div class="mb-2">
                                         <div class="form-check">

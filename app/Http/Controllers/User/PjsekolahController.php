@@ -86,7 +86,7 @@ class PjsekolahController extends Controller
 
         }
         $data->delete();
-        return redirect()->route('Pj-Sekolah.index')->with(['success' => 'Data Sekolah berhasil dihapus']);
+        return redirect()->route('Pj-Sekolah.index')->with(['success' => 'Pj Sekolah berhasil dihapus']);
         
     }
 

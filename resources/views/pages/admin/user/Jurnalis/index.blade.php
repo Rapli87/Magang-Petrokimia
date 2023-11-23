@@ -274,12 +274,7 @@
                         <a href=""  class="btn btn-danger btn-sm tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
                             <i class="ri-pencil-fill"></i>
                         </a>
-                        <a type="button" class="btn btn-success btn-sm tooltips" href="" target="_blank">
-                            <i class="ri-file-pdf-fill me-1"></i>
-                        </a>
-                        <a type="button" class="btn btn-warning btn-sm tooltips" href="">
-                            <i class="ri-file-excel-fill me-1"></i> 
-                        </a>
+                       
                     </div>
                 </div>
 
