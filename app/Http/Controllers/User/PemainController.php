@@ -75,13 +75,22 @@ class PemainController extends Controller
     public function update(PemainRequest $request, string $id)
     {
         $data = $request->all();
-        $data['foto'] = $request->file('foto')->store(
-            'user/pelatih/foto',
+        $data['Ijasah'] = $request->file('Ijasah')->store(
+            'user/pemain/ijasah',
             'public'
 
         );
-        $data['ktp'] = $request->file('ktp')->store(
-            'user/pelatih/ktp',
+        $data['Rapor'] = $request->file('Rapor')->store(
+            'user/pelatih/rapor',
+            'public'
+        );
+        $data['Kartu_Siswa'] = $request->file('Kartu_Siswa')->store(
+            'user/pemain/kartusiswa',
+            'public'
+
+        );
+        $data['Foto'] = $request->file('Foto')->store(
+            'user/pemain/foto',
             'public'
         );
     
@@ -101,15 +110,17 @@ class PemainController extends Controller
         return redirect()->route('pemain.index')->with('success', 'Data pemain successfully deleted');
     }
 
+
+
     public function delete($id){
         $data = Pemain::find($id);
 
         if (!$data) {
-            return response()->json('pemain')->with(['error' => 'Data pemain tidak ditemukan']);
+            return response()->json('pemain')->with(['error' => 'Data Sekolah tidak ditemukan']);
 
         }
         $data->delete();
-        return redirect()->route('pemain.index')->with(['success' => 'Data pemain berhasil dihapus']);
+        return redirect()->route('pemain.index')->with(['success' => 'Pj Sekolah berhasil dihapus']);
         
     }
 }

@@ -120,9 +120,8 @@
                             <div class="card">
                                 <div class="card-body">
             
-                                    <h5 class="mt-0">Data User</h5>
-                                    <p class="sub-header font-13">Inline edit like a spreadsheet, toolbar column with edit
-                                        button only and without focus on first input.</p>
+                                    <h5 class="mt-0">Data Pj Tim</h5>
+                                    <p class="sub-header font-13">List Data Tabel Pj Tim di bawah ini</p>
                                     <div class="table-responsive">
                                         <table class="table table-centered mb-0">
                                             <thead>

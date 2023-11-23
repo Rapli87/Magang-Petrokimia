@@ -105,8 +105,8 @@
                             <div class="card">
                                 <div class="card-body">
             
-                                    <h5 class="mt-0">Pelatih</h5>
-                                    <p class="sub-header font-13">Tabel Pelatih</p>
+                                    <h5 class="mt-0">Data Pelatih</h5>
+                                    <p class="sub-header font-13">List Data Tabel Pelatih di bawah ini</p>
                                     <div class="table-responsive">
                                         <table class="table table-centered mb-0">
                                             <thead>

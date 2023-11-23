@@ -38,11 +38,11 @@ class pjmedisController extends Controller
         $data = $request->all();
       
         $data['foto'] = $request->file('foto')->store(
-            'user/pjsupportersiswa/foto',
+            'user/pjmedis/foto',
             'public'
         );
         $data['ktp'] = $request->file('ktp')->store(
-            'user/pjsupportersiswa/ktp',
+            'user/pjmedis/ktp',
             'public'
         );
        
@@ -68,12 +68,12 @@ class pjmedisController extends Controller
     {
         $data = $request->all();
         $data['foto'] = $request->file('foto')->store(
-            'user/pjsupportersiswa/foto',
+            'user/pjmedis/foto',
             'public'
 
         );
         $data['ktp'] = $request->file('ktp')->store(
-            'user/pjsupportersiswa/ktp',
+            'user/pjmedis/ktp',
             'public'
         );
     
@@ -82,7 +82,7 @@ class pjmedisController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('Pj-Medis.index')->with('success', 'Data Pj-Supporter-Siswa  successfully updated');
+        return redirect()->route('Pj-Medis.index')->with('success', 'Data Pj-Medis  successfully updated');
     }
 
     public function destroy(string $id)

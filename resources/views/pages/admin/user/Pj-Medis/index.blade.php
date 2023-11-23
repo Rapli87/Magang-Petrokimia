@@ -155,8 +155,8 @@
         <div class="card">
             <div class="card-body">
 
-                <h5 class="mt-0">Inline edit with Button</h5>
-                <p class="sub-header font-13">Inline edit like a spreadsheet, toolbar column with edit button only and without focus on first input.</p>
+                <h5 class="mt-0">Data Tabel Medis</h5>
+                <p class="sub-header font-13">List Data Tabel Pj Medis di bawah ini</p>
                 <div class="table-responsive">
                     <table class="table table-centered mb-0" id="btn-editable">
                         <thead>
@@ -167,6 +167,7 @@
                                 <th>alamat</th>
                                 <th>foto</th>
                                 <th>ktp </th>
+                                <th>Action</th>
                               
                               
                             </tr>
@@ -199,6 +200,28 @@
                                     @else
                                         No Image
                                     @endif
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-warning">Action</button>
+                                        <button type="button"
+                                            class="btn btn-Success dropdown-toggle dropdown-toggle-split"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="visually-hidden">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          
+
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('Pj-Medis.delete', ['id' => $data->id]) }}">Hapus</a>
+                                            </li>
+
+                                            <li><a class="dropdown-item"
+                                                href="{{ route('Pj-Medis.edit', ['id' => $data->id]) }}">Edit</a>
+                                        </li>
+
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
 @endforeach
@@ -283,13 +306,7 @@
                         
                     </div>
                     <div class="">
-                        <a href="" class="btn btn-success btn-sm me-1 tooltips"
-                            data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Edit">
-                            <i class="ri-pencil-fill"></i>
-                        </a>
-                        <a href=""  class="btn btn-danger btn-sm tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
-                            <i class="ri-pencil-fill"></i>
-                        </a>
+                  
                      
                     </div>
                 </div>
