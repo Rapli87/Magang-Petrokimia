@@ -35,6 +35,7 @@ class OfficialController extends Controller
     public function store(OfficialRequest $request)
     {
         $data = $request->all();
+        $data['data_official_id'] = $request->input('data_official_id');
         $data['foto'] = $request->file('foto')->store(
             'user/official/foto',
             'public'

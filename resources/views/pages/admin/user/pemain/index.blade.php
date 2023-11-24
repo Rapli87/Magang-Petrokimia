@@ -24,11 +24,11 @@
                                 <h4 class="fs-20">Form Pendaftaran Pemain</h4>
                                 <p class="text-muted mb-3">Form Pendaftaran pemain Pemain di bawah ini </p>
                               
-                                    
                                         <div id="basicwizard">
                                             <ul class="nav nav-pills nav-justified form-wizard-header mb-4">
                                                 <li class="nav-item">
-                                                    <a href="#basictab1" data-bs-toggle="tab" data-toggle="tab"
+                                            
+                                            <a href="#basictab1" data-bs-toggle="tab" data-toggle="tab"
                                                         class="nav-link rounded-0 py-2">
                                                         <i class="ri-account-circle-line fw-normal fs-20 align-middle me-1"></i>
                                                         <span class="d-none d-sm-inline">Form Pendaftaran Pemain</span>
@@ -56,6 +56,121 @@
                                                 @csrf
                                                     <div class="row">
                                                         <div class="col-12">
+                                                            <div class="row mb-3">
+                                                                <label class="col-md-3 col-form-label" for="data_sekolah_id">Nomor Sekolah</label>
+                                                                <div class="col-md-9">
+                                                                    <select class="form-select" id="data_sekolah_id" name="data_sekolah_id">
+                                                                        <option value="">Pilih Nomer Sekolah</option>
+                                                                        @for($i = 1; $i <= 50; $i++)
+                                                                            <option value="{{ $i }}">{{ $i }}</option>
+                                                                        @endfor
+                                                                    </select>
+                                                                    @error('data_sekolah_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div >
+                                                              
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="pj_sekolah_id"
+                                                                        name="pj_sekolah_id" value="pj_sekolah_id">
+                                                                        @error('pj_sekolah_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div >
+                                                             
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="pj_tim_id"
+                                                                        name="pj_tim_id" value="pj_tim_id">
+                                                                        @error('pj_tim_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div >
+                                                              
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="data_pelatih_id"
+                                                                        name="data_pelatih_id" value="data_pelatih_id">
+                                                                        @error('data_pelatih_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div >
+                                                               
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="data_official_id"
+                                                                        name="data_official_id" value="data_official_id">
+                                                                        @error('data_official_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div >
+                                                              
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="data_manajer_id"
+                                                                        name="data_manajer_id" value="data_manajer_id">
+                                                                        @error('data_manajer_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div >
+                                                              
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="data_supportersiswa_id"
+                                                                        name="data_supportersiswa_id" value="data_supportersiswa_id">
+                                                                        @error('data_supportersiswa_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div >
+                                                             
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="data_supporterguru_id"
+                                                                        name="data_supporterguru_id" value="data_supporterguru_id">
+                                                                        @error('data_supporterguru_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div >
+                                                             
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="data_pjmedis_id"
+                                                                        name="data_pjmedis_id" value="data_pjmedis_id">
+                                                                        @error('data_pjmedis_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+
+                                                            <div >
+                                                             
+                                                                <div>
+                                                                    <input type="hidden" class="form-control" id="data_jurnallis_id"
+                                                                        name="data_jurnallis_id" value="data_jurnallis_id">
+                                                                        @error('data_jurnallis_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
                                                             <div class="row mb-3">
                                                                 <label class="col-md-3 col-form-label" for="name">Nama</label>
                                                                 <div class="col-md-9">

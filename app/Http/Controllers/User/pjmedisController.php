@@ -67,6 +67,7 @@ class pjmedisController extends Controller
     public function update(PjmedisRequest $request, string $id)
     {
         $data = $request->all();
+        $data['data_pjmedis_id'] = $request->input('data_pjmedis_id');
         $data['foto'] = $request->file('foto')->store(
             'user/pjmedis/foto',
             'public'

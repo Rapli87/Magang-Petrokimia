@@ -56,6 +56,21 @@
                                                 @csrf
                                                     <div class="row">
                                                         <div class="col-12">
+
+                                                            <div class="row mb-3">
+                                                                <label class="col-md-3 col-form-label" for="data_supportersiswa_id">Nomor Sekolah</label>
+                                                                <div class="col-md-9">
+                                                                    <select class="form-select" id="data_supportersiswa_id" name="data_supportersiswa_id">
+                                                                        <option value="">Pilih Nomer Sekolah</option>
+                                                                        @for($i = 1; $i <= 50; $i++)
+                                                                            <option value="{{ $i }}">{{ $i }}</option>
+                                                                        @endfor
+                                                                    </select>
+                                                                    @error('data_supportersiswa_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                             <div class="row mb-3">
                                                                 <label class="col-md-3 col-form-label" for="nama">Nama</label>
                                                                 <div class="col-md-9">

@@ -35,6 +35,7 @@ class PjtimController extends Controller
     public function store(PjtimRequest $request)
     {
         $data = $request->all();
+        $data['pj_tim_id'] = $request->input('pj_tim_id');
         $data['foto'] = $request->file('foto')->store(
             'user/pjtim/foto',
             'public'

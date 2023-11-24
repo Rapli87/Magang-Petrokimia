@@ -22,6 +22,8 @@ return new class extends Migration
             $table->integer('data_manajer_id')->nullable();
             $table->integer('data_supportersiswa_id')->nullable();
             $table->integer('data_supporterguru_id')->nullable();
+            $table->integer('data_pjmedis_id')->nullable();
+            $table->integer('data_jurnallis_id')->nullable();
             $table->string('No_punggung');
             $table->string('Kelas');
             $table->dateTime('Tanggal_lahir');

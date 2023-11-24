@@ -22,6 +22,10 @@ class pjmedis extends Model
     
         
     ];
+    public function pemain()
+    {
+        return $this->hasMany(Pemain::class, 'data_pjmedis_id', 'id');
+    }
 
  
 
