@@ -22,6 +22,7 @@ class jurnalisRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'data_jurnallis_id' => 'required|max:255', // 'data_jurnallis_id' => 'required|max:255
             'nama' => 'required|max:255',
             'hp' => 'required|max:255',
             'alamat' => 'required|max:255',

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\PemainRequest;
 use App\Models\Pemain;
+use App\Models\pjsekolah;
 use Illuminate\Http\Request;
 
 class PemainController extends Controller
@@ -36,6 +37,17 @@ class PemainController extends Controller
     public function store(PemainRequest $request)
     {
         $data = $request->all();
+        $data['data_sekolah_id'] = $request->input('data_sekolah_id');
+        $generatedIds = $this->generatePjSekolahAndTimId($data['data_sekolah_id']);
+        $data['pj_sekolah_id'] = $generatedIds['pj_sekolah_id'];
+        $data['pj_tim_id'] = $generatedIds['pj_tim_id'];
+        $data['data_pelatih_id'] = $generatedIds['data_pelatih_id'];
+        $data['data_official_id'] = $generatedIds['data_official_id'];
+        $data['data_manajer_id'] = $generatedIds['data_manajer_id'];
+        $data['data_supportersiswa_id'] = $generatedIds['data_supportersiswa_id'];
+        $data['data_supporterguru_id'] = $generatedIds['data_supporterguru_id'];
+        $data['data_pjmedis_id'] = $generatedIds['data_pjmedis_id'];
+        $data['data_jurnallis_id'] = $generatedIds['data_jurnallis_id'];
         $data['Ijasah'] = $request->file('Ijasah')->store(
             'user/pemain/ijasah',
             'public'
@@ -60,6 +72,28 @@ class PemainController extends Controller
 
         return redirect()->route('pemain.index')->with('success', 'Pemain successfully created');
     }
+
+        private function generatePjSekolahAndTimId($dataSekolahId)
+    {
+        // Example logic: You may query the PjSekolah model or use a mapping
+        $pjSekolah = Pemain::where('data_sekolah_id', $dataSekolahId)->first();
+
+        $generatedIds = [
+            'pj_sekolah_id' => ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+            'pj_tim_id' => ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+            'data_pelatih_id' => ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+            'data_official_id' => ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+            'data_manajer_id' => ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+            'data_supportersiswa_id' => ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+            'data_supporterguru_id' => ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+            'data_pjmedis_id' => ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+            'data_jurnallis_id'=> ($pjSekolah) ? $pjSekolah->data_sekolah_id : null,
+        ];
+
+        // If no matching PjSekolah is found, you can handle it accordingly
+        return $generatedIds;
+    }
+
 
 
     public function edit(string $id)

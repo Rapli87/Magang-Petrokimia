@@ -13,7 +13,7 @@ class jurnalis extends Model
 
     protected $fillable = [
         'id',
-        'data_jurnallis_id	',
+        'data_jurnallis_id',
         'nama',
         'hp',
         'alamat',
@@ -22,4 +22,9 @@ class jurnalis extends Model
     
         
     ];
+
+    public function pemain()
+    {
+        return $this->hasMany(Pemain::class, 'data_jurnallis_id', 'id');
+    }
 }

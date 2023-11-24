@@ -20,6 +20,8 @@ class Pemain extends Model
         'data_manajer_id',
         'data_supportersiswa_id',
         'data_supporterguru_id',
+        'data_pjmedis_id',
+        'data_jurnallis_id',
         'No_punggung',
         'Kelas',
         'Tanggal_lahir',
@@ -65,6 +67,19 @@ class Pemain extends Model
     public function datasupporterguru(){
         return $this->belongsTo(Datasuporguru::class,'data_supporterguru_id','id');
     }
+
+
+    public function datamedis()
+    {
+        return $this->belongsTo(pjmedis::class, 'data_pjmedis_id', 'id');
+    }
+
+    public function datajurnalis()
+    {
+        return $this->belongsTo(jurnalis::class, 'data_jurnallis_id', 'id');
+    }
+
+
 
     // Pemain.php
 

@@ -22,6 +22,7 @@ class PelatihRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'data_pelatih_id' => 'required|max:255',
             'nama' => 'required|max:255',
             'hp' => 'required|max:255',
             'alamat' => 'required|max:255',

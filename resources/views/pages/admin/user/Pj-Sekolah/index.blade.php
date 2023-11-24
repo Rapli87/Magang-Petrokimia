@@ -26,6 +26,21 @@
                                 <p class="text-muted mb-3">Tambah pJ Sekolah di bawah ini </p>
                                 <form action="{{ route('Pj-Sekolah.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+                                    <div class="mb-2">
+                                        <label for="pj_sekolah_id">Nomor Sekolah</label>
+                                        <div class="col-md-12">
+                                            <select class="form-select" id="pj_sekolah_id" name="pj_sekolah_id">
+                                                <option value="">Pilih Nomer Sekolah</option>
+                                                @for($i = 1; $i <= 50; $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            @error('pj_sekolah_id')
+                                                <span style="color: red">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    
                                         <div class="mb-2">
                                         <label for="nama_kepala_sekolah" class="form-label">nama_kepala_sekolah</label>
                                         <input class="form-control" type="text" name="nama_kepala_sekolah" placeholder="Enter your nama_kepala_sekolah" required
@@ -34,6 +49,8 @@
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
+                                  
+                              
 
                                     <div class="mb-2">
                                         <label for="alamat_kepala_sekolah" class="form-label">alamat_kepala_sekolah</label>

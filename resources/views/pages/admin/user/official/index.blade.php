@@ -25,6 +25,21 @@
                                 <p class="text-muted mb-3">Tambah Official di bawah ini </p>
                                 <form action="{{ route('Official.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+
+                                    <div class="mb-2">
+                                        <label for="data_official_id">Nomor Sekolah</label>
+                                        <div class="col-md-12">
+                                            <select class="form-select" id="data_official_id" name="data_official_id">
+                                                <option value="">Pilih Nomer Sekolah</option>
+                                                @for($i = 1; $i <= 50; $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            @error('data_official_id')
+                                                <span style="color: red">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
                                         <div class="mb-2">
                                         <label for="nama" class="form-label">Nama</label>
                                         <input class="form-control" type="text" name="nama" placeholder="Enter your name" required

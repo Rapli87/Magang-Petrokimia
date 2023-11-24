@@ -54,8 +54,24 @@
                                                 <div class="tab-pane" id="basictab1">
                                              <form action="{{ route('Pj-Supporter-Guru.store') }}" method="POST" enctype="multipart/form-data">
                                                 @csrf
+
+                                                
                                                     <div class="row">
                                                         <div class="col-12">
+                                                            <div class="row mb-3">
+                                                                <label class="col-md-3 col-form-label" for="data_supporterguru_id">Nomor Sekolah</label>
+                                                                <div class="col-md-9">
+                                                                    <select class="form-select" id="data_supporterguru_id" name="data_supporterguru_id">
+                                                                        <option value="">Pilih Nomer Sekolah</option>
+                                                                        @for($i = 1; $i <= 50; $i++)
+                                                                            <option value="{{ $i }}">{{ $i }}</option>
+                                                                        @endfor
+                                                                    </select>
+                                                                    @error('data_supporterguru_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
                                                             <div class="row mb-3">
                                                                 <label class="col-md-3 col-form-label" for="nama">Nama</label>
                                                                 <div class="col-md-9">

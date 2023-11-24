@@ -36,6 +36,7 @@ class pjsupportersiswaController extends Controller
     public function store(PjsupportersiswaRequest $request)
     {
         $data = $request->all();
+        $data['data_supportersiswa_id'] = $request->input('data_supportersiswa_id');
       
         $data['foto'] = $request->file('foto')->store(
             'user/pjsupportersiswa/foto',
