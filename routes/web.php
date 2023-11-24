@@ -23,6 +23,7 @@ use App\Http\Controllers\Admin\{
     UserController
 };
 
+use App\Http\Controllers\Admin\TambahUserController;
 use App\Http\Controllers\Frontend\{
     ArticleController as FrontendArticleController,
     CategoryController as FrontendCategoryController,
@@ -148,7 +149,7 @@ Route::post('admin/user/Pj-Sekolah/store', [PjsekolahController::class, 'store']
 Route::get('admin/user/pj-Sekolah/edit/{id}', [PjsekolahController::class,'edit'])->name('Pj-Sekolah.edit')-> middleware('UserAccess:2');
 Route::get('admin/user/pj-Sekolah/delete/{id}', [PjsekolahController::class,'delete'])->name('pj-sekolah.delete')-> middleware('UserAccess:2');
 Route::Post('admin/user/pj-Sekolah/update/{id}', [PjsekolahController::class,'update'])->name('Pj-Sekolah.update')-> middleware('UserAccess:2');
-Route::get('admin/user/Pj-Sekolah/show/{id},[PjsekolahController::class,show]')->name('Pj-Sekolah.show')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Sekolah/show/{id}',[PjsekolahController::class,'show'])->name('Pj-Sekolah.show')-> middleware('UserAccess:2');
 
     Route::resource('admin/user/Pj-Tim', PjtimController::class)->middleware('UserAccess:2');
     Route::get('admin/user/Pj-Tim', [PjtimController::class,'index'])->name('Pj-Tim.index')-> middleware('UserAccess:2');

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Edit PJ Tim | PGFC User')
+@section('title', 'Edit Pemain | PGFC User')
 
 @section('content')
     <!-- ============================================================== -->
@@ -20,11 +20,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Edit Pj Pelatih</a>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Edit Data Pemain</a>
                                     </li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Edit pJ Pelatih </h4>
+                            <h4 class="page-title">Edit Data Pemain </h4>
                         </div>
                     </div>
                 </div>
@@ -44,61 +44,108 @@
 
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('Pelatih.update', $data->id) }}" method="POST"enctype="multipart/form-data">
+                        <form action="{{ route('pemain.update', $data->id) }}" method="POST"enctype="multipart/form-data">
                             @method('POST')
                             @csrf
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="nama" class="form-label">Nama</label>
-                                        <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama" placeholder="nama" value="{{ old('nama') }}">
-                                        @error('nama')
+                                        <label for="name" class="form-label">Nama</label>
+                                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="name" value="{{ old('name') }}">
+                                        @error('name')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="hp" class="form-label">hp</label>
-                                        <input type="text" class="form-control @error('hp') is-invalid @enderror"
-                                            name="hp" placeholder="jabatan" value="{{ old('hp') }}">
-                                        @error('hp')
+                                        <label for="No_punggung" class="form-label">No_punggung</label>
+                                        <input type="text" class="form-control @error('No_punggung') is-invalid @enderror"
+                                            name="No_punggung" placeholder="No_punggung" value="{{ old('No_punggung') }}">
+                                        @error('No_punggung')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="alamat" class="form-label">alamat</label>
-                                        <input type="text" class="form-control @error('alamat') is-invalid @enderror"
-                                            name="alamat" placeholder="masukkan alamat anda" value="{{ old('alamat') }}">
-                                        @error('alamat')
+                                        <label for="Kelas" class="form-label">Kelas</label>
+                                        <input type="text" class="form-control @error('Kelas') is-invalid @enderror"
+                                            name="Kelas" placeholder="masukkan Kelas anda" value="{{ old('Kelas') }}">
+                                        @error('Kelas')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="foto" class="form-label">Foto</label>
-                                        <input type="file" class="form-control @error('foto') is-invalid @enderror"
-                                            name="foto" value="{{ old('foto') }}">
-                                        @error('foto')
+                                        <label for="Tanggal_lahir" class="form-label">Tanggal_lahir</label>
+                                        <input type="date" class="form-control @error('Tanggal_lahir') is-invalid @enderror"
+                                            name="Tanggal_lahir" placeholder="masukkan Tanggal_lahir anda" value="{{ old('Tanggal_lahir') }}">
+                                        @error('Tanggal_lahir')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
                                     <div class="mb-3">
-                                        <label for="ktp" class="form-label">Ktp</label>
+                                        <label for="Ijasah" class="form-label">Foto</label>
+                                        <input type="file" class="form-control @error('Ijasah') is-invalid @enderror"
+                                            name="Ijasah" value="{{ old('Ijasah') }}">
+                                        @error('Ijasah')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="Rapor" class="form-label">Rapor</label>
                                         <input type="file"
-                                            class="form-control @error('ktp') is-invalid @enderror"
-                                            name="file"  value="{{ old('ktp') }}">
-                                        @error('ktp')
+                                            class="form-control @error('Rapor') is-invalid @enderror"
+                                            name="Rapor"  value="{{ old('Rapor') }}">
+                                        @error('Rapor')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="Keterangan_Siswa" class="form-label">Keterangan_Siswa</label>
+                                        <input type="text"
+                                            class="form-control @error('Keterangan_Siswa') is-invalid @enderror"
+                                            name="Keterangan_Siswa"  value="{{ old('Keterangan_Siswa') }}">
+                                        @error('Keterangan_Siswa')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Kartu_Siswa" class="form-label">Kartu_Siswa</label>
+                                        <input type="file"
+                                            class="form-control @error('Kartu_Siswa') is-invalid @enderror"
+                                            name="Kartu_Siswa"  value="{{ old('Kartu_Siswa') }}">
+                                        @error('Keterangan_Siswa')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="Foto" class="form-label">Foto</label>
+                                        <input type="file"
+                                            class="form-control @error('Foto') is-invalid @enderror"
+                                            name="Foto"  value="{{ old('Foto') }}">
+                                        @error('Foto')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                              
                               
 
                             

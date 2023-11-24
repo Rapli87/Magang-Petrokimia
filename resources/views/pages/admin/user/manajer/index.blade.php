@@ -121,8 +121,8 @@
                             <div class="card">
                                 <div class="card-body">
             
-                                    <h5 class="mt-0">Official</h5>
-                                    <p class="sub-header font-13">Tabel Manajer</p>
+                                    <h5 class="mt-0">Data Tabel Manajer</h5>
+                                    <p class="sub-header font-13">List Data Tabel Manajer di bawah ini</p>
                                     <div class="table-responsive">
                                         <table class="table table-centered mb-0">
                                             <thead>
