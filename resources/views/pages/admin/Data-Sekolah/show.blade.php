@@ -138,7 +138,7 @@
                         <div class="d-flex">
                             <a class="me-3" href="#">
                                 <img class="avatar-md rounded-circle bx-s"
-                                    src="{{ url('frontend/images/users/avatar-2.jpg') }}" alt="">
+                                    src="{{ asset('storage/user/pemain/foto/' . $pemain->Foto) }}" alt="Foto">
                             </a>
                             <div class="info">
                                 {{-- @if ($dataSekolah->pemain->isNotEmpty())
@@ -148,10 +148,11 @@
                                 <p class="text-muted fs-15">{{ $pemain->No_punggung }}</p>
                                 <p class="text-muted fs-15">{{ $pemain->Kelas }}</p>
                                 <p class="text-muted fs-15">{{ $pemain->Tanggal_lahir }}</p>
-                                <p class="text-muted fs-15 ">{{ $pemain->Ijasah }}</p>
-                                <p class="text-muted fs-15 ">{{ $pemain->Rapor }}</p>
+                                <img src="{{ asset('storage/user/pemain/ijasah/' . $pemain->Ijasah) }}" alt="Ijasah">
+                                <img src="{{ asset('storage/user/pemain/rapor/' . $pemain->Rapor) }}" alt="Rapor">
                                 <p class="text-muted fs-15">{{ $pemain->Keterangan_Siswa }}</p>
-                                <p class="text-muted fs-15  ">{{ $pemain->Kartu_Siswa }}</p>
+                                <img src="{{ asset('storage/user/pemain/kartusiswa/' . $pemain->Kartu_Siswa) }}" alt="Kartu Siswa">
+                                
                                 {{-- <p class="text-muted fs-15">{{ $pemain->Foto }}</p> --}}
 
                                 
