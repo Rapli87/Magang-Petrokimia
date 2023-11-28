@@ -24,6 +24,10 @@ class JadwalRequest extends FormRequest
         return [
             'group' => 'required|max:255',
             'tanggal' => 'required|date',
+            'mulai' => 'required|date_format:H:i',
+            'tim' => 'required|max:255',
+            'tim2' => 'required|max:255',
+            'selesai' => 'required|date_format:H:i',
            
         ];
     }

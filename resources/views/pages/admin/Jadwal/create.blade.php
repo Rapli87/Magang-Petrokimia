@@ -109,6 +109,26 @@
                                             </div>
                                         @enderror
                                     </div>
+
+                                    <div class="mb-3">
+                                        <label for="mulai" class="form-label">Mulai</label>
+                                        <input type="time" class="form-control @error('mulai') is-invalid @enderror" name="mulai" placeholder="mulai" value="{{ old('mulai') }}">
+                                        @error('mulai')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="selesai" class="form-label">selesai</label>
+                                        <input type="time" class="form-control @error('selesai') is-invalid @enderror" name="selesai" placeholder="selesai" value="{{ old('selesai') }}">
+                                        @error('selesai')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
                                 
                                 
                                     {{-- <div class="mb-3">
