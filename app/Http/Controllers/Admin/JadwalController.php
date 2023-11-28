@@ -40,7 +40,8 @@ public function create()
         ->orderBy('selesai', 'desc')
         ->orderBy('tim', 'desc')
         ->orderBy('tim2', 'desc')
-        ->max('selesai');
+
+        ->max('status');
 
     Jadwal::create([
         'group' => $request->group,
@@ -48,7 +49,8 @@ public function create()
         'mulai' => $request->mulai,
         'tim' => $request->tim,
         'tim2' => $request->tim2,
-        'selesai' => $data,
+        'selesai' => $request->selesai,
+        'status' => $data,
     ]);
 
     $sekolahs = DataSekolah::all();
