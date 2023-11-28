@@ -34,6 +34,7 @@ class PelatihController extends Controller
     public function store(PelatihRequest $request)
     {
         $data = $request->all();
+        $data['data_pelatih_id'] = $request->input('data_pelatih_id');
         $data['foto'] = $request->file('foto')->store(
             'user/pelatih/foto',
             'public'

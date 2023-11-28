@@ -410,15 +410,15 @@
 
                             
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingfour">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingfive">
                                     <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapsefour" aria-expanded="false"
-                                        aria-controls="panelsStayOpen-collapsefour">
+                                        data-bs-target="#panelsStayOpen-collapsefive" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapsefive">
                                         Data Manajer #5
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse"
-                                    aria-labelledby="panelsStayOpen-headingfour">
+                                <div id="panelsStayOpen-collapsefive" class="accordion-collapse collapse"
+                                    aria-labelledby="panelsStayOpen-headingfive">
                                     <div class="accordion-body">
                                         <div class="row">
                                             <div class="col-12">
@@ -494,15 +494,15 @@
 
                             
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingfour">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingsix">
                                     <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapsefour" aria-expanded="false"
-                                        aria-controls="panelsStayOpen-collapsefour">
+                                        data-bs-target="#panelsStayOpen-collapsesix" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapsesix">
                                         Data Pj Supporter Siswa#6
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse"
-                                    aria-labelledby="panelsStayOpen-headingfour">
+                                <div id="panelsStayOpen-collapsesix" class="accordion-collapse collapse"
+                                    aria-labelledby="panelsStayOpen-headingsix">
                                     <div class="accordion-body">
                                         <div class="row">
                                             <div class="col-12">
@@ -575,15 +575,15 @@
 
                             
                             <div class="accordion-item">
-                                <h2 class="accordion-header" id="panelsStayOpen-headingfour">
+                                <h2 class="accordion-header" id="panelsStayOpen-headingseven">
                                     <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#panelsStayOpen-collapsefour" aria-expanded="false"
-                                        aria-controls="panelsStayOpen-collapsefour">
+                                        data-bs-target="#panelsStayOpen-collapseseven" aria-expanded="false"
+                                        aria-controls="panelsStayOpen-collapseseven">
                                         Data Pj Supporter Guru #7
                                     </button>
                                 </h2>
-                                <div id="panelsStayOpen-collapsefour" class="accordion-collapse collapse"
-                                    aria-labelledby="panelsStayOpen-headingfour">
+                                <div id="panelsStayOpen-collapseseven" class="accordion-collapse collapse"
+                                    aria-labelledby="panelsStayOpen-headingseven">
                                     <div class="accordion-body">
                                         <div class="row">
                                             <div class="col-12">
@@ -650,11 +650,186 @@
                                             </div> <!-- end col-->
                                         </div>
                                         <!-- end row -->
+
+                                        
                                     </div>
                                 </div>
                             </div>
+
+                            
+        
+
+                            
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingeight">
+                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapseeight" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapseeight">
+                    Data Pj medis #8
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapseeight" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingeight">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="header-title">Data Pj medis</h4>
+                                    <p class="text-muted mb-0">
+                                        Tabel Berisi Data Pj Medis
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped mb-0">
+                                            <thead>
+                                            <tr>
+                                            
+                                                <th class="text-center">
+                                                    Nama <br>
+                                                    
+                                                </th>
+                                                <th class="text-center">
+                                                    Hp<br>
+                                                    
+                                                </th>
+                                                <th class="text-center">
+                                                    Alamat<br>
+                                                    
+                                                </th>
+                                                <th class="text-center">
+                                                    Foto<br>
+                                                    
+                                                </th>
+                                                <th class="text-center">
+                                                    Ktp<br>
+                                            
+                                                </th>
+
+                                               
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                             @if ($pemain->datamedis)
+                                                 
+                                             
+                                                <td>{{$pemain->datamedis->nama}}</td>
+                                                <td>{{$pemain->datamedis->hp}}</td>
+                                                <td>{{$pemain->datamedis->alamat}}</td>
+                                                <td>{{$pemain->datamedis->foto}}</td>
+                                                <td>{{$pemain->datamedis->ktp}}</td>
+                                                @else
+                                                <td colspan="5">No Data Available</td>
+                                                @endif
+                                            
+                                            </tr>
+
+                                        
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- end table-responsive-->
+                
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+                    </div>
+                    <!-- end row -->
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="panelsStayOpen-headingnine">
+                <button class="accordion-button fw-medium collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#panelsStayOpen-collapsenine" aria-expanded="false"
+                    aria-controls="panelsStayOpen-collapsenine">
+                    Data Jurnalis #9
+                </button>
+            </h2>
+            <div id="panelsStayOpen-collapsenine" class="accordion-collapse collapse"
+                aria-labelledby="panelsStayOpen-headingnine">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="header-title">Data Jurnalis</h4>
+                                    <p class="text-muted mb-0">
+                                        Tabel Berisi Data Jurnalis
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped mb-0">
+                                            <thead>
+                                            <tr>
+                                            
+                                                <th class="text-center">
+                                                    Nama <br>
+                                                    
+                                                </th>
+                                                <th class="text-center">
+                                                    Hp<br>
+                                                    
+                                                </th>
+                                                <th class="text-center">
+                                                    Alamat<br>
+                                                    
+                                                </th>
+                                                <th class="text-center">
+                                                    Foto<br>
+                                                    
+                                                </th>
+                                                <th class="text-center">
+                                                    Ktp<br>
+                                            
+                                                </th>
+    
+                                               
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                             @if ($pemain->datajurnalis)
+                                                 
+                                             
+                                                <td>{{$pemain->datajurnalis->nama}}</td>
+                                                <td>{{$pemain->datajurnalis->hp}}</td>
+                                                <td>{{$pemain->datajurnalis->alamat}}</td>
+                                                <td>{{$pemain->datajurnalis->foto}}</td>
+                                                <td>{{$pemain->datajurnalis->ktp}}</td>
+                                                @else
+                                                <td colspan="5">No Data Available</td>
+                                                @endif
+                                            
+                                            </tr>
+    
+                                        
+                                            </tbody>
+                                        </table>
+                                    </div> <!-- end table-responsive-->
+                
+                                </div> <!-- end card-body-->
+                            </div> <!-- end card-->
+                        </div> <!-- end col-->
+                    </div>
+                    <!-- end row -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+   
+
+
                         </div>
     
+
+                        
                     </div> <!-- end card-body-->
                 </div> <!-- end card-->
             </div> <!-- end col-->                        
@@ -662,6 +837,7 @@
         </div>
         <!-- end row-->
                      
+
                            
                       
 </div> <!-- container -->

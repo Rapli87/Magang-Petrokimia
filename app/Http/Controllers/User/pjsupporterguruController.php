@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+
 use App\Http\Requests\User\PjsupporterguruRequest;
 use App\Models\Datasuporguru;
 use Illuminate\Http\Request;
@@ -36,6 +37,7 @@ class pjsupporterguruController extends Controller
     public function store(PjsupporterguruRequest $request)
     {
         $data = $request->all();
+        $data['data_supporterguru_id'] = $request->input('data_supporterguru_id');
       
         $data['foto'] = $request->file('foto')->store(
             'user/pjsupporterguru/foto',
@@ -82,7 +84,7 @@ class pjsupporterguruController extends Controller
 
         $item->update($data);
 
-        return redirect()->route('Pj-Supporter-Guru.index')->with('success', 'Data Pemain  successfully updated');
+        return redirect()->route('Pj-Supporter-Guru.index')->with('success', 'Data supporter guru  successfully updated');
     }
 
     public function destroy(string $id)

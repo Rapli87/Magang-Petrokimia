@@ -12,7 +12,7 @@ class Datasuporguru extends Model
     protected $table = 'data_supporter_guru';
 protected $fillable = [
         'id',
-        'data_dataSuporterguru_id',
+        'data_supporterguru_id',
         'nama',
         'hp',
         'alamat',
@@ -23,7 +23,7 @@ protected $fillable = [
 
     public function pemain()
     {
-        return $this->hasMany(Pemain::class, 'data_dataSuporterguru_id', 'id');
+        return $this->hasMany(Pemain::class, 'data_supporterguru_id', 'id');
     }
     
 }

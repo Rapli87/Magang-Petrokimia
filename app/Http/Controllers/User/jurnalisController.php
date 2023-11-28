@@ -67,6 +67,7 @@ class jurnalisController extends Controller
     public function update(jurnalisRequest $request, string $id)
     {
         $data = $request->all();
+        $data['data_jurnallis_id'] = $request->input('data_jurnallis_id');
         $data['foto'] = $request->file('foto')->store(
             'user/jurnalis/foto',
             'public'

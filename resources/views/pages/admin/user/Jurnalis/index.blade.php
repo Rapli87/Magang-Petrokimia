@@ -57,6 +57,20 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="row mb-3">
+                                                                <label class="col-md-3 col-form-label" for="data_jurnallis_id">Nomor Sekolah</label>
+                                                                <div class="col-md-9">
+                                                                    <select class="form-select" id="data_jurnallis_id" name="data_jurnallis_id">
+                                                                        <option value="">Pilih Nomer Sekolah</option>
+                                                                        @for($i = 1; $i <= 50; $i++)
+                                                                            <option value="{{ $i }}">{{ $i }}</option>
+                                                                        @endfor
+                                                                    </select>
+                                                                    @error('data_jurnallis_id')
+                                                                        <span style="color: red">{{ $message }}</span>
+                                                                    @enderror
+                                                                </div>
+                                                            </div>
+                                                            <div class="row mb-3">
                                                                 <label class="col-md-3 col-form-label" for="nama">Nama</label>
                                                                 <div class="col-md-9">
                                                                     <input type="text" class="form-control" id="nama"
@@ -148,8 +162,8 @@
         <div class="card">
             <div class="card-body">
 
-                <h5 class="mt-0">Inline edit with Button</h5>
-                <p class="sub-header font-13">Inline edit like a spreadsheet, toolbar column with edit button only and without focus on first input.</p>
+                <h5 class="mt-0">Data Tabel Jurnalis</h5>
+                <p class="sub-header font-13">List Data Tabel  Jurnalis di bawah ini</p>
                 <div class="table-responsive">
                     <table class="table table-centered mb-0" id="btn-editable">
                         <thead>
@@ -160,6 +174,7 @@
                                 <th>alamat</th>
                                 <th>foto</th>
                                 <th>ktp </th>
+                                <th>Action</th>
                               
                               
                             </tr>
@@ -192,6 +207,29 @@
                                     @else
                                         No Image
                                     @endif
+                                </td>
+
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-warning">Action</button>
+                                        <button type="button"
+                                            class="btn btn-Success dropdown-toggle dropdown-toggle-split"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span class="visually-hidden">Toggle Dropdown</span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                          
+
+                                            <li><a class="dropdown-item"
+                                                    href="{{ route('Jurnalis.delete', ['id' => $data->id]) }}">Hapus</a>
+                                            </li>
+
+                                            <li><a class="dropdown-item"
+                                                href="{{ route('Jurnalis.edit', ['id' => $data->id]) }}">Edit</a>
+                                        </li>
+
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
 @endforeach
@@ -274,12 +312,7 @@
                         <a href=""  class="btn btn-danger btn-sm tooltips" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Delete">
                             <i class="ri-pencil-fill"></i>
                         </a>
-                        <a type="button" class="btn btn-success btn-sm tooltips" href="" target="_blank">
-                            <i class="ri-file-pdf-fill me-1"></i>
-                        </a>
-                        <a type="button" class="btn btn-warning btn-sm tooltips" href="">
-                            <i class="ri-file-excel-fill me-1"></i> 
-                        </a>
+                       
                     </div>
                 </div>
 

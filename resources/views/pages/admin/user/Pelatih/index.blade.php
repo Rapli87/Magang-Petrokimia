@@ -26,6 +26,22 @@
                                 <p class="text-muted mb-3">Tambah Pelatih di bawah ini </p>
                                 <form action="{{ route('Pelatih.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
+
+                                    <div class="mb-2">
+                                        <label for="data_pelatih_id">Nomor Sekolah</label>
+                                        <div class="col-md-12">
+                                            <select class="form-select" id="data_pelatih_id" name="data_pelatih_id">
+                                                <option value="">Pilih Nomer Sekolah</option>
+                                                @for($i = 1; $i <= 50; $i++)
+                                                    <option value="{{ $i }}">{{ $i }}</option>
+                                                @endfor
+                                            </select>
+                                            @error('data_pelatih_id')
+                                                <span style="color: red">{{ $message }}</span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    
                                         <div class="mb-2">
                                         <label for="nama" class="form-label">Nama</label>
                                         <input class="form-control" type="text" name="nama" placeholder="Enter your name" required
@@ -105,8 +121,8 @@
                             <div class="card">
                                 <div class="card-body">
             
-                                    <h5 class="mt-0">Pelatih</h5>
-                                    <p class="sub-header font-13">Tabel Pelatih</p>
+                                    <h5 class="mt-0">Data Pelatih</h5>
+                                    <p class="sub-header font-13">List Data Tabel Pelatih di bawah ini</p>
                                     <div class="table-responsive">
                                         <table class="table table-centered mb-0">
                                             <thead>

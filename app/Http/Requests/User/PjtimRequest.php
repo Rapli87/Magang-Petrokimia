@@ -23,6 +23,7 @@ class PjtimRequest extends FormRequest
     {
         return [
             //
+            'pj_tim_id' => 'required|max:255',
             'nama' => 'required|max:255',
             'jabatan' => 'required|max:255',
             'nip' => 'required|max:255',

@@ -36,6 +36,7 @@ class PjsekolahController extends Controller
     public function store(PjsekolahRequest $request)
     {
         $data = $request->all();
+        $data['pj_sekolah_id'] = $request->input('pj_sekolah_id');
         $data['filerekomendasi'] = $request->file('filerekomendasi')->store(
             'admin/user/pjsekolah/filerekomendasi',
             'public'
@@ -86,7 +87,7 @@ class PjsekolahController extends Controller
 
         }
         $data->delete();
-        return redirect()->route('Pj-Sekolah.index')->with(['success' => 'Data Sekolah berhasil dihapus']);
+        return redirect()->route('Pj-Sekolah.index')->with(['success' => 'Pj Sekolah berhasil dihapus']);
         
     }
 
