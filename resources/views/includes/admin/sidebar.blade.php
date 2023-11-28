@@ -57,7 +57,7 @@
                             <a href="{{ url('admin/group-klasemens') }}">Group Klasmen</a>
                         </li>
                         <li>
-                            <a href="pages-profile.html">Hasil Pertandingan</a>
+                            <a href="{{ url('admin/results') }}">Hasil Pertandingan</a>
                         </li>
                         <li>
                             <a href="{{ url('admin/upcoming-match') }}">Pertandingan Selanjutnya</a>

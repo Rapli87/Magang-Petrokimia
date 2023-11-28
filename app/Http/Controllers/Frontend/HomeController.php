@@ -10,7 +10,8 @@ use App\Models\SubLatestVideo;
 use App\Models\Testimonial;
 use App\Models\Timeline;
 use App\Models\UpcomingMatch;
-use App\Models\Sponsorhip;
+use App\Models\Result;
+use App\Models\Sponsorship;
 use App\Models\Klasemen;
 use Illuminate\Http\Request;
 
@@ -28,7 +29,7 @@ class HomeController extends Controller
         $latestVideos = LatestVideo::take(1)->latest()->get();
         $sublatestVideos = SubLatestVideo::take(3)->orderBy('date', 'asc')->get();
         $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
-        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
         $klasemenGroup = Klasemen::select('group')
             ->groupBy('group')
             ->first();
@@ -44,7 +45,18 @@ class HomeController extends Controller
         } else {
             $klasemens = collect(); // Atur sebagai koleksi kosong jika tidak ada grup
         }
-        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos', 'galleries', 'sponsorships', 'klasemens'));
+
+        $lastMatch = Result::where('match_date', '<', now())
+        ->orderBy('match_date', 'desc')
+        ->first();
+
+    $previousResults = Result::where('match_date', '<', now())
+        ->orderBy('match_date', 'desc')
+        ->skip(1) // Skip the first result (last match)
+        ->take(2) // Take the next two results
+        ->get();
+
+        return view('pages.frontend.home.index', compact('articles', 'testimonials', 'upcomings', 'latestVideos', 'sublatestVideos', 'galleries', 'sponsorships', 'klasemens', 'lastMatch', 'previousResults'));
     }
 
     public function blog()
@@ -52,7 +64,7 @@ class HomeController extends Controller
         return view('pages.frontend.blog.blog',[
             'latest_post' => Article::latest()->first(),
             'articles' => Article::with('Category')->whereStatus (1)->latest()->simplePaginate(5),
-            'sponsorships' => Sponsorhip::take(6)->orderBy('created_at', 'asc')->get(),
+            'sponsorships' => Sponsorship::take(6)->orderBy('created_at', 'asc')->get(),
         ]);
     }
 
@@ -67,25 +79,25 @@ class HomeController extends Controller
 
     public function competition(Request $request)
     {
-        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
 
         return view('pages.frontend.competition.competition', compact('sponsorships'));
     }
     public function contact(Request $request)
     {
-        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
         return view('pages.frontend.contact.contact', compact('sponsorships'));
     }
     public function gallery(Request $request)
     {
         $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
-        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
 
         return view('pages.frontend.gallery.gallery', compact('galleries', 'sponsorships'));
     }
     public function klasmen(Request $request)
     {
-        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
         // Ambil data klasemen dari model Klasemen
         // $klasemens = Klasemen::orderBy('group')->orderBy('rank')->get();
         $klasemens = Klasemen::orderBy('group')
@@ -99,7 +111,7 @@ class HomeController extends Controller
     public function about(Request $request)
     {
         $testimonials = Testimonial::all();
-        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
         $galleries = Gallery::take(12)->orderBy('created_at', 'asc')->get();
         $timelines = Timeline::take(5)->orderBy('created_at', 'asc')->get();
       
@@ -107,13 +119,16 @@ class HomeController extends Controller
     }  
     public function result(Request $request)
     {
-        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        // Mengambil semua hasil pertandingan
+        $results = Result::all();
 
-        return view('pages.frontend.result.result', compact('sponsorships'));
+        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
+
+        return view('pages.frontend.result.result', compact('results', 'sponsorships'));
     }
     public function result_single(Request $request)
     {
-        $sponsorships = Sponsorhip::take(6)->orderBy('created_at', 'asc')->get();
+        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
         return view('pages.frontend.result.result-single', compact('sponsorships'));
     }
     public function team(Request $request)
