@@ -46,6 +46,11 @@
         					</th>
         				</tr>
     					<tr>
+    						<td><span class="stats1">5</span></td>
+    						<td><span class="stat-title">Penalty</span></td>
+    						<td><span class="stats2">4</span></td>
+    					</tr>
+    					<tr>
     						<td><span class="stats1">63.9%</span></td>
     						<td><span class="stat-title">Ball Possession</span></td>
     						<td><span class="stats2">36.1%</span></td>
