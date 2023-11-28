@@ -1,134 +1,174 @@
 @extends('layouts.admin')
+
+@section('title', 'Klasemens | PGFC Admin')
+@push('addon-style')
+    <!-- Datatables css -->
+    <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/css/responsive.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/css/fixedColumns.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-fixedheader-bs5/css/fixedHeader.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}"
+        rel="stylesheet" type="text/css" />
+    <link href="{{ url('backend/assets/vendor/datatables.net-select-bs5/css/select.bootstrap5.min.css') }}" rel="stylesheet"
+        type="text/css" />
+@endpush
+
 @section('content')
-   <!-- start page title -->
+    <!-- ============================================================== -->
+    <!-- Start Page Content here -->
+    <!-- ============================================================== -->
 
-   
-<div class="content-page">
-    <div class="content">
+    <div class="content-page">
+        <div class="content">
 
-        <!-- Start Content-->
-        <div class="container-fluid">
+            <!-- Start Content-->
+            <div class="container-fluid">
 
-            <!-- start page title -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box">
-                        <div class="page-title-right">
-                            <ol class="breadcrumb m-0">
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Data Jadwal</a></li>
-                                <li class="breadcrumb-item"><a href="javascript: void(0);">Detail Data Jadwal</a></li>
-                            </ol>
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box">
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Jadwal</a>
+                                    </li>
+                                </ol>
+                            </div>
+                            <h4 class="page-title">Jadwal </h4>
                         </div>
-                        {{-- <h4 class="page-title">Welcome {{ Auth::user()->name }}!</h4> --}}
-                        <h4 class="page-title">Welcome Admin!</h4>
                     </div>
                 </div>
-            </div>
-            <!-- end page title -->
+                <!-- end page title -->
 
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    {{-- <a type="button" class="btn btn-success"  href="{{route('CetakDataSekolah')}}"  target="_blank">Print Pdf</a>
-                                    <a type="button" class="btn btn-warning" href="{{route('DataSekolahExport')}}" >Unduh excel</a> --}}
-        
-        
-                                        <a type="button" href="{{route('Jadwal.create')}}" class="btn btn-primary" style="margin-bottom: 10px;">
-                                            <i class="ri-add-circle-line text-ligth"  > Add Data </i>
+                {{-- Konten --}}
+                @if (session('success'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Success!</strong> {{ session('success') }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="table-responsive">
+                                <div class="card-body">
+                                    <table id="fixed-columns-datatable"
+                                        class="table table-striped nowrap row-border order-column w-100">
+                                        <a href="{{ route('Jadwal.create') }}" class="btn btn-primary mb-2">
+                                            <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
                                         </a>
-        
-                                        <br>
-                                        {{-- <a type="button" class="btn btn-success"  href="{{route('Data-Sekolah.CetakDataSekolah')}}"  target="_blank">Print Pdf</a>
-                                        <a type="button" class="btn btn-warning" href="" >Unduh excel</a> --}}
-        
-                                        <a type="button" style="margin-bottom: 5px;" class="btn btn-success btn-sm tooltips" href="" target="_blank">
-                                            <i class="ri-file-pdf-fill me-1"></i>
-                                        </a>
-                                        <a type="button" style="margin-bottom: 5px;" class="btn btn-warning btn-sm tooltips" href="">
-                                            <i class="ri-file-excel-fill me-1"></i> 
-                                        </a>
-            
+
+                                        @php
+                                            $currentGroup = null;
+                                            
+                                        @endphp
+
+                                        @foreach ($detailjadwal as $Datas)
+                                            @if ($Datas->group !== $currentGroup)
+                                                @if (!is_null($currentGroup))
+                                                    </tbody>
+                                    </table>
+                                    @endif
+
+                                    <h3>Group {{ $Datas->group }}</h3>
+                                    <table id="fixed-columns-datatable"
+                                        class="table table-striped nowrap row-border order-column w-100">
+                                        <thead>
+                                            <tr class="text-center">
+                                               <th>Tim</th>
+                                               <th>Tim</th>
+                                                <th>tanggal</th>
+                                                <th>mulai</th>
+                                                <th>selesai</th>
+                                                <th>status</th>
+                                                <th>skor</th>
+                                                <th>Action</th>
+                                              
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                       
+                                            @endif
+
+                                            <tr class="text-center">
+                                                <!-- Tampilkan peringkat secara otomatis -->
+                                            <td>{{ $Datas->tim }}</td>
+                                            <td>{{ $Datas->tim2 }}</td>
+                                                <td>{{ $Datas->tanggal }}</td>
+                                                <td>{{ $Datas->mulai }}</td>
+                                                <td>{{ $Datas->selesai }}</td>
+                                                <td>{{ $Datas->status }}</td>
+                                                <td>{{ $Datas->skor }}</td>
+                                               
+                                              
+
+                                                <!-- Tambahkan tombol Detail/Show -->
+                                                <td>
+                                                    {{-- <a href="{{ route('group-klasemens.show', $klasemen->id) }}"
+                                                        class="btn btn-info">
+                                                        <i class="ri-eye-line text-light"></i>
+                                                    </a> --}}
+                                                    <a href="{{ route('Jadwal.edit', $Datas->id) }}"
+                                                        class="btn btn-warning">
+                                                        <i class="ri-pencil-line text-light"></i>
+                                                    </a>
+                                                    <form action="{{ route('Jadwal.destroy', $Datas->id) }}"
+                                                        method="POST" class="d-inline">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button class="btn btn-danger" type="submit"
+                                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                                            <i class="ri-delete-bin-line text-light"></i>
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+
+                                            @php
+                                                $currentGroup = $Datas->group;
+                                            @endphp
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
                                 </div>
-                                
-                               
-                            </div>
-                            <br>
-                            
-                            <div class="responsive-table-plugin">
-                            
-                                <div class="table-rep-plugin">
-                                    <div class="table-responsive" data-pattern="priority-columns">
-                                        <table id="tech-companies-1" class="table table-striped dt-responsive nowrap w-100"">
-                                            <thead>
-                                                <tr>
-                                                    <th>Id</th>
-                                                    <th data-priority="1">tanggal</th>
-                                                    <th data-priority="3">mulai</th>
-                                                    <th data-priority="1">Selesai</th>
-                                                   <th data-priority="1">status</th>
-                                                   <th data-priority="1">Action</th>
-                                                  
-        
-        
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($detailjadwal->sortBy('id') as $Data)
-                                                    <tr>
-        
-                                                        <th><span class="co-name">{{ $Data->id }}</span></th>
-                                                        <td>{{ $Data->tanggal }}</td>
-                                                        <td>{{ $Data->mulai }}</td>
-                                                        <td>{{ $Data->selesai }}</td>
-                                                        <td>{{ $Data->status }}</td>
-                                                        <td>{{ $Data->id_grub }}</td>
-                                                        <td>
-                                                            <div class="dropdown">
-                                                                <button class="btn btn-outline-success dropdown-toggle" type="button"
-                                                                    id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                                    aria-haspopup="true" aria-expanded="false">
-                                                                    Action
-                                                                </button>
-                                                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                                    {{-- <a class="dropdown-item" href="{{ route('Jadwal.edit', ['id' => $Data->id]) }}">Edit</a> --}}
-                                                                    <form action="{{ route('Jadwal.edit', $Data->id) }}" method="GET" class="d-inline">
-                                                                        @csrf
-                                                                        @method('POST')
-                                                                        <button type="submit" class="btn btn-danger">
-                                                                            <i class="bi bi-pencil text-light"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                    
-                                                                    <form action="{{ route('Jadwal.destroy', $Data->id) }}"
-                                                                        method="POST" class="d-inline">
-                                                                        @csrf
-                                                                        @method('delete')
-                                                                        <button class="btn btn-warning"
-                                                                            onclick="return confirm('Yakin ingin menghapus data?')">
-                                                                            <i class="ri-delete-bin-line text-light"></i>
-                                                                        </button>
-                                                                    </form>
-                                                                </div>
-                                                        </td>
-                                                       
-                                                    </tr>
-                                                @endforeach
-        
-                                            </tbody>
-                                        </table>
-                                        
-                                    </div> <!-- end .table-responsive -->
-        
-                                </div> <!-- end .table-rep-plugin-->
-                            </div> <!-- end .responsive-table-plugin-->
-                        </div>
-                    </div> <!-- end card -->
-                </div> <!-- end col -->
+                            </div> <!-- end card body-->
+                        </div> <!-- end card -->
+                    </div><!-- end col-->
+                </div> <!-- end row-->
+                {{-- End Konten --}}
             </div>
-         
-@endsection
+            <!-- container -->
+        </div>
+        <!-- content -->
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+    @endsection
+    @push('addon-script')
+        <!-- Datatables js -->
+        <script src="{{ url('backend/assets/vendor/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}">
+        </script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-fixedcolumns-bs5/js/fixedColumns.bootstrap5.min.js') }}">
+        </script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.flash.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-keytable/js/dataTables.keyTable.min.js') }}"></script>
+        <script src="{{ url('backend/assets/vendor/datatables.net-select/js/dataTables.select.min.js') }}"></script>
 
+        <!-- Datatable Demo App js -->
+        <script src="{{ url('backend/assets/js/pages/datatable.init.js') }}"></script>
+    @endpush
