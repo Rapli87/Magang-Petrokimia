@@ -22,12 +22,9 @@ class JadwalRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'grup' => 'required|max:255',
+            'group' => 'required|max:255',
             'tanggal' => 'required|date',
-            'mulai' => 'required|date_format:H:i',
-            'selesai' => 'required|date_format:H:i',
-            'status' => 'required|max:255',
-            'skor' => 'required|max:255',
+           
         ];
     }
 }

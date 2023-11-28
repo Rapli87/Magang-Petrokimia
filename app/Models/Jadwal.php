@@ -12,12 +12,12 @@ class Jadwal extends Model
     protected $table = 'jadwals';
 protected $fillable = [
         'id',
-        'grub',
+        'group',
         'id_grub',
         'grup_id',
         'id_jadwal',
-        'id_tim',
-        'id_tim2',
+        'tim',
+        'tim2',
         'tanggal',
         'mulai',
         'selesai',
@@ -30,7 +30,7 @@ protected $fillable = [
         
     ];
 
-    public function grub()
+    public function group()
     {
         return $this->hasMany(Grub::class, 'id', 'grup_id');
        
@@ -39,6 +39,11 @@ protected $fillable = [
     public function pemain()
     {
         return $this->hasMany(Pemain::class, 'pj_sekolah_id', 'id');
+    }
+
+    public function sekolah()
+    {
+        return $this->belongsTo(DataSekolah::class, 'id_sekolah', 'id');
     }
 
     

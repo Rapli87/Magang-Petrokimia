@@ -50,9 +50,9 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <div class="mb-3">
-                                        <label for="grup" class="form-label">Grup</label>
-                                        <input type="text" class="form-control @error('grup') is-invalid @enderror" name="grup" placeholder="Grub" value="{{ old('grup') }}">
-                                        @error('grup')
+                                        <label for="group" class="form-label">Grup</label>
+                                        <input type="text" class="form-control @error('group') is-invalid @enderror" name="group" placeholder="Grub" value="{{ old('group') }}">
+                                        @error('group')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -111,6 +111,40 @@
                                             {{ $message }}
                                         </div>
                                     @enderror
+
+                                    <div class="mb-3">
+                                        <label for="tim" class="form-label">tim</label>
+                                        <select class="form-select @error('tim') is-invalid @enderror" id="tim" name="tim">
+                                            <option value="">Pilih Sekolah</option>
+                                            @foreach ($sekolahs as $sekolah)
+                                                <option value="{{ $sekolah->Nama_Sekolah }}">{{ $sekolah->Nama_Sekolah }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('tim')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tim2" class="form-label">tim</label>
+                                        <select class="form-select @error('tim2') is-invalid @enderror" id="tim2" name="tim2">
+                                            <option value="">Pilih Sekolah</option>
+                                            @foreach ($sekolahs as $sekolah)
+                                                <option value="{{ $sekolah->Nama_Sekolah }}">{{ $sekolah->Nama_Sekolah }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('tim2')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                    
+                                    
+
+                                 
                                     {{-- <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>
                                         <textarea class="form-control" name="description" placeholder="Description">{{ $item->description }}</textarea>
