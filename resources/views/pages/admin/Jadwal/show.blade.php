@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Klasemens | PGFC Admin')
+@section('title', 'Jadwal | PGFC Admin')
 @push('addon-style')
     <!-- Datatables css -->
     <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"

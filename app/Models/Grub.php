@@ -22,6 +22,7 @@ class Grub extends Model
         'peringkat',
         'grup',
         'id_sekolah',
+        'id_klasemen',
         'id_user',
     ];
 
@@ -32,5 +33,15 @@ class Grub extends Model
 
        
     }
+
+  // Grub.php
+
+public function klasemen()
+{
+    return $this->belongsTo(Klasemen::class, 'id_klasemen', 'id');
+}
+
+
+  
 
 }
