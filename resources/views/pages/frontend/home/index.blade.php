@@ -263,7 +263,7 @@
                 <!-- Di dalam loop -->
                 @foreach ($klasemens->groupBy('group') as $group => $klasemenGroup)
                     <div class="col-md-4">
-                        <h3 class="title-bg">Klasmen Group {{ $group }}</h3>
+                        <h3 class="title-bg">Klasemen Group {{ $group }}</h3>
                         <div class="point-list text-center">
                             <table class="point-table">
                                 <tbody>
@@ -292,7 +292,7 @@
                                     <!-- Akhir dari loop klasemenGroup -->
                                 </tbody>
                             </table>
-                            <a class="view-more text-left" href="{{ route('pages.klasmen') }}">View More <i
+                            <a class="view-more text-left" href="{{ route('pages.klasemen') }}">View More <i
                                     class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                         </div>
                     </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Competition;
 use App\Models\Gallery;
 use App\Models\LatestVideo;
 use App\Models\SubLatestVideo;
@@ -81,21 +82,33 @@ class HomeController extends Controller
     {
         $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
 
-        return view('pages.frontend.competition.competition', compact('sponsorships'));
+        // Ambil data klasemen dari model Klasemen
+        $klasemenData = Klasemen::orderBy('group')->get();
+
+        // Kelompokkan data klasemen berdasarkan grup
+        $groupedKlasemen = $klasemenData->groupBy('group');
+
+        // Ambil data pertandingan dari model Competition
+        $competitions = Competition::orderBy('match_number')->get();
+
+        // Kelompokkan data kompetisi berdasarkan round
+        $groupedCompetitions = $competitions->groupBy('round');
+
+        return view('pages.frontend.competition.competition', compact('sponsorships', 'groupedKlasemen', 'competitions', 'groupedCompetitions'));
     }
     public function contact(Request $request)
     {
         $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
         return view('pages.frontend.contact.contact', compact('sponsorships'));
     }
-    public function gallery(Request $request)
-    {
-        $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
-        $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
+    // public function gallery(Request $request)
+    // {
+    //     $galleries = Gallery::take(6)->orderBy('created_at', 'asc')->get();
+    //     $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
 
-        return view('pages.frontend.gallery.gallery', compact('galleries', 'sponsorships'));
-    }
-    public function klasmen(Request $request)
+    //     return view('pages.frontend.gallery.gallery', compact('galleries', 'sponsorships'));
+    // }
+    public function klasemen(Request $request)
     {
         $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
         // Ambil data klasemen dari model Klasemen
@@ -106,7 +119,7 @@ class HomeController extends Controller
         ->orderBy('goals_for', 'desc')
         ->get();
         
-        return view('pages.frontend.klasmen.klasmen', compact('sponsorships', 'klasemens'));
+        return view('pages.frontend.klasemen.klasemen', compact('sponsorships', 'klasemens'));
     }
     public function about(Request $request)
     {
