@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Klasmen')
+@section('title', 'Klasemen')
 
 @section('content')
 
@@ -10,12 +10,12 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        <h1 class="page-title">Klasmen</h1>
+                        <h1 class="page-title">Klasemen</h1>
                         <ul>
                             <li>
                                 <a class="active" href="{{ route('index') }}">Home</a>
                             </li>
-                            <li>Klasmen</li>
+                            <li>Klasemen</li>
                         </ul>
                     </div>
                 </div>

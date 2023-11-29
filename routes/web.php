@@ -5,12 +5,13 @@ use App\Http\Controllers\Admin\{
     ArticleController,
     BaganChampionshipController,
     CategoryController,
+    CompetitionController,
     DataSekolahController,
     DashboardController,
     DetailBaganController,
     DetailJadwalController,
     DetailPemainController,
-    GalleryController,
+    // GalleryController,
     GrubController,
     JadwalController,
     KlasemenController,
@@ -75,12 +76,12 @@ Route::get('contact', [HomeController::class, 'contact'])
     ->name('pages.contact');
 Route::get('details-club', [HomeController::class, 'details_club'])
     ->name('pages.details-club');
-Route::get('gallery', [HomeController::class, 'gallery'])
-    ->name('pages.gallery');
+// Route::get('gallery', [HomeController::class, 'gallery'])
+//     ->name('pages.gallery');
 Route::get('about', [HomeController::class, 'about'])
     ->name('pages.about');
-Route::get('klasmen', [HomeController::class, 'klasmen'])
-    ->name('pages.klasmen');
+Route::get('klasemen', [HomeController::class, 'klasemen'])
+    ->name('pages.klasemen');
 Route::get('result', [HomeController::class, 'result'])
     ->name('pages.result');
 Route::get('result-single', [HomeController::class, 'result_single'])
@@ -121,6 +122,7 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::resource('admin/timelines', TimelineController::class)-> middleware('UserAccess:1');
     Route::resource('admin/group-klasemens', KlasemenController::class)-> middleware('UserAccess:1');
     Route::resource('admin/results', ResultController::class)->middleware('UserAccess:1');
+    Route::resource('admin/competitions', CompetitionController::class)->middleware('UserAccess:1');
     
   
 

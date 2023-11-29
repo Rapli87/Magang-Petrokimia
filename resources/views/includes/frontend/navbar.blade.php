@@ -84,36 +84,33 @@
                                 <li>
                                     <a href="{{ route('pages.about') }}">About</a>
                                 </li>
+                                <li>
+                                    <a href="{{ route('pages.competition') }}">Competition</a>
+                                </li>
                                 {{-- <li>
                                     <a href="{{ route('pages.details-club') }}">Details Club</a>
                                 </li> --}}
                                 <!-- Drop Down -->
 
-                                <li class="menu-item-has-children">
+                                {{-- <li class="menu-item-has-children">
                                     <a href="#">Pages</a>
                                     <ul class="sub-menu">
-                                        {{-- <li><a href="{{ route('pages.about') }}">About</a></li> --}}
                                         <li><a href="{{ route('pages.competition') }}">Competition</a></li>
-                                        {{-- <li class="menu-item-has-children"><a href="#">Team</a>
-                                            <ul class="sub-menu">
-                                                <li><a href="{{ route('pages.team') }}">Team</a></li>
-                                                <li><a href="{{ route('pages.team-single') }}">Team Single</a></li>
-                                            </ul>
-                                        </li> --}}
                                         <li><a href="{{ route('pages.gallery') }}">Gallery</a>
                                         </li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 <!--End Icons -->
 
-                                <li><a href="{{ route('pages.klasmen') }}">Klasmen</a></li>
+                                <li><a href="{{ route('pages.klasemen') }}">Klasemen</a></li>
 
-                                <li class="menu-item-has-children"><a href="{{ route('pages.result') }}">Result</a>
+                                {{-- <li class="menu-item-has-children"><a href="{{ route('pages.result') }}">Result</a>
                                     <ul class="sub-menu">
                                         <li><a href="{{ route('pages.result') }}">Result</a></li>
                                         <li><a href="{{ route('pages.result-single') }}">Result Single</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
+                                <li><a href="{{ route('pages.result') }}">Result</a></li>
 
                                 <li><a href="{{ route('pages.blog') }}">Blog</a></li>
                                 {{-- <li class="menu-item-has-children">
