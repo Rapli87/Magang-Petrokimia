@@ -11,6 +11,7 @@ class Klasemen extends Model
     protected $table = "klasemens";
     protected $fillable = [
         'group',
+        'id_klasemen',
         'rank',
         'team_name',
         'played',

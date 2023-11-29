@@ -5,16 +5,29 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BaganKlasemenRequest;
 use App\Models\Grub;
+use App\Models\Klasemen;
 use Illuminate\Http\Request;
 
 class BaganChampionshipController extends Controller
 {
-    public function index()
-    {
+    // public function index()
+    // {
 
-        $bagan = Grub::all();
-        return view('pages.admin.Bagan-Championship.index',['bagan'=> $bagan]);
+    //     $bagan = Grub::all();
+    //     return view('pages.admin.Bagan-Championship.index',['bagan'=> $bagan]);
+    // }
+
+    public function index()
+{
+    $bagan = Grub::with('klasemen')->get();
+
+    if ($bagan->isEmpty()) {
+        return view('pages.admin.Bagan-Championship.index', ['bagan' => null, 'message' => 'Group not found']);
     }
+
+    return view('pages.admin.Bagan-Championship.index', ['bagan' => $bagan]);
+}
+
 
     public function show()
     {
@@ -25,8 +38,10 @@ class BaganChampionshipController extends Controller
 
 
     public function create()
+
     {
-        return view('pages.admin.Bagan-championship.create');
+        $klasmen = Klasemen::all();
+        return view('pages.admin.Bagan-championship.create', compact('klasmen'));
     }
 
     /**
@@ -34,13 +49,19 @@ class BaganChampionshipController extends Controller
      */
     public function store(BaganKlasemenRequest $request)
     {
-        $data = $request->all();
-     
+        $data = grub::where('grup',$request->grup)
+        ->orderBy('tim')
+        ->max('peringkat');
+      
 
-        grub::create($data);
+        grub::create([
+            'grup' => $request->grup,
+            'tim' => $request->tim,
+            'peringkat'=>$data,
+        ]);
 
-
-        return redirect()->route('Bagan-Championship.index')->with('success', 'Upcoming Match successfully created');
+         
+        return redirect()->route('Bagan-Championship.index')->with('success', ' Bagan Championship successfully created');
     }
 
     

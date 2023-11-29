@@ -58,98 +58,37 @@
                                         @enderror
                                     </div> --}}
 
-                                    <div class="mb-3">
-                                        <label for="grup" class="form-label">Grup</label>
-                                        <input type="text" class="form-control @error('grup') is-invalid @enderror" name="grup" placeholder="grup" value="{{ old('grup') }}">
-                                        @error('grup')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    
+                                 <!-- create.blade.php -->
+                                 <div class="mb-3">
+                                    <label for="grup" class="form-label">Grup</label>
+                                    <select class="form-select @error('grup') is-invalid @enderror" id="grup" name="grup">
+                                        <option value="">Pilih Grup</option>
+                                        @foreach ($klasmen as $sekolah)
+                                            <option value="{{ $sekolah->group }}">{{ $sekolah->group }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('grup')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
 
-                                    <div class="mb-3">
-                                        <label for="tim" class="form-label">Tim</label>
-                                        <input type="text" class="form-control @error('tim') is-invalid @enderror" name="tim" placeholder="tim" value="{{ old('tim') }}">
-                                        @error('tim')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    
-                                    
-                                    <div class="mb-3">
-                                        <label for="main" class="form-label">main</label>
-                                        <input type="text" class="form-control @error('main') is-invalid @enderror"
-                                            name="main" placeholder="main" value="{{ old('main') }}">
-                                        @error('main')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="menang" class="form-label">menang</label>
-                                        <input type="text" class="form-control @error('menang') is-invalid @enderror"
-                                            name="menang" placeholder="menang" value="{{ old('menang') }}">
-                                        @error('menang')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="kalah" class="form-label">Kalah</label>
-                                        <input type="text" class="form-control @error('kalah') is-invalid @enderror"
-                                            name="kalah" placeholder="kalah" value="{{ old('kalah') }}">
-                                        @error('kalah')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="seri" class="form-label">seri</label>
-                                        <input type="text"
-                                            class="form-control @error('seri') is-invalid @enderror"
-                                            name="seri" placeholder="seri" value="{{ old('seri') }}">
-                                        @error('seri')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="poin" class="form-label">poin</label>
-                                        <input type="text"
-                                            class="form-control @error('poin') is-invalid @enderror"
-                                            name="poin">
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="selisih" class="form-label">selisih</label>
-                                        <input type="text" class="form-control @error('selisih') is-invalid @enderror"
-                                            name="selisih" placeholder="selisih" value="{{ old('selisih') }}">
-                                        @error('selisih')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-
-                                    <div class="mb-3">
-                                        <label for="peringkat" class="form-label">peringkat</label>
-                                        <input type="text" class="form-control @error('peringkat') is-invalid @enderror"
-                                            name="peringkat" placeholder="peringkat" value="{{ old('peringkat') }}">
-                                        @error('peringkat')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                             
+                                <div class="mb-3">
+                                    <label for="tim" class="form-label">tim</label>
+                                    <select class="form-select @error('tim') is-invalid @enderror" id="tim" name="tim">
+                                        <option value="">Pilih Sekolah</option>
+                                        @foreach ($klasmen as $sekolah)
+                                            <option value="{{ $sekolah->team_name }}">{{ $sekolah->team_name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('tim')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                                                       
                                 
                                     {{-- <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>

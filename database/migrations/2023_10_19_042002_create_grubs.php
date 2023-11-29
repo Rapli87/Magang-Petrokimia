@@ -14,16 +14,17 @@ return new class extends Migration
         Schema::create('grubs', function (Blueprint $table) {
             $table->id();
             $table->string('tim');
-            $table->string('main');
-            $table->string('menang');
-            $table->string('kalah');
-            $table->string('seri');
-            $table->string('poin');
+            $table->string('main')->nullable();
+            $table->string('menang')->nullable();
+            $table->string('kalah')->nullable();
+            $table->string('seri')->nullable();
+            $table->string('poin')->nullable();
             $table->string('gol')->nullable();
             $table->string('gol_k')->nullable();
-            $table->string('selisih');
-            $table->string('peringkat');
+            $table->string('selisih')->nullable();
+            $table->string('peringkat')->nullable();
             $table->string('grup');
+            $table->string('id_klasemen')->nullable();
             $table->string('id_sekolah')->nullable();
             $table->string('id_user')->nullable();
             $table->string('id_lomba')->nullable();
