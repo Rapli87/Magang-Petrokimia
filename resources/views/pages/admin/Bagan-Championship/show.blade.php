@@ -1,432 +1,1143 @@
-{{-- @extends('layouts.vertical', ['title' => 'Data Sekolah', 'mode' => $mode ?? '', 'demo' => $demo ?? '']) --}}
-
-{{-- @section('css')
-    @vite(['node_modules/admin-resources/rwd-table/rwd-table.min.css'])
-@endsection --}}
 @extends('layouts.admin')
 @section('content')
-    {{-- @include('layouts.shared/page-title', ['page_title' => 'Data Sekolah', 'sub_title' => 'Tables']) --}}
-    <div class="content-page">
-        <div class="content">
 
-            <!-- Start Content-->
-            <div class="container-fluid">
+<div class="content-page">
+    <div class="content">
 
-                <!-- start page title -->
-                <div class="row">
-                    <div class="col-12">
-                        <div class="page-title-box">
-                            <div class="page-title-right">
-                                <ol class="breadcrumb m-0">
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Detail Bagan Championship</a>
-                                    </li>
-                                </ol>
-                            </div>
-                            <h4 class="page-title">Detail Bagan Championship</h4>
+        <!-- Start Content-->
+        <div class="container-fluid">
+
+            <!-- start page title -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="page-title-box">
+                        <div class="page-title-right">
+                            <ol class="breadcrumb m-0">
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
+                                <li class="breadcrumb-item"><a href="javascript: void(0);">Bagan Championship</a>
+                                </li>
+                            </ol>
                         </div>
+                        <h4 class="page-title">Bagan Championship</h4>
                     </div>
                 </div>
+            </div>
+   
     <div class="row">
         <div class="col-12">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body">   
                     <div class="row">
                         <div class="col-md-6">
-                            {{-- <a type="button" class="btn btn-success"  href="{{route('CetakDataSekolah')}}"  target="_blank">Print Pdf</a>
-                            <a type="button" class="btn btn-warning" href="{{route('DataSekolahExport')}}" >Unduh excel</a> --}}
-
-
-                                <a type="button" href="{{ route('Bagan-Championship.create') }}" class="btn btn-primary" style="margin-bottom: 10px;">
-                                    <i class="ri-add-circle-line text-ligth"> Add Data </i>
-                                </a>
-
-                             
-
-                                <br>
-                                {{-- <a type="button" class="btn btn-success"  href="{{route('Data-Sekolah.CetakDataSekolah')}}"  target="_blank">Print Pdf</a>
-                                <a type="button" class="btn btn-warning" href="" >Unduh excel</a> --}}
-
-                                <a type="button" style="margin-bottom: 5px;" class="btn btn-success btn-sm tooltips" href="" target="_blank">
-                                    <i class="ri-file-pdf-fill me-1"></i>
-                                </a>
-                                <a type="button" style="margin-bottom: 5px;" class="btn btn-warning btn-sm tooltips" href="">
-                                    <i class="ri-file-excel-fill me-1"></i> 
-                                </a>
-    
-                        </div>
+                   
                         
+                    </br>
+
+                            <form class="d-flex">
+                                <input class="form-control me-1 text-black" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-success" type="submit">Search</button>
+                              </form>
+                         
+
+
+                        </div>
                        
                     </div>
                     <br>
-                    
-                    <div class="responsive-table-plugin">
-                    
-                        <div class="table-rep-plugin">
-                            <div class="table-responsive" data-pattern="priority-columns">
-                                <table id="tech-companies-1" class="table table-striped dt-responsive nowrap w-100"">
-                                    <thead>
-                                        <tr>
-                                          
-                                            <th data-priority="1">tim</th>
-                                            <th data-priority="3">main</th>
-                                            <th data-priority="1">tanggal</th>
-                                            <th data-priority="3">poin</th>
-                                            <th data-priority="3">Selisih</th>
-                                            <th data-priority="6">Action</th>
-
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($bagan->sortBy('main') as $Data)
-                                            <tr>
-
-                                                <th>{{ $Data->tim }}</td>
-                                                <td>{{ $Data->main }}</td>
-                                                <td>{{ $Data->tanggal }}</td>
-                                                <td>{{ $Data->poin }}</td>
-                                                <td>{{ $Data->selisih }}</td>
-                                             
-                                                {{-- <td>{{ $Data->Logo }}</td> --}}
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-outline-success dropdown-toggle" type="button"
-                                                            id="dropdownMenuButton" data-bs-toggle="dropdown"
-                                                            aria-haspopup="true" aria-expanded="false">
-                                                            Action
-                                                        </button>
-                                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                            {{-- <a class="dropdown-item" href="{{ route('Jadwal.edit', ['id' => $Data->id]) }}">Edit</a> --}}
-                                                            <form action="{{ route('Bagan-Championship.edit', $Data->id) }}" method="GET" class="d-inline">
-                                                                @csrf
-                                                                @method('POST')
-                                                                <button type="submit" class="btn btn-danger">
-                                                                    <i class="bi bi-pencil text-light"></i>
-                                                                </button>
-                                                            </form>
+                    <div class="text-center mb-4">
+                        <a href="" class="btn btn-primary w-lg">16 Besar</a>
+                    </div>
+                    <div class="timeline" dir="ltr">
+                        <article class="timeline-item alt">
+                            <div class="text-end">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box border-bottom">
+                                                        <span class="arrow-alt"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group  A</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-06</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                           
                                                             
-                                                            <form action="{{ route('Bagan-Championship.destroy', $Data->id) }}"
-                                                                method="POST" class="d-inline">
-                                                                @csrf
-                                                                @method('delete')
-                                                                <button class="btn btn-warning"
-                                                                    onclick="return confirm('Yakin ingin menghapus data?')">
-                                                                    <i class="ri-delete-bin-line text-light"></i>
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                                                
+                                                                @if (!is_null($bagan) && count($bagan) > 0)
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                    @if ($data->grup == 'A') <!-- Ganti NamaGrup dengan nama grup yang Anda cari -->
+                                                                        <tr>
+                                                                            <td class="text-center"><a>{{ $data->tim }}</a></td>
+                                                                            {{-- Add more columns as needed --}}
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
+                                                            @else
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">Data not found</td>
+                                                                </tr>
+                                                            @endif
+                                                            
+                                                            @if (isset($message))
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">{{ $message }}</td>
+                                                                </tr>
+                                                            @endif
+                                                                          
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box">
+                                                        <span class="arrow"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group B</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-06</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                             
+                                                                @if (!is_null($bagan) && count($bagan) > 0)
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                    @if ($data->grup == 'B') <!-- Ganti NamaGrup dengan nama grup yang Anda cari -->
+                                                                        <tr>
+                                                                            <td class="text-center"><a>{{ $data->tim }}</a></td>
+                                                                            {{-- Add more columns as needed --}}
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
+                                                            @else
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">Data not found</td>
+                                                                </tr>
+                                                            @endif
+                                                            
+                                                            @if (isset($message))
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">{{ $message }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            
+                                                            </tbody>
+                                                          </table>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
 
-                                    </tbody>
-                                </table>
-                                
-                            </div> <!-- end .table-responsive -->
 
-                        </div> <!-- end .table-rep-plugin-->
-                    </div> <!-- end .responsive-table-plugin-->
+                            
+                        
+                    </div>
+
+
+
+
+
+
+
+
+
+
+                    <!-- end timeline -->
+
+                    <div class="timeline" dir="ltr">
+                        <article class="timeline-item alt">
+                            <div class="text-end">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box border-bottom">
+                                                        <span class="arrow-alt"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group C</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-10-25</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                             
+                                                                @if (!is_null($bagan) && count($bagan) > 0)
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                    @if ($data->grup == 'C') <!-- Ganti NamaGrup dengan nama grup yang Anda cari -->
+                                                                        <tr>
+                                                                            <td class="text-center"><a>{{ $data->tim }}</a></td>
+                                                                            {{-- Add more columns as needed --}}
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
+                                                            @else
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">Data not found</td>
+                                                                </tr>
+                                                            @endif
+                                                            
+                                                            @if (isset($message))
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">{{ $message }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box">
+                                                        <span class="arrow"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group D</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-10-25</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                               
+                                                                @if (!is_null($bagan) && count($bagan) > 0)
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                    @if ($data->grup == 'D') <!-- Ganti NamaGrup dengan nama grup yang Anda cari -->
+                                                                        <tr>
+                                                                            <td class="text-center"><a>{{ $data->tim }}</a></td>
+                                                                            {{-- Add more columns as needed --}}
+                                                                        </tr>
+                                                                    @endif
+                                                                @endforeach
+                                                            @else
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">Data not found</td>
+                                                                </tr>
+                                                            @endif
+                                                            
+                                                            @if (isset($message))
+                                                                <tr>
+                                                                    <td colspan="4" class="text-center">{{ $message }}</td>
+                                                                </tr>
+                                                            @endif
+                                                            
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            
+                        
+                    </div>
                 </div>
-            </div> <!-- end card -->
-        </div> <!-- end col -->
-    </div>
-    <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <form id="editForm">
-            @csrf
-            @method('PUT')
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Edit Data Sekolah</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <!-- end card -->
         </div>
-        <div class="modal-body">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="card">
-                        <div class="card-header">
-                        </div>
-                        <div class="card-body">
-                               <input type="hidden" id="id" name="id">
-                                <div class="mb-9">
-                                    <label class="form-label" for="Nama_Sekolah">Nama Sekolah</label>
-                                    <input type="text" class="form-control" id="Nama_Sekolah"
-                                        placeholder="Masukkan Nama Sekolah Anda" required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
-                                </div>
-                                <div class="mb-9">
-                                    <label class="form-label" for="Telp">Telepon</label>
-                                    <input type="text" class="form-control" id="Telp"
-                                        placeholder="Masukkan Nomer Telepon Anda"  required>
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
-                                </div>
-                                <div class="mb-9">
-                                    <label class="form-label" for="Fax">Fax</label>
-                                    <input type="text" class="form-control" id="Fax"
-                                    placeholder="Masukkan Fax"  required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                   
-                                </div>
-                                <div class="mb-9">
-                                    <label class="form-label" for="Email">Email</label>
-                                    <input type="text" class="form-control" id="Email"
-                                        placeholder="Masukkan Email Anda" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid city.
-                                    </div>
-                                </div>
-                                <div class="mb-9">
-                                    <label class="form-label" for="password">Password</label>
-                                    <input type="text" class="form-control" id="password"
-                                        placeholder="Masukkan password" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid password.
-                                    </div>
-                                </div>
-
-                                <div class="mb-9">
-                                    <label class="form-label" for="Tanggal_update">Tanggal update</label>
-                                    <input type="text" class="form-control" id="Tanggal_update"
-                                     required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid password.
-                                    </div>
-                                </div>
-                                <div class="mb-9">
-                                    <label class="form-label" for="Logo">Logo</label>
-                                    <input type="text" class="form-control" id="Logo"
-                                        placeholder="Logo" required>
-                                    <div class="invalid-feedback">
-                                        Please provide a valid logo.
-                                    </div>
-                                </div>
-                                <div class="mb-9">
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="invalidCheck"
-                                            required>
-                                        <label class="form-check-label form-label" for="invalidCheck">Agree to
-                                            terms and conditions</label>
-                                        <div class="invalid-feedback">
-                                            You must agree before submitting.
-                                        </div>
-                                    </div>
-                                </div>
-                        </div> <!-- end card-body-->
-                    </div> <!-- end card-->
-                </div> <!-- end col-->
-        
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="submitFormBtn">Save changes</button>
-        </div>
-    </form>
-      </div>
     </div>
-  </div>
-
     <!-- end row -->
-@endsection
 
+    {{-- <div class="container">
+        <div class="row">
+    <div class="col-md-6 mx-center">
+        <article class="timeline-item">
+            <div class="timeline-desk">
+                <div class="panel">
+                    <div class="timeline-box">
+                        <span class="arrow"></span>
+                        <h4 class="fs-16 fw-semibold text-center ">Group {{$data->grup = 'A' & $data->grup = 'B' & $data->grup = 'C'& $data->grup = 'D'}}</h4>
+                    </br>
+                        <table class="table">
+                            <thead class="table-dark ">
+                                <tr>   
+                                    <tr>
+                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>Pemenang Grub A,B,C,D Dari 16 Besar</Strong></h4>
+                                    </tr>
+                                </tr>
+                            </thead>
+                        <br>
+                            <tbody>
+                             
+                                @foreach ($bagan->sortBy('grub') as $data)
+                                @if ($data->grup == 'A')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                    <tr>
+                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                      
+                                    </tr>
+                                @endif
+                            @endforeach
 
-@section('script')
-{{-- <script>
-    document.addEventListener('DOMContentLoaded', function (){
-        const editButtons = document.querySelectorAll('.edit-btn');
-        editButtons.forEach(function (button) {
-            button.addEventListener('click', function () {
-                const idsekolah = button.getAttribute('data-id');
-                populateEditForm(idsekolah); // Panggil fungsi ini dengan ID sekolah yang dipilih
-                $('#exampleModal').modal('show');
-            });
-        });    
-         } );
-        
-
-        function populateEditForm(id) {
-    // Gunakan AJAX atau cara lainnya untuk mendapatkan data sekolah berdasarkan ID
-    // Lalu isi nilai input pada form modal dengan data sekolah yang didapatkan
-    // Contoh AJAX:
-    $.ajax({
-        url: '/DataSekolah/show/' + id,
-        method: 'GET',
-        success: function (data) {
-            document.getElementById('id').value = data.id;
-            document.getElementById('Nama_Sekolah').value = data.Nama_Sekolah;
-            document.getElementById('Telp').value = data.Telp;
-            document.getElementById('Fax').value = data.Fax;
-            document.getElementById('Email').value = data.Email;
-            document.getElementById('password').value = data.password;
-            document.getElementById('Tanggal_update').value = data.Tanggal_update;
-            document.getElementById('Logo').value = data.Logo;
-
-
-        },
-        error: function (xhr, status, error) {
-            console.log('Terjadi Kesalahan:', error);
-        }
-    });
-}
-
-var id = window.location.pathname.split('/').pop();
-if (!isNaN(id) && id !== '') {
-    // Lakukan axios PUT request dengan ID yang diambil dari URL
-    axios.put('/TambahDataUser/update/' + id, formData)
-        .then(function(response) {
-            // Penanganan respon sukses
-            console.log(response.data);
-        })
-        .catch(function(error) {
-            // Penanganan kesalahan
-            console.error(error);
-        });
-}
-
-
-document.getElementById('submitFormBtn').addEventListener('click', function (event) {
-    event.preventDefault();
-
-    // Dapatkan ID dari input tersembunyi
-    const id = document.getElementById('id').value;
-
-    // Dapatkan data formulir
-    const formData = new FormData(document.getElementById('editForm'));
-
-    // Tambahkan ID ke dalam FormData
-    formData.append('id', id);
-
-    const url = '{{ route("DataSekolah.update", ":id") }}'.replace(':id', id);
-
-
-    $.ajax({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        url: url,
-        method: 'PUT',
-        data: formData,
-        processData: false,
-        contentType: false,
-       
-        success: function (response) {
-            console.log('Data berhasil diubah:', response);
-            // Tampilkan alert success
-            Swal.fire({
-                icon: 'success',
-                title: 'Data berhasil diubah',
-                showConfirmButton: false,
-                timer: 1500
-            }).then(function () {
-                // Reload halaman
-                window.location.reload();
-            });
-        },
-        error: function (xhr, status, error) {
-            console.log('Terjadi Kesalahan:', error);
-        }
-    });
-
-    // Tutup modal setelah menyimpan data
-    $('#exampleModal').modal('hide');
-});
+                            @foreach ($bagan->sortBy('grub') as $data)
+                            @if ($data->grup == 'B')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                <tr>
+                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                   
+                                </tr>
+                            @endif
+                        @endforeach
+                        @foreach ($bagan->sortBy('grub') as $data)
+                        @if ($data->grup == 'C')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                            <tr>
+                                <td class="text-center"><a>{{$data->tim}}</a></td>
+                              
+                            </tr>
+                        @endif
+                    @endforeach
+                    @foreach ($bagan->sortBy('grub') as $data)
+                    @if ($data->grup == 'D')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                        <tr>
+                            <td class="text-center"><a>{{$data->tim}}</a></td>
+                           
+                        </tr>
+                    @endif
+                @endforeach
+                            </tbody>
+                          </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+</div>
+</div>
 
 
 
-document.getElementById('printPdfBtn').addEventListener('click', function () {
-    // Lakukan AJAX untuk memanggil fungsi pdfsekolah
-    $.ajax({
-        url: '/DataSekolah/pdfsekolah',
-        method: 'GET',
-        success: function (response) {
-            console.log('PDF berhasil dicetak');
-            // Buka jendela unduhan PDF menggunakan URL yang diberikan oleh server
-            window.open(response.url, '_blank');
-        },
-        error: function (xhr, status, error) {
-            console.log('Terjadi Kesalahan:', error);
-        }
-    });
-});
-$(document).ready(function() {
-    $('#downloadExcelBtn').click(function() {
-        // Ganti URL dengan endpoint yang sesuai untuk mendapatkan data Excel dari server
-        var excelUrl = '/DataSekolah/excelexport';
+ --}}
 
-        $.ajax({
-            url: excelUrl,
-            method: 'GET',
-            xhrFields: {
-                responseType: 'blob'
-            },
-            success: function(data) {
-                var a = document.createElement('a');
-                var url = window.URL.createObjectURL(data);
-                a.href = url;
-                // Ganti nama file Excel yang di-download
-                a.download = 'data_sekolah.xlsx';
-                document.body.append(a);
-                a.click();
-                window.URL.revokeObjectURL(url);
-            },
-            error: function(xhr, status, error) {
-                console.error(error);
-            }
-        });
-    });
-});
+    
+ <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">   
+                <div class="row">
+                    <div class="col-md-6">
+                        {{-- <button type="button" class="btn btn-success"  id="" >Print Pdf</button>
+                        <a type="button" class="btn btn-dark" href="{{ route('Bagan/DetailBagan', ['id' => $grup->id]) }}">Tabel Bagan</a> --}}
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const viewButtons = document.querySelectorAll('.view-btn');
-    viewButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-            const idSekolah = button.getAttribute('data-id');
-            loadAndShowDetail(idSekolah);
-        });
-    });
+                    </div>
+                   
+                </div>
+                <br>
+                <div class="text-center mb-4">
+                    <a href="" class="btn btn-primary w-lg">Pemenang Grub A B C D </a>
+                </div>
+                <div class="timeline" dir="ltr">
+                    <article class="timeline-item alt">
+                        <div class="text-end">
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <article class="timeline-item alt">
+                                        <div class="timeline-desk">
+                                            <div class="panel">
+                                                <div class="timeline-box border-bottom">
+                                                    <span class="arrow-alt"></span>
+                                                    <h4 class="fs-16 fw-semibold text-center ">Group A & B</h4>
+                                                </br>
+                                                    <table class="table">
+                                                        <thead class="table-dark ">
+                                                            <tr>   
+                                                                <tr>
+                                                                    <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-06</Strong></h4>
+                                                                </tr>
+                                                            </tr>
+                                                        </thead>
+                                                    <br>
+                                                        <tbody>
+                                                       
+                                                        
+                                                            @foreach ($bagan->sortBy('grub') as $data)
+                                                            @if ($data->grup == 'A')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                  
+                                                                </tr>
+                                                            @endif
+                                                        @endforeach
+                            
+                                                        @foreach ($bagan->sortBy('grub') as $data)
+                                                        @if ($data->grup == 'B')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                                            <tr>
+                                                                <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                               
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
 
-    function loadAndShowDetail(id) {
-    $.ajax({
-        url: '/DataSekolah/DetailDataSekolah/' + id,
-        method: 'GET',
-        success: function (dataSekolah) {
-            // Mengisi tabel dengan dataSekolah
-            $('#Nama_Sekolah').text(dataSekolah.Nama_Sekolah);
-            $('#Telp').text(dataSekolah.Telp);
-            $('#Fax').text(dataSekolah.Fax);
-            $('#Email').text(dataSekolah.Email);
-            $('#password').text(dataSekolah.password);
-            $('#Tanggal_update').text(dataSekolah.Tanggal_update);
-            $('#Logo').text(dataSekolah.Logo);
+                                                        
+                                                        </tbody>
+                                                      </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <article class="timeline-item">
+                                        <div class="timeline-desk">
+                                            <div class="panel">
+                                                <div class="timeline-box">
+                                                    <span class="arrow"></span>
+                                                    <h4 class="fs-16 fw-semibold text-center ">Group C & D </h4>
+                                                </br>
+                                                    <table class="table">
+                                                        <thead class="table-dark ">
+                                                            <tr>   
+                                                                <tr>
+                                                                    <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-10-25</Strong></h4>
+                                                                </tr>
+                                                            </tr>
+                                                        </thead>
+                                                    <br>
+                                                        <tbody>
+                                                         
 
-            // Mengganti nilai data-id pada elemen <a> dengan ID dari dataSekolah
-            const viewButton = document.querySelector('.btn.btn-secondary.dropdown-item');
-            viewButton.setAttribute('data-id', id);
+                                                            @foreach ($bagan->sortBy('grub') as $data)
+                                                            @if ($data->grup == 'C')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                  
+                                                                </tr>
+                                                            @endif
+                                                        @endforeach
+                                                        @foreach ($bagan->sortBy('grub') as $data)
+                                                        @if ($data->grup == 'D')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                                            <tr>
+                                                                <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                               
+                                                            </tr>
+                                                        @endif
+                                                    @endforeach
+                                                        </tbody>
+                                                      </table>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+                            </div>
+                        </div>
 
-            // Tampilkan modal setelah mengisi tabel
-            $('#detailModal').modal('show');
-        },
-        error: function (xhr, status, error) {
-            console.log('Terjadi Kesalahan:', error);
-        }
-    });
-}
-}); --}}
+
+                        
+                    
+                </div>
 
 
 
 
 
-</script>
+</div>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">   
+                    <div class="text-center mb-4">
+                        <a href="" class="btn btn-primary w-lg">16 Besar</a>
+                    </div>
+                    <div class="timeline" dir="ltr">
+                        <article class="timeline-item alt">
+                            <div class="text-end">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box border-bottom">
+                                                        <span class="arrow-alt"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group  {{$data->grup = 'E'}}</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-07</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                               
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                @if ($data->grup == 'E') <!-- Ganti NamaGrup dengan nama grup yang Anda cari -->
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        {{-- <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td> --}}
+                                                                    </tr>
+                                                                @endif
+                                                            @endforeach
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box">
+                                                        <span class="arrow"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group  {{$data->grup = 'F'}}</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-07</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                             
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                @if ($data->grup == 'F') <!-- Ganti NamaGrup dengan nama grup yang Anda cari -->
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        {{-- <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td> --}}
+                                                                    </tr>
+                                                                @endif
+                                                            @endforeach
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
 
 
-    {{-- @vite(['resources/js/pages/responsive-table.init.js']) --}}
+                            
+                        
+                    </div>
+
+
+
+                    
+                    <!-- end timeline -->
+
+                    <div class="timeline" dir="ltr">
+                        <article class="timeline-item alt">
+                            <div class="text-end">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box border-bottom">
+                                                        <span class="arrow-alt"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group  {{$data->grup = 'G'}}</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-05</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                               
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                @if ($data->grup == 'G') <!-- Ganti NamaGrup dengan nama grup yang Anda cari -->
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        {{-- <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td> --}}
+                                                                    </tr>
+                                                                @endif
+                                                            @endforeach
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box">
+                                                        <span class="arrow"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group  {{$data->grup = 'H'}}</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-05</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                            
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                @if ($data->grup == 'H') <!-- Ganti NamaGrup dengan nama grup yang Anda cari -->
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        {{-- <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td> --}}
+                                                                    </tr>
+                                                                @endif
+                                                            @endforeach
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+        </div>
+    </div>
+    <!-- end row -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">   
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{-- <button type="button" class="btn btn-success"  id="" >Print Pdf</button>
+                            <a type="button" class="btn btn-dark" href="{{ route('Bagan/DetailBagan', ['id' => $grup->id]) }}">Tabel Bagan</a> --}}
+    
+    
+                        </div>
+                       
+                    </div>
+                    <br>
+                    <div class="text-center mb-4">
+                        <a href="" class="btn btn-primary w-lg">Pemenang Grub E F G H </a>
+                    </div>
+                    <div class="timeline" dir="ltr">
+                        <article class="timeline-item alt">
+                            <div class="text-end">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box border-bottom">
+                                                        <span class="arrow-alt"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group E & F</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-07</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                           
+                                                            
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                @if ($data->grup == 'E')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                      
+                                                                    </tr>
+                                                                @endif
+                                                            @endforeach
+                                
+                                                            @foreach ($bagan->sortBy('grub') as $data)
+                                                            @if ($data->grup == 'F')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                   
+                                                                </tr>
+                                                            @endif
+                                                        @endforeach
+    
+                                                            
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box">
+                                                        <span class="arrow"></span>
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group G & H</h4>
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-05</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                             
+    
+                                                                @foreach ($bagan->sortBy('grub') as $data)
+                                                                @if ($data->grup == 'G')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                      
+                                                                    </tr>
+                                                                @endif
+                                                            @endforeach
+                                                            @foreach ($bagan->sortBy('grub') as $data)
+                                                            @if ($data->grup == 'H')  <!-- Ganti 'A' dengan grup yang ingin Anda tampilkan -->
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                   
+                                                                </tr>
+                                                            @endif
+                                                        @endforeach
+                                                            </tbody>
+                                                          </table>
+                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+    
+
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">   
+                    <div class="text-center mb-4">
+                        <a href="" class="btn btn-primary w-lg">Perempat Final</a>
+                    </div>
+                    <div class="timeline" dir="ltr">
+                        <article class="timeline-item alt">
+                            <div class="text-end">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box border-bottom">
+                                                        <span class="arrow-alt"></span>
+                                                        {{-- <h4 class="fs-16 fw-semibold text-center ">Group  A</h4> --}}
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-08</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                                <tr>
+                                                                    {{-- <td class="text-center">Sma 1 Gresik</td>
+                                                                    <td class="text-center">Sma 1 Surabaya</td>
+                                                                    <td class="text-center">Smk 1 Gresik</td>
+                                                                    <td class="text-center">Smk 1 Surabaya</td> --}}
+                                                                    @foreach ($bagan->where('grup', 'A')->sortBy('grub')->take(2) as $data)
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @foreach ($bagan->where('grup', 'B')->sortBy('grub')->take(2) as $data)
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                </tr>
+                                                            @endforeach
+                                                                   
+                                                                </tr>
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box">
+                                                        <span class="arrow"></span>
+                                                        {{-- <h4 class="fs-16 fw-semibold text-center ">Group A</h4> --}}
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-09</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                                <tr>
+                                                                    @foreach ($bagan->where('grup', 'C')->sortBy('grub')->take(2) as $data)
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @foreach ($bagan->where('grup', 'D')->sortBy('grub')->take(2) as $data)
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                </tr>
+                                                            @endforeach
+                                                                   
+                                                                </tr>
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            
+                        
+                    </div>
+
+
+
+                    
+                    <!-- end timeline -->
+
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+        </div>
+    </div>
+
+
+    
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">   
+                    <div class="text-center mb-4">
+                        <a href="" class="btn btn-primary w-lg">Semi Final</a>
+                    </div>
+                    <div class="timeline" dir="ltr">
+                        <article class="timeline-item alt">
+                            <div class="text-end">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box border-bottom">
+                                                        <span class="arrow-alt"></span>
+{{-- 
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group A</h4> --}}
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-10</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                                <tr>
+                                                                    @foreach ($bagan->where('grup', 'E')->sortBy('grub')->take(2) as $data)
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @foreach ($bagan->where('grup', 'F')->sortBy('grub')->take(2) as $data)
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                </tr>
+                                                            @endforeach
+                                                                   
+                                                                   
+                                                                </tr>
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box">
+                                                        <span class="arrow"></span>
+                                                        {{-- <h4 class="fs-16 fw-semibold text-center ">Group A</h4> --}}
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-11</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                                <tr>
+                                                                    @foreach ($bagan->where('grup', 'G')->sortBy('grub')->take(2) as $data)
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @foreach ($bagan->where('grup', 'H')->sortBy('grub')->take(2) as $data)
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                </tr>
+                                                            @endforeach
+                                                                   
+                                                                </tr>
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            
+                        
+                    </div>
+
+
+
+                    
+                    <!-- end timeline -->
+
+                            
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+        </div>
+    </div>
+
+
+
+    
+                    
+                    <!-- end timeline -->
+
+                            
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">   
+                    <div class="text-center mb-4">
+                        <a href="" class="btn btn-primary w-lg">Perebutan Juara 3</a>
+                    </div>
+                    <div class="timeline" dir="ltr">
+                        <article class="timeline-item alt">
+                            <div class="text-end">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <article class="timeline-item alt">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box border-bottom">
+                                                        <span class="arrow-alt"></span>
+{{-- 
+                                                        <h4 class="fs-16 fw-semibold text-center ">Group A</h4> --}}
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-11</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                                <tr>
+                                                                    @foreach ($bagan->where('grup', 'E')->sortBy('grub')->take(1) as $data)
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @foreach ($bagan->where('grup', 'F')->sortBy('grub')->take(1) as $data)
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                </tr>
+                                                            @endforeach
+                                                                   
+                                                                   
+                                                                </tr>
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <article class="timeline-item">
+                                            <div class="timeline-desk">
+                                                <div class="panel">
+                                                    <div class="timeline-box">
+                                                        <span class="arrow"></span>
+                                                        {{-- <h4 class="fs-16 fw-semibold text-center ">Group A</h4> --}}
+                                                    </br>
+                                                        <table class="table">
+                                                            <thead class="table-dark ">
+                                                                <tr>   
+                                                                    <tr>
+                                                                        <h4 class=" fs-16 fw-semibold text-center text-warning  "><Strong>2023-11-11</Strong></h4>
+                                                                    </tr>
+                                                                </tr>
+                                                            </thead>
+                                                        <br>
+                                                            <tbody>
+                                                                <tr>
+                                                                    @foreach ($bagan->where('grup', 'G')->sortBy('grub')->take(1) as $data)
+                                                                    <tr>
+                                                                        <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                    </tr>
+                                                                @endforeach
+                                                                @foreach ($bagan->where('grup', 'H')->sortBy('grub')->take(1) as $data)
+                                                                <tr>
+                                                                    <td class="text-center"><a>{{$data->tim}}</a></td>
+                                                                </tr>
+                                                            @endforeach
+                                                                   
+                                                                </tr>
+                                                            </tbody>
+                                                          </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            
+                        
+                    </div>
+
+
+                        
+                    </div>
+                </div>
+            </div>
+            <!-- end card -->
+        </div>
+    </div>
 @endsection
