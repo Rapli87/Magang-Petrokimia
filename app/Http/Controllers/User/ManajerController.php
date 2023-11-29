@@ -6,19 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\manajerRequest;
 use App\Models\Datamanajer;
 use Illuminate\Http\Request;
+use App\Models\DataSekolah;
 
 class ManajerController extends Controller
 {
     public function index(Request $request)
     {
-        $manajer = Datamanajer::with('grub')->get();
-        return view('pages.admin.user.manajer.index', ['manajer' => $manajer]);
+        $manajer = Datamanajer::with('grub','sekolah')->get();
+        $sekolah = DataSekolah::all();
+        return view('pages.admin.user.manajer.index', ['manajer' => $manajer],['sekolah' => $sekolah]);
     }
     
 
     public function create()
     {
-        return view('pages.admin.user.manajer.create');
+        $manajer = Datamanajer::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+        return view('pages.admin.user.manajer.create',['manajer' => $manajer, 'sekolahs' => $sekolahs]);
     }
 
     public function show($id) {
@@ -47,20 +51,23 @@ class ManajerController extends Controller
         );
        
         Datamanajer::create($data);
+        $sekolahs = DataSekolah::all();
 
       
 
-        return redirect()->route('manajer.index')->with('success', 'Manajer successfully created');
+        return redirect()->route('manajer.index',compact('sekolahs'))->with('success', 'Manajer successfully created');
     }
 
 
     public function edit(string $id)
     {
         $data= Datamanajer::findOrFail($id);
+        $sekolahs  = DataSekolah::all();
 
 
         return view('pages.admin.user.manajer.edit', [
-            'data' => $data
+            'data' => $data,
+            'sekolahs' => $sekolahs,
         ]);
     }
 

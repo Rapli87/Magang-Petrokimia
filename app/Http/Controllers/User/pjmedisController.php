@@ -6,19 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\PjmedisRequest;
 use App\Models\pjmedis;
 use Illuminate\Http\Request;
+use App\Models\DataSekolah;
 
 class pjmedisController extends Controller
 {
     public function index(Request $request)
     {
-        $data = pjmedis::all();
-        return view('pages.admin.user.Pj-Medis.index', ['data' => $data]);
+        $data = pjmedis::with('sekolah')->get();
+        $sekolah = DataSekolah::all();
+        return view('pages.admin.user.Pj-Medis.index', ['data' => $data],['sekolah' => $sekolah]);
     }
     
 
     public function create()
     {
-        return view('pages.admin.user.Pj-Medis.create');
+        $data = pjmedis::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+        return view('pages.admin.user.Pj-Medis.create',['data'=> $data, 'sekolahs' => $sekolahs]);
     }
 
     public function show($id) {
@@ -47,10 +51,10 @@ class pjmedisController extends Controller
         );
        
         pjmedis::create($data);
-
+        $sekolahs = DataSekolah::all();
       
 
-        return redirect()->route('Pj-Medis.index')->with('success', 'Pj-Medis successfully created');
+        return redirect()->route('Pj-Medis.index',compact('sekolahs'))->with('success', 'Pj-Medis successfully created');
     }
 
 

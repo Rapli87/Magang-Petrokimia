@@ -13,6 +13,7 @@ class pjmedis extends Model
 
     protected $fillable = [
         'id',
+        'id_sekolah',
         'data_pjmedis_id',
         'nama',
         'hp',
@@ -25,6 +26,11 @@ class pjmedis extends Model
     public function pemain()
     {
         return $this->hasMany(Pemain::class, 'data_pjmedis_id', 'id');
+    }
+
+    public function sekolah()
+    {
+        return $this->belongsTo(DataSekolah::class, 'id_sekolah', 'id');
     }
 
  

@@ -16,6 +16,7 @@ protected $table = 'data_pelatih';
 protected $fillable = [
         'id',
         'data_pelatih_id',
+        'id_sekolah',
         'nama',
         'id_peserta',
         'hp',
@@ -34,6 +35,12 @@ protected $fillable = [
     {
         return $this->belongsTo(Grub::class, 'grub_id', 'id');
     }
+
+    public function sekolah()
+    {
+        return $this->belongsTo(DataSekolah::class, ' id_sekolah', 'id');
+    }
+    
 
   
 }

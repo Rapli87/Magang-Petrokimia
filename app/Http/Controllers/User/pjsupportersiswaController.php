@@ -6,19 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\PjsupportersiswaRequest;
 use App\Models\Datasuportersiswa;
 use Illuminate\Http\Request;
+use App\Models\DataSekolah;
 
 class pjsupportersiswaController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Datasuportersiswa::all();
-        return view('pages.admin.user.Pj-Supporter-Siswa.index', ['data' => $data]);
+        $data = Datasuportersiswa::with('sekolah')->get();
+        $sekolah = DataSekolah::all();
+        return view('pages.admin.user.Pj-Supporter-Siswa.index', ['data' => $data],['sekolah' => $sekolah]);
     }
     
 
     public function create()
     {
-        return view('pages.admin.user.Pj-Supporter-Siswa.create');
+        $data = Datasuportersiswa::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+        return view('pages.admin.user.Pj-Supporter-Siswa.create',['data'=> $data, 'sekolahs' => $sekolahs]);
     }
 
     public function show($id) {
@@ -49,9 +53,9 @@ class pjsupportersiswaController extends Controller
        
         Datasuportersiswa::create($data);
 
-      
+        $sekolahs = DataSekolah::all();
 
-        return redirect()->route('Pj-Supporter-Siswa.index')->with('success', 'Pj-Supporter-Siswa successfully created');
+        return redirect()->route('Pj-Supporter-Siswa.index',compact('sekolahs'))->with('success', 'Pj-Supporter-Siswa successfully created');
     }
 
 

@@ -200,7 +200,7 @@
                 <div class="collapse" id="sidebarPendaftaran">
                     <ul class="side-nav-second-level">
                         <li>
-                            <a href="#">Informasi Umum</a>
+                            <a href="{{url('admin/user/informasiumum')}}">Informasi Umum</a>
                         </li>
                         <li>
                             <a href="{{url('admin/user/Pj-Sekolah')}}">PJ Sekolah</a>

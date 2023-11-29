@@ -51,8 +51,19 @@ class User extends Authenticatable implements MustVerifyEmail
         'password' => 'hashed',
     ];
 
+
+    public function pjsekolah()
+    {
+        return $this->hasOne(PjSekolah::class, 'user_id', 'id');
+    }
+
+
     public function networks()
     {
         return $this->hasMany(Network::class, 'user_id', 'id');
     }
+
+    // User.php
+
+
 }

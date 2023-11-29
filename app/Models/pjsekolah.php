@@ -13,6 +13,7 @@ class pjsekolah extends Model
 protected $table = 'pjsekolah';
 protected $fillable = [
         'id',
+        'id_sekolah',
         'pj_sekolah_id',
         'nama_kepala_sekolah',
         'alamat_kepala_sekolah',
@@ -24,10 +25,13 @@ protected $fillable = [
         
     ];
 
-    public function dataSekolah()
-    {
-        return $this->belongsTo(DataSekolah::class, 'data_sekolah_id', 'id');
-    }
+  // pjsekolah.php
+
+public function sekolah()
+{
+    return $this->belongsTo(DataSekolah::class, ' id_sekolah', 'id');
+}
+
     
     public function pemain()
     {
@@ -38,6 +42,6 @@ protected $fillable = [
     {
         return $this->belongsTo(Grub::class, 'grub_id', 'id');
     }
-    
+
 
 }

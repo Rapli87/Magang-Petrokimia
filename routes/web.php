@@ -29,6 +29,7 @@ use App\Http\Controllers\Frontend\{
     CategoryController as FrontendCategoryController,
     HomeController
 };
+use App\Http\Controllers\User\InformasiumumController;
 use App\Http\Controllers\User\jurnalisController;
 use App\Http\Controllers\User\ManajerController;
 use App\Http\Controllers\User\OfficialController;
@@ -219,6 +220,8 @@ Route::get('admin/user/Jurnalis/delete/{id}', [jurnalisController::class,'delete
 Route::post('admin/user/Jurnalis/update/{id}',[jurnalisController::class,'update'])->name('Jurnalis.update')-> middleware('UserAccess:2');
 Route::get('admin/user/Jurnalis/show/{id}', [jurnalisController::class,'show'])->name('Jurnalis.show')-> middleware('UserAccess:2');
 
+Route::resource('admin/user/informasiumum', InformasiumumController::class)->middleware('UserAccess:2');
+
     Route::get('admin/Bagan-Championship', [BaganChampionshipController::class, 'index'])->name('Bagan-Championship.index')-> middleware('UserAccess:1');
     Route::get('admin/Bagan-Championship/delete/{id}', [BaganChampionshipController::class, 'delete'])->name('Bagan-Championship.delete')-> middleware('UserAccess:1');
     Route::get('admin/Bagan-Championship/show/{id}', [BaganChampionshipController::class, 'show'])->name('Bagan-Championship.show')-> middleware('UserAccess:1');
@@ -240,6 +243,8 @@ Route::get('admin/user/Jurnalis/show/{id}', [jurnalisController::class,'show'])-
     Route::get('admin/Jadwal/edit/{id}', [JadwalController::class, 'edit'])->name('Jadwal.edit')-> middleware('UserAccess:1');
     Route::Post('admin/Jadwal/update/{id}', [JadwalController::class, 'update'])->name('Jadwal.update')-> middleware('UserAccess:1');
     Route::delete('admin/Jadwal/destroy/{id}', [JadwalController::class, 'destroy'])->name('Jadwal.destroy')-> middleware('UserAccess:1');
+
+
 
 
         
