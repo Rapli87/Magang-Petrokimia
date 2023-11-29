@@ -59,9 +59,9 @@
                                     </div> --}}
 
                                     <div class="mb-3">
-                                        <label for="grup" class="form-label">Grup</label>
-                                        <input type="text" class="form-control @error('grup') is-invalid @enderror" name="grup" placeholder="Grup" value="{{ old('grup') }}">
-                                        @error('grup')
+                                        <label for="group" class="form-label">Grup</label>
+                                        <input type="text" class="form-control @error('group') is-invalid @enderror" name="group" placeholder="group" value="{{ old('group') }}">
+                                        @error('group')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
@@ -79,44 +79,57 @@
                                             </div>
                                         @enderror
                                     </div>
+
                                     <div class="mb-3">
-                                        <label for="mulai" class="form-label">mulai</label>
-                                        <input type="time" class="form-control @error('mulai') is-invalid @enderror"
-                                            name="mulai" placeholder="mulai" value="{{ old('mulai') }}">
+                                        <label for="tim" class="form-label">tim</label>
+                                        <select class="form-select @error('tim') is-invalid @enderror" id="tim" name="tim">
+                                            <option value="">Pilih Sekolah</option>
+                                            @foreach ($sekolahs as $sekolah)
+                                                <option value="{{ $sekolah->Nama_Sekolah }}">{{ $sekolah->Nama_Sekolah }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('tim')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="tim2" class="form-label">tim</label>
+                                        <select class="form-select @error('tim2') is-invalid @enderror" id="tim2" name="tim2">
+                                            <option value="">Pilih Sekolah</option>
+                                            @foreach ($sekolahs as $sekolah)
+                                                <option value="{{ $sekolah->Nama_Sekolah }}">{{ $sekolah->Nama_Sekolah }}</option>
+                                            @endforeach
+                                        </select>
+                                        @error('tim2')
+                                            <div class="invalid-feedback">
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-3">
+                                        <label for="mulai" class="form-label">Mulai</label>
+                                        <input type="time" class="form-control @error('mulai') is-invalid @enderror" name="mulai" placeholder="mulai" value="{{ old('mulai') }}">
                                         @error('mulai')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
+
                                     <div class="mb-3">
                                         <label for="selesai" class="form-label">selesai</label>
-                                        <input type="time" class="form-control @error('selesai') is-invalid @enderror"
-                                            name="selesai" placeholder="selesai" value="{{ old('selesai') }}">
+                                        <input type="time" class="form-control @error('selesai') is-invalid @enderror" name="selesai" placeholder="selesai" value="{{ old('selesai') }}">
                                         @error('selesai')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="status" class="form-label">Status</label>
-                                        <input type="text"
-                                            class="form-control @error('status') is-invalid @enderror"
-                                            name="status" placeholder="status" value="{{ old('status') }}">
-                                        @error('status')
-                                            <div class="invalid-feedback">
-                                                {{ $message }}
-                                            </div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="skor" class="form-label">Skor</label>
-                                        <input type="text"
-                                            class="form-control @error('skor') is-invalid @enderror"
-                                            name="skor">
-                                    </div>
-                             
+                                
                                 
                                     {{-- <div class="mb-3">
                                         <label for="description" class="form-label">Description</label>

@@ -73,7 +73,7 @@
                                
                         @endforeach --}}
 
-                        @foreach ($Jadwal->sortBy('grub') as $JadwalPertandingan)
+                        @foreach ($Jadwal->sortBy('grub' &'sekolah') as $JadwalPertandingan)
                         @if (!empty($JadwalPertandingan->grub) && json_decode($JadwalPertandingan->grub))
                             @foreach(json_decode($JadwalPertandingan->grub) as $team)
                                 <article class="timeline-item">
@@ -109,9 +109,9 @@
                                             <p class="timeline-date text-muted">
                                                 <small>{{ $JadwalPertandingan->mulai }}</small>
                                             </p>
-                                            <p>Tidak ada data tim</p>
+                                          
                                             <p>{{ $JadwalPertandingan->tim }}</p>
-                                            <p>{{ $JadwalPertandingan->tim }}</p>
+                                            <p>{{ $JadwalPertandingan->tim2 }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -121,60 +121,6 @@
                     </div>
                     <!-- end timeline -->
 
-                    <div class="timeline" dir="ltr">
-                        <article class="timeline-item alt">
-                            <div class="text-end">
-                                <div class="time-show first">
-                                   
-                                </div>
-                            </div>
-                        </article>
-                        @foreach ($Jadwal->sortBy('grub') as $JadwalPertandingan)
-                        @if (!empty($JadwalPertandingan->grub) && json_decode($JadwalPertandingan->grub))
-                            @foreach(json_decode($JadwalPertandingan->grub) as $team)
-                            @if ($JadwalPertandingan->grub == 'A')
-                                <article class="timeline-item">
-                                    <div class="timeline-desk">
-                                        <div class="panel">
-                                            <div class="timeline-box">
-                                                <span class="arrow"></span>
-                                                <span class="timeline-icon bg-success"><i class="ri-record-circle-line"></i></span>
-                                                <h4 class="fs-16 fw-semibold">{{ $JadwalPertandingan->tanggal }}</h4>
-                                                <p class="timeline-date text-muted">
-                                                    <small>{{ $JadwalPertandingan->mulai }}</small>
-                                                </p>
-                                       
-                                                <p>{{ $team->tim  }}</p>
-                                              
-                                            
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-
-                                @endif
-                            @endforeach
-                        @else
-                            <article class="timeline-item">
-                                <div class="timeline-desk">
-                                    <div class="panel">
-                                        <div class="timeline-box">
-                                            <span class="arrow"></span>
-                                            <span class="timeline-icon bg-success"><i class="ri-record-circle-line"></i></span>
-                                            <h4 class="fs-16 fw-semibold">{{ $JadwalPertandingan->tanggal }}</h4>
-                                            <p class="timeline-date text-muted">
-                                                <small>{{ $JadwalPertandingan->mulai }}</small>
-                                            </p>
-                                            <p>Tidak ada data tim</p>
-                                            <p>{{ $JadwalPertandingan->tim }}</p>
-                                            <p>{{ $JadwalPertandingan->tim }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        @endif
-                    @endforeach
                         
 
 
@@ -204,14 +150,22 @@
                                                 <p class="timeline-date text-muted">
                                                     <small>{{ $JadwalPertandingan->mulai }}</small>
                                                 </p>
-                                                <p>Sma 1 Gresik</p>
-                   
-{{--     
-                                                @if ($JadwalPertandingan->grub) <!-- Periksa apakah 'grub' tidak null -->
-                                                    <p>{{ $JadwalPertandingan->grub->tim }}</p> <!-- Tampilkan 'tim' jika 'grub' tidak null -->
-                                                @else
-                                                    <p>{{ $JadwalPertandingan->id_tim2 }}</p>
-                                                @endif --}}
+                                              
+                                               
+                    
+                                            @if ($JadwalPertandingan->tim)
+                                                <p>{{ $JadwalPertandingan->tim }}</p>
+                                            @else
+                                                <p>School Name Not Available</p>
+                                            @endif
+
+
+                                            
+                                            @if ($JadwalPertandingan->tim2)
+                                                <p>{{ $JadwalPertandingan->tim2 }}</p>
+                                            @else
+                                                <p>School Name Not Available</p>
+                                            @endif
                                             </div>
                                         </div>
                                     </div>
@@ -254,10 +208,20 @@
                                                 <p class="timeline-date text-muted">
                                                     <small>{{ $JadwalPertandingan->mulai }}</small>
                                                 </p>
-                                                {{-- <p>{{ $team->tim  }}</p> --}}
-                                                {{-- <p>{{ $JadwalPertandingan->grub }}</p>
-                                                <p>{{ $JadwalPertandingan->id_tim }}</p>
-                                                <p>{{ $JadwalPertandingan->id_tim2 }}</p> --}}
+                                              
+                                            @if ($JadwalPertandingan->tim)
+                                            <p>{{ $JadwalPertandingan->tim }}</p>
+                                        @else
+                                            <p>School Name Not Available</p>
+                                        @endif
+
+
+                                        
+                                        @if ($JadwalPertandingan->tim2)
+                                            <p>{{ $JadwalPertandingan->tim2 }}</p>
+                                        @else
+                                            <p>School Name Not Available</p>
+                                        @endif
                                             </div>
                                         </div>
                                     </div>
@@ -300,7 +264,20 @@
                                                 <p class="timeline-date text-muted">
                                                     <small>{{ $JadwalPertandingan->mulai }}</small>
                                                 </p>
-                                                <p>Sma 1 Surabaya</p>
+                                              
+                                            @if ($JadwalPertandingan->tim)
+                                            <p>{{ $JadwalPertandingan->tim }}</p>
+                                        @else
+                                            <p>School Name Not Available</p>
+                                        @endif
+
+
+                                        
+                                        @if ($JadwalPertandingan->tim2)
+                                            <p>{{ $JadwalPertandingan->tim2 }}</p>
+                                        @else
+                                            <p>School Name Not Available</p>
+                                        @endif
                                             </div>
                                         </div>
                                     </div>
@@ -344,7 +321,20 @@
                                                     <small>{{ $JadwalPertandingan->mulai }}</small>
                                                 </p>
                                               
-                                                <p>Sma Nu Gresik</p>
+                                             
+                                            @if ($JadwalPertandingan->tim)
+                                            <p>{{ $JadwalPertandingan->tim }}</p>
+                                        @else
+                                            <p>School Name Not Available</p>
+                                        @endif
+
+
+                                        
+                                        @if ($JadwalPertandingan->tim2)
+                                            <p>{{ $JadwalPertandingan->tim2 }}</p>
+                                        @else
+                                            <p>School Name Not Available</p>
+                                        @endif
 
 
                                             </div>

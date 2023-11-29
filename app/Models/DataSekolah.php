@@ -26,4 +26,6 @@ protected $fillable = [
     {
         return $this->hasMany(Pemain::class, 'data_sekolah_id', 'id');
     }
+
+    
 }

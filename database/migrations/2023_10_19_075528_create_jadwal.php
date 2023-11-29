@@ -13,17 +13,17 @@ return new class extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->id();
-            $table->string('grup')->nullable();
+            $table->string('group')->nullable();
             $table->string('id_grup')->nullable();
             $table->integer('grup_id')->nullable();
             $table->string('id_jadwal')->nullable();
-            $table->string('id_tim')->nullable();
-            $table->string('id_tim2')->nullable();
+            $table->string('tim')->nullable();
+            $table->string('tim2')->nullable();
             $table->date('tanggal');
-            $table->time('mulai');
-            $table->time('selesai');
-            $table->string('status');
-            $table->string('skor');
+            $table->time('mulai')->nullable();
+            $table->time('selesai')->nullable();
+            $table->string('status')->nullable();
+            $table->string('skor')->nullable();
             $table->string('id_sekolah')->nullable();
             $table->string('id_user')->nullable();
             $table->string('id_lomba')->nullable();                         
