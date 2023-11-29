@@ -6,19 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\jurnalisRequest;
 use App\Models\jurnalis;
 use Illuminate\Http\Request;
+use App\Models\DataSekolah;
 
 class jurnalisController extends Controller
 {
     public function index(Request $request)
     {
-        $data = jurnalis::all();
-        return view('pages.admin.user.Jurnalis.index', ['data' => $data]);
+        $data = jurnalis::with('sekolah')->get();
+        $sekolah = DataSekolah::all();
+        return view('pages.admin.user.Jurnalis.index', ['data' => $data],['sekolah' => $sekolah]);
     }
     
 
     public function create()
     {
-        return view('pages.admin.user.Jurnalis.create');
+        $data = jurnalis::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+        return view('pages.admin.user.Jurnalis.create',['data'=> $data, 'sekolahs' => $sekolahs]);
     }
 
     public function show($id) {
@@ -47,10 +51,11 @@ class jurnalisController extends Controller
         );
        
         jurnalis::create($data);
+        $sekolahs = DataSekolah::all();
 
       
 
-        return redirect()->route('Jurnalis.index')->with('success', 'Jurnalis successfully created');
+        return redirect()->route('Jurnalis.index',compact('sekolahs'))->with('success', 'Jurnalis successfully created');
     }
 
 

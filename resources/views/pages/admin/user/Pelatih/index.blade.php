@@ -27,14 +27,18 @@
                                 <form action="{{ route('Pelatih.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
+                                    
                                     <div class="mb-2">
                                         <label for="data_pelatih_id">Nomor Sekolah</label>
                                         <div class="col-md-12">
                                             <select class="form-select" id="data_pelatih_id" name="data_pelatih_id">
-                                                <option value="">Pilih Nomer Sekolah</option>
-                                                @for($i = 1; $i <= 50; $i++)
-                                                    <option value="{{ $i }}">{{ $i }}</option>
-                                                @endfor
+                                                <option selected>Pilih Nomor Sekolah</option>
+                                            @foreach ( $sekolah as  $sekolahs)
+                                                <option value="{{  $sekolahs->id }}">{{ $sekolahs->Nama_Sekolah }}</option> 
+                                                
+                                            @endforeach
+                                            
+
                                             </select>
                                             @error('data_pelatih_id')
                                                 <span style="color: red">{{ $message }}</span>

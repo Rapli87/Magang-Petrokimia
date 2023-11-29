@@ -7,19 +7,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\PjsupporterguruRequest;
 use App\Models\Datasuporguru;
 use Illuminate\Http\Request;
+use App\Models\DataSekolah;
 
 class pjsupporterguruController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Datasuporguru::all();
-        return view('pages.admin.user.Pj-Supporter-Guru.index', ['data' => $data]);
+        $data = Datasuporguru::with('sekolah')->get();
+        $sekolah = DataSekolah::all();
+        return view('pages.admin.user.Pj-Supporter-Guru.index', ['data' => $data],['sekolah' => $sekolah]);
     }
     
 
     public function create()
     {
-        return view('pages.admin.user.Pj-Supporter-Guru.create');
+        $data = Datasuporguru::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+        return view('pages.admin.user.Pj-Supporter-Guru.create',['data'=> $data, 'sekolahs' => $sekolahs]);
     }
 
     public function show($id) {
@@ -50,19 +54,21 @@ class pjsupporterguruController extends Controller
        
         Datasuporguru::create($data);
 
-      
+        $sekolahs = DataSekolah::all();
 
-        return redirect()->route('Pj-Supporter-Guru.index')->with('success', 'pjsupporterguru successfully created');
+        return redirect()->route('Pj-Supporter-Guru.index',compact('sekolahs'))->with('success', 'pjsupporterguru successfully created');
     }
 
 
     public function edit(string $id)
     {
         $data= Datasuporguru::findOrFail($id);
+        $sekolahs  = DataSekolah::all();
 
 
         return view('pages.admin.user.Pj-Supporter-Guru.edit', [
-            'data' => $data
+            'data' => $data,
+            'sekolahs' => $sekolahs,
         ]);
     }
 

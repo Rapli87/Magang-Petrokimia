@@ -6,19 +6,23 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\User\OfficialRequest;
 use App\Models\DataOfficial;
 use Illuminate\Http\Request;
+use App\Models\DataSekolah;
 
 class OfficialController extends Controller
 {
     public function index(Request $request)
     {
-        $Official = DataOfficial::with('grub')->get();
-        return view('pages.admin.user.Official.index', ['Official' => $Official]);
+        $Official = DataOfficial::with('grub','sekolah')->get();
+        $sekolah = DataSekolah::all();
+        return view('pages.admin.user.Official.index', ['Official' => $Official],['sekolah' => $sekolah]);
     }
     
 
     public function create()
     {
-        return view('pages.admin.user.Official.create');
+        $official = DataOfficial::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+        return view('pages.admin.user.Official.create',['official' => $official, 'sekolahs' => $sekolahs]);
     }
 
     
@@ -47,20 +51,23 @@ class OfficialController extends Controller
         );
        
         DataOfficial::create($data);
+        $sekolahs = DataSekolah::all();
 
       
 
-        return redirect()->route('Official.index')->with('success', 'Official successfully created');
+        return redirect()->route('Official.index',compact('sekolahs'))->with('success', 'Official successfully created');
     }
 
 
     public function edit(string $id)
     {
         $data= DataOfficial::findOrFail($id);
+        $sekolahs  = DataSekolah::all();
 
 
         return view('pages.admin.user.Official.edit', [
-            'data' => $data
+            'data' => $data,
+            'sekolahs' => $sekolahs,
         ]);
     }
 

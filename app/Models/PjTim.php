@@ -14,6 +14,7 @@ protected $table = 'pjtim';
 protected $fillable = [
         'id',
         'pj_tim_id',
+        'id_sekolah',
         'nama',
         'jabatan',
         'nip',
@@ -25,6 +26,12 @@ protected $fillable = [
     
         
     ];
+    
+    public function sekolah()
+{
+    return $this->belongsTo(DataSekolah::class, ' id_sekolah', 'id');
+}
+
 
     public function pemain()
     {

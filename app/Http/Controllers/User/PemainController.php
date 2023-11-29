@@ -7,20 +7,28 @@ use App\Http\Requests\User\PemainRequest;
 use App\Models\Pemain;
 use App\Models\pjsekolah;
 use Illuminate\Http\Request;
+use App\Models\DataSekolah;
 
 class PemainController extends Controller
 {
     public function index(Request $request)
     {
-        $data = Pemain::all();
-        return view('pages.admin.user.pemain.index', ['data' => $data]);
+        $data = Pemain::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+    
+        // Pass the variables in a single array
+        return view('pages.admin.user.pemain.index', ['data' => $data, 'sekolahs' => $sekolahs]);
     }
+    
     
 
     public function create()
     {
-        return view('pages.admin.user.pemain.create');
+        $data = Pemain::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+        return view('pages.admin.user.pemain.create', ['data' => $data, 'sekolahs' => $sekolahs]);
     }
+    
 
     public function show($id) {
         $data = Pemain::all();
@@ -35,43 +43,48 @@ class PemainController extends Controller
 
 
     public function store(PemainRequest $request)
-    {
-        $data = $request->all();
-        $data['data_sekolah_id'] = $request->input('data_sekolah_id');
-        $generatedIds = $this->generatePjSekolahAndTimId($data['data_sekolah_id']);
-        $data['pj_sekolah_id'] = $generatedIds['pj_sekolah_id'];
-        $data['pj_tim_id'] = $generatedIds['pj_tim_id'];
-        $data['data_pelatih_id'] = $generatedIds['data_pelatih_id'];
-        $data['data_official_id'] = $generatedIds['data_official_id'];
-        $data['data_manajer_id'] = $generatedIds['data_manajer_id'];
-        $data['data_supportersiswa_id'] = $generatedIds['data_supportersiswa_id'];
-        $data['data_supporterguru_id'] = $generatedIds['data_supporterguru_id'];
-        $data['data_pjmedis_id'] = $generatedIds['data_pjmedis_id'];
-        $data['data_jurnallis_id'] = $generatedIds['data_jurnallis_id'];
-        $data['Ijasah'] = $request->file('Ijasah')->store(
-            'user/pemain/ijasah',
-            'public'
-        );
+{
+    $data = $request->all();
+    $data['data_sekolah_id'] = $request->input('data_sekolah_id');
+    $generatedIds = $this->generatePjSekolahAndTimId($data['data_sekolah_id']);
+    $data['pj_sekolah_id'] = $generatedIds['pj_sekolah_id'];
+    $data['pj_tim_id'] = $generatedIds['pj_tim_id'];
+    $data['data_pelatih_id'] = $generatedIds['data_pelatih_id'];
+    $data['data_official_id'] = $generatedIds['data_official_id'];
+    $data['data_manajer_id'] = $generatedIds['data_manajer_id'];
+    $data['data_supportersiswa_id'] = $generatedIds['data_supportersiswa_id'];
+    $data['data_supporterguru_id'] = $generatedIds['data_supporterguru_id'];
+    $data['data_pjmedis_id'] = $generatedIds['data_pjmedis_id'];
+    $data['data_jurnallis_id'] = $generatedIds['data_jurnallis_id'];
+    $data['Ijasah'] = $request->file('Ijasah')->store(
+        'user/pemain/ijasah',
+        'public'
+    );
 
-        $data['Rapor'] = $request->file('Rapor')->store(
-            'user/pemain/rapor',
-            'public'
-        );
-        $data['Kartu_Siswa'] = $request->file('Kartu_Siswa')->store(
-            'user/pemain/kartusiswa',
-            'public'
-        );
-        $data['Foto'] = $request->file('Foto')->store(
-            'user/pemain/foto',
-            'public'
-        );
-       
-        Pemain::create($data);
+    $data['Rapor'] = $request->file('Rapor')->store(
+        'user/pemain/rapor',
+        'public'
+    );
+    $data['Kartu_Siswa'] = $request->file('Kartu_Siswa')->store(
+        'user/pemain/kartusiswa',
+        'public'
+    );
+    $data['Foto'] = $request->file('Foto')->store(
+        'user/pemain/foto',
+        'public'
+    );
 
-      
+    // Create the Pemain instance
+    Pemain::create($data);
+    $data = Pemain::with('sekolah')->get();
 
-        return redirect()->route('pemain.index')->with('success', 'Pemain successfully created');
-    }
+    $sekolahs = DataSekolah::with('pemain')->get();
+
+    // return redirect()->route('pemain.create', ['data' => $pemain, 'sekolahs' => $sekolahs])->with('success', 'Pemain successfully created');
+
+    return view('pages.admin.user.pemain.index',compact('sekolahs','data'))->with('success', 'Pemain successfully created');
+}
+
 
         private function generatePjSekolahAndTimId($dataSekolahId)
     {
@@ -99,10 +112,12 @@ class PemainController extends Controller
     public function edit(string $id)
     {
         $data= Pemain::findOrFail($id);
+        $sekolahs  = DataSekolah::all();
 
 
         return view('pages.admin.user.pemain.edit', [
-            'data' => $data
+            'data' => $data,
+            'sekolahs' => $sekolahs,
         ]);
     }
 

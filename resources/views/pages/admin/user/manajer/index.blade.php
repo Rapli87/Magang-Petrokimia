@@ -27,17 +27,21 @@
                                     @csrf
 
                                     <div class="mb-2">
-                                        <label for="data_manajer_id" class="form-label">Pilih ID Sekolah</label>
-                                        <select class="form-select" name="data_manajer_id" required>
-                                            <option value="" disabled selected>Pilih ID Sekolah</option>
-                                            {{-- Loop through numbers 1 to 50 to populate the dropdown options --}}
-                                            @for ($i = 1; $i <= 50; $i++)
-                                                <option value="{{ $i }}">{{ $i }}</option>
-                                            @endfor
-                                        </select>
-                                        @error('data_manajer_id')
-                                            <span style="color: red">{{ $message }}</span>
-                                        @enderror
+                                        <label for="data_manajer_id">Nomor Sekolah</label>
+                                        <div class="col-md-12">
+                                            <select class="form-select" id="data_manajer_id" name="data_manajer_id">
+                                                <option selected>Pilih Nomor Sekolah</option>
+                                            @foreach ( $sekolah as  $sekolahs)
+                                                <option value="{{  $sekolahs->id }}">{{ $sekolahs->Nama_Sekolah }}</option> 
+                                                
+                                            @endforeach
+                                            
+
+                                            </select>
+                                            @error('data_manajer_id')
+                                                <span style="color: red">{{ $message }}</span>
+                                            @enderror
+                                        </div>
                                     </div>
                                     
                                     

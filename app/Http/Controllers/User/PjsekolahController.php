@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\PjsekolahRequest;
+use App\Models\DataSekolah;
 use App\Models\pjsekolah;
 use Illuminate\Http\Request;
 
@@ -12,15 +13,21 @@ class PjsekolahController extends Controller
     //
     public function index(Request $request)
     {
-        $PjSekolah = pjsekolah::with('grub')->get();
-        return view('pages.admin.user.Pj-Sekolah.index', ['pjsekolah' => $PjSekolah]);
+        $PjSekolah = pjsekolah::with('sekolah')->get();
+        $sekolah = DataSekolah::all();
+        return view('pages.admin.user.Pj-Sekolah.index', ['pjsekolah' => $PjSekolah], ['sekolah' => $sekolah]);
     }
     
 
     public function create()
     {
-        return view('pages.admin.user.Pj-Sekolah.create');
+        $PjSekolah = pjsekolah::with('sekolah')->get();
+        $sekolahs = DataSekolah::all();
+    
+        return view('pages.admin.user.Pj-Sekolah.create', ['PjSekolah' => $PjSekolah, 'sekolahs' => $sekolahs]);
     }
+    
+    
 
     public function show($id) {
         $pjsekolah = pjsekolah::with('grub')->find($id);
@@ -44,19 +51,21 @@ class PjsekolahController extends Controller
        
         pjsekolah::create($data);
 
-      
+        $sekolahs = DataSekolah::all();
 
-        return redirect()->route('Pj-Sekolah.index')->with('success', 'Pj Sekolah successfully created');
+        return redirect()->route('Pj-Sekolah.index',compact('sekolahs'))->with('success', 'Pj Sekolah successfully created');
     }
 
 
     public function edit(string $id)
     {
         $data= pjsekolah::findOrFail($id);
+        $sekolahs  = DataSekolah::all();
 
 
         return view('pages.admin.user.Pj-Sekolah.edit', [
-            'data' => $data
+            'data' => $data,
+            'sekolahs' => $sekolahs,
         ]);
     }
 
