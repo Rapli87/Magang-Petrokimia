@@ -149,8 +149,10 @@ Route::get('admin/user/Pj-Sekolah',[PjsekolahController::class,'index'])->name('
 Route::post('admin/user/Pj-Sekolah/store', [PjsekolahController::class, 'store'])->name('Pj-Sekolah.store')-> middleware('UserAccess:2');
 Route::get('admin/user/pj-Sekolah/edit/{id}', [PjsekolahController::class,'edit'])->name('Pj-Sekolah.edit')-> middleware('UserAccess:2');
 Route::get('admin/user/pj-Sekolah/delete/{id}', [PjsekolahController::class,'delete'])->name('pj-sekolah.delete')-> middleware('UserAccess:2');
+// Route::delete('admin/user/pj-Sekolah/delete/{id}', [PjsekolahController::class, 'delete'])->name('pj-sekolah.delete')->middleware('UserAccess:2');
 Route::Post('admin/user/pj-Sekolah/update/{id}', [PjsekolahController::class,'update'])->name('Pj-Sekolah.update')-> middleware('UserAccess:2');
 Route::get('admin/user/Pj-Sekolah/show/{id}',[PjsekolahController::class,'show'])->name('Pj-Sekolah.show')-> middleware('UserAccess:2');
+Route::get('admin/user/pj-Sekolah/destroy/{id}', [PjsekolahController::class, 'destroy'])->name('pj-sekolah.destroy')->middleware('UserAccess:2');
 
     Route::resource('admin/user/Pj-Tim', PjtimController::class)->middleware('UserAccess:2');
     Route::get('admin/user/Pj-Tim', [PjtimController::class,'index'])->name('Pj-Tim.index')-> middleware('UserAccess:2');
@@ -159,6 +161,8 @@ Route::get('admin/user/Pj-Sekolah/show/{id}',[PjsekolahController::class,'show']
     Route::get('admin/user/Pj-Tim/delete/{id}', [PjtimController::class,'delete'])->name('Pj-Tim.delete')-> middleware('UserAccess:2');
     Route::post('admin/user/Pj-Tim/update/{id}',[PjtimController::class,'update'])->name('Pj-Tim.update')-> middleware('UserAccess:2');
     Route::get('admin/user/Pj-Tim/show/{id}', [PjtimController::class,'show'])->name('Pj-Tim.show')-> middleware('UserAccess:2');
+    Route::get('admin/user/pj-Tim/create/{id}', [PjtimController::class,'create'])->name('Pj-Tim.create')-> middleware('UserAccess:2');
+    Route::get('admin/user/pj_Tim/destroy/{id}', [PjtimController::class, 'destroy'])->name('pj-tim.destroy')->middleware('UserAccess:2');
     Route::resource('admin/user/Pelatih', PelatihController::class)->middleware('UserAccess:2');
     Route::get('admin/user/Pelatih', [PelatihController::class,'index'])->name('Pelatih.index')-> middleware('UserAccess:2');
     Route::post('admin/user/Pelatih/store', [PelatihController::class, 'store'])->name('Pelatih.store')-> middleware('UserAccess:2');
@@ -166,6 +170,8 @@ Route::get('admin/user/Pj-Sekolah/show/{id}',[PjsekolahController::class,'show']
     Route::get('admin/user/Pelatih/delete/{id}', [PelatihController::class,'delete'])->name('Pelatih.delete')-> middleware('UserAccess:2');
     Route::post('admin/user/Pelatih/update/{id}',[PelatihController::class,'update'])->name('Pelatih.update')-> middleware('UserAccess:2');
     Route::get('admin/user/Pelatih/show/{id}', [PelatihController::class,'show'])->name('Pelatih.show')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pelatih/create/{id}', [PelatihController::class,'create'])->name('Pelatih.create')-> middleware('UserAccess:2');
+    Route::get('admin/user/Pelatih/destroy/{id}', [PelatihController::class, 'destroy'])->name('Pelatih.destroy')->middleware('UserAccess:2');
 
 
     Route::resource('admin/user/Official', OfficialController::class)->middleware('UserAccess:2');
@@ -175,6 +181,8 @@ Route::get('admin/user/Pj-Sekolah/show/{id}',[PjsekolahController::class,'show']
     Route::get('admin/user/Official/delete/{id}', [OfficialController::class,'delete'])->name('Official.delete')-> middleware('UserAccess:2');
     Route::post('admin/user/Official/update/{id}',[OfficialController::class,'update'])->name('Official.update')-> middleware('UserAccess:2');
     Route::get('admin/user/Official/show/{id}', [OfficialController::class,'show'])->name('Official.show')-> middleware('UserAccess:2');
+    Route::get('admin/user/Official/create/{id}', [OfficialController::class,'create'])->name('Official.create')-> middleware('UserAccess:2');
+    Route::get('admin/user/Official/destroy/{id}', [OfficialController::class, 'destroy'])->name('Official.destroy')->middleware('UserAccess:2');
 
 Route::resource('admin/user/manajer',ManajerController::class)->middleware('UserAccess:2');
 Route::get('admin/user/manajer', [ManajerController::class,'index'])->name('manajer.index')-> middleware('UserAccess:2');
@@ -183,6 +191,8 @@ Route::get('admin/user/manajer/edit/{id}', [ManajerController::class,'edit'])->n
 Route::get('admin/user/manajer/delete/{id}', [ManajerController::class,'delete'])->name('manajer.delete')-> middleware('UserAccess:2');
 Route::post('admin/user/manajer/update/{id}',[ManajerController::class,'update'])->name('manajer.update')-> middleware('UserAccess:2');
 Route::get('admin/user/manajer/show/{id}', [ManajerController::class,'show'])->name('manajer.show')-> middleware('UserAccess:2');
+Route::get('admin/user/manajer/create/{id}', [ManajerController::class,'create'])->name('manajer.create')-> middleware('UserAccess:2');
+Route::get('admin/user/manajer/destroy/{id}', [ManajerController::class, 'destroy'])->name('manajer.destroy')->middleware('UserAccess:2');
 
 Route::resource('admin/user/Pemain', PemainController::class)->middleware('UserAccess:2');
 Route::post('admin/user/Pemain/store', [PemainController::class, 'store'])->name('pemain.store')-> middleware('UserAccess:2');
@@ -190,6 +200,10 @@ Route::get('admin/user/Pemain/edit/{id}', [PemainController::class,'edit'])->nam
 Route::get('admin/user/Pemain/delete/{id}', [PemainController::class,'delete'])->name('pemain.delete')-> middleware('UserAccess:2');
 Route::post('admin/user/Pemain/update/{id}',[PemainController::class,'update'])->name('pemain.update')-> middleware('UserAccess:2');
 Route::get('admin/user/Pemain/index}', [PemainController::class,'show'])->name('pemain.index')-> middleware('UserAccess:2');
+Route::get('admin/user/Pemain/create/{id}', [PemainController::class,'create'])->name('pemain.create')-> middleware('UserAccess:2');
+Route::get('admin/user/Pemain/destroy/{id}', [PemainController::class, 'destroy'])->name('pemain.destroy')->middleware('UserAccess:2');
+Route::get('admin/user/Pemain/show/{id}', [PemainController::class,'show'])->name('pemain.show')-> middleware('UserAccess:2');
+
 
 
 Route::resource('admin/user/Pj-Supporter-Guru', pjsupporterguruController::class)->middleware('UserAccess:2');
@@ -198,6 +212,9 @@ Route::get('admin/user/Pj-Supporter-Guru/edit/{id}', [pjsupporterguruController:
 Route::get('admin/user/Pj-Supporter-Guru/delete/{id}', [pjsupporterguruController::class,'delete'])->name('Pj-Supporter-Guru.delete')-> middleware('UserAccess:2');
 Route::post('admin/user/Pj-Supporter-Guru/update/{id}',[pjsupporterguruController::class,'update'])->name('Pj-Supporter-Guru.update')-> middleware('UserAccess:2');
 Route::get('admin/user/Pj-Supporter-Guru/show/{id}', [pjsupporterguruController::class,'show'])->name('Pj-Supporter-Guru.show')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Supporter-Guru/create/{id}', [pjsupporterguruController::class,'create'])->name('Pj-Supporter-Guru.create')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Supporter-Guru/destroy/{id}', [pjsupporterguruController::class, 'destroy'])->name('Pj-Supporter-Guru.destroy')->middleware('UserAccess:2');
+Route::get('admin/user/Pj-Supporter-Guru/index', [pjsupporterguruController::class,'index'])->name('Pj-Supporter-Guru.index')-> middleware('UserAccess:2');
 
 Route::resource('admin/user/Pj-Supporter-Siswa',pjsupportersiswaController::class)->middleware('UserAccess:2');
 Route::post('admin/user/Pj-Supporter-Siswa/store', [pjsupportersiswaController::class, 'store'])->name('Pj-Supporter-Siswa.store')-> middleware('UserAccess:2');

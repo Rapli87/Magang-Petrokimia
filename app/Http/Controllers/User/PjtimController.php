@@ -18,7 +18,7 @@ class PjtimController extends Controller
     }
     
 
-    public function create()
+public function create()
     {
         $pjtim = PjTim::with('sekolah')->get();
         $sekolahs = DataSekolah::all();
