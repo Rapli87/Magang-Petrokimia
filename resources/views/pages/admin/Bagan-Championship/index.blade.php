@@ -64,51 +64,45 @@
                                         </a>
 
                                         @php
-                                            $currentGroup = null;
-                                            
-                                        @endphp
-
-                                        @foreach ($bagan as $Datas)
+                                        $currentGroup = null;
+                                    @endphp
+                                    
+                                    @if (!is_null($bagan) && (is_array($bagan) || is_object($bagan)))
+                                      
+                                    
+                                       
+                                                <table id="fixed-columns-datatable"
+                                                    class="table table-striped nowrap row-border order-column w-100">
+                                                    <thead>
+                                                        <tr class="text-center">
+                                                            <th>Tim</th>
+                                                            <th>Main</th>
+                                                            <th>menang</th>
+                                                            <th>kalah</th>
+                                                            <th>seri</th>
+                                                            <th>poin</th>
+                                                            <th>gol</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                          @forelse ($bagan as $Datas)
                                             @if ($Datas->grup !== $currentGroup)
                                                 @if (!is_null($currentGroup))
                                                     </tbody>
-                                    </table>
-                                    @endif
-
-                                    <h3>Group {{ $Datas->grup }}</h3>
-                                    <table id="fixed-columns-datatable"
-                                        class="table table-striped nowrap row-border order-column w-100">
-                                        <thead>
-                                            <tr class="text-center">
-                                               <th>Tim</th>
-                                               <th>Main</th>
-                                                <th>menang</th>
-                                                <th>kalah</th>
-                                                <th>seri</th>
-                                                <th>poin</th>
-                                                <th>gol</th>
-                                                <th>Action</th>
-                                              
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                       
+                                                </table>
+                                                @endif
                                             @endif
-
+                                    
                                             <tr class="text-center">
                                                 <!-- Tampilkan peringkat secara otomatis -->
-                                            <td>{{ $Datas->tim }}</td>
-                                            <td>{{ $Datas->main }}</td>
+                                                <td>{{ $Datas->tim }}</td>
+                                                <td>{{ $Datas->main }}</td>
                                                 <td>{{ $Datas->menang }}</td>
                                                 <td>{{ $Datas->kalah }}</td>
                                                 <td>{{ $Datas->seri }}</td>
                                                 <td>{{ $Datas->poin }}</td>
                                                 <td>{{ $Datas->gol }}</td>
-                                               
-                                              
-
-                                                <!-- Tambahkan tombol Detail/Show -->
                                                 <td>
                                                     {{-- <a href="{{ route('group-klasemens.show', $klasemen->id) }}"
                                                         class="btn btn-info">
@@ -137,13 +131,20 @@
                                                             <i class="bi bi-box-arrow-right"></i>
                                                         </button>
                                                 </td>
+                                            
                                             </tr>
-
-                                            @php
-                                                $currentGroup = $Datas->grup;
-                                            @endphp
-                                            @endforeach
-
+                                        @empty
+                                            <p>Not found</p>
+                                        @endforelse
+                                    
+                                        @isset($Datas)
+                                            </tbody>
+                                            </table>
+                                        @endisset
+                                    @else
+                                        <p>No data available</p>
+                                    @endif
+                                    
                                         </tbody>
                                     </table>
                                 </div>
