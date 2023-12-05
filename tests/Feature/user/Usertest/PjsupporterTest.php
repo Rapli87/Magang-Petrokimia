@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Datasuporguru as Datasuporguru;
 
-class PjsupporterguruTest extends TestCase
+class PjsupporterTest extends TestCase
 {
     use RefreshDatabase, WithFaker;
     /**
@@ -104,11 +104,11 @@ $this->assertTrue(true, "pj supporter guru  successfully updated");
 {
   
   
-    $pjsupporterguru  = Datasuporguru::factory()->create();
+    $pjsupporter = Datasuporguru::factory()->create();
 
 
-    $response = $this->get(route('Pj-Supporter-Guru.destroy', ['id' =>    $pjsupporterguru->id]));
-    $response = $this->get(route('pj-supporter-guru.index'));
+    $response = $this->get(route('Pj-Supporter-Guru.destroy', ['id' =>    $pjsupporter->id]));
+    $response = $this->get(route('Pj-Supporter-Guru.index'));
     $response->assertStatus(302);
 
     $this->assertTrue(true, "Pj Supporter guru  successfully deleted");
@@ -128,6 +128,4 @@ public function testShow()
     $response->assertStatus(302);
 
 }
-
-  
 }

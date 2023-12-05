@@ -76,17 +76,17 @@ class PemainTest extends TestCase
      $updatedData = [
         'id'=> 'id',
         'name'=> 'name',
-        // 'id_sekolah'=> 'id_sekolah',
-        // 'data_sekolah_id'=> 'data_sekolah_id',
-        // 'pj_sekolah_id'=> 'pj_sekolah_id',
-        // 'pj_tim_id'=> 'pj_tim_id',
-        // 'data_pelatih_id'=> 'data_pelatih_id',
-        // 'data_official_id'=> 'data_official_id',
-        // 'data_manajer_id'=>'data_manajer_id',
-        // 'data_supportersiswa_id'=> 'data_supportersiswa_id',
-        // 'data_supporterguru_id'=> 'data_supporterguru_id',
-        // 'data_pjmedis_id'=> 'data_pjmedis_id',
-        // 'data_jurnallis_id'=> 'data_jurnallis_id',
+        'id_sekolah'=> 'id_sekolah',
+        'data_sekolah_id'=> 'data_sekolah_id',
+        'pj_sekolah_id'=> 'pj_sekolah_id',
+        'pj_tim_id'=> 'pj_tim_id',
+        'data_pelatih_id'=> 'data_pelatih_id',
+        'data_official_id'=> 'data_official_id',
+        'data_manajer_id'=>'data_manajer_id',
+        'data_supportersiswa_id'=> 'data_supportersiswa_id',
+        'data_supporterguru_id'=> 'data_supporterguru_id',
+        'data_pjmedis_id'=> 'data_pjmedis_id',
+        'data_jurnallis_id'=> 'data_jurnallis_id',
         'No_punggung'=> 'No_punggung',
         'Kelas'=> 'Kelas',
         'Tanggal_lahir'=> 'Tanggal_lahir',
@@ -106,16 +106,16 @@ class PemainTest extends TestCase
  
  $this->assertNotEquals($updatedData['id'],$Pemain->id);
  $this->assertNotEquals($updatedData['name'],$Pemain->name);
-//  $this->assertNotEquals($updatedData['id_sekolah'],$Pemain->id_sekolah);
-//  $this->assertNotEquals($updatedData['pj_sekolah_id'],$Pemain->pj_sekolah_id);
-//  $this->assertNotEquals($updatedData['pj_tim_id'],$Pemain->pj_tim_id);
-//  $this->assertNotEquals($updatedData['data_pelatih_id'],$Pemain->data_pelatih_id);
-//  $this->assertNotEquals($updatedData['data_official_id'],$Pemain->data_official_id);
-//  $this->assertNotEquals($updatedData['data_manajer_id'],$Pemain->data_manajer_id);
-//  $this->assertNotEquals($updatedData['data_supportersiswa_id'],$Pemain->data_supportersiswa_id);
-//  $this->assertNotEquals($updatedData['data_supporterguru_id'],$Pemain->data_supporterguru_id);
-//  $this->assertNotEquals($updatedData['data_pjmedis_id'],$Pemain->data_pjmedis_id);
-//  $this->assertNotEquals($updatedData['data_jurnallis_id'],$Pemain->data_jurnallis_id);
+ $this->assertNotEquals($updatedData['id_sekolah'],$Pemain->id_sekolah);
+ $this->assertNotEquals($updatedData['pj_sekolah_id'],$Pemain->pj_sekolah_id);
+ $this->assertNotEquals($updatedData['pj_tim_id'],$Pemain->pj_tim_id);
+ $this->assertNotEquals($updatedData['data_pelatih_id'],$Pemain->data_pelatih_id);
+ $this->assertNotEquals($updatedData['data_official_id'],$Pemain->data_official_id);
+ $this->assertNotEquals($updatedData['data_manajer_id'],$Pemain->data_manajer_id);
+ $this->assertNotEquals($updatedData['data_supportersiswa_id'],$Pemain->data_supportersiswa_id);
+ $this->assertNotEquals($updatedData['data_supporterguru_id'],$Pemain->data_supporterguru_id);
+ $this->assertNotEquals($updatedData['data_pjmedis_id'],$Pemain->data_pjmedis_id);
+ $this->assertNotEquals($updatedData['data_jurnallis_id'],$Pemain->data_jurnallis_id);
  $this->assertNotEquals($updatedData['No_punggung'],$Pemain->No_punggung);
  $this->assertNotEquals($updatedData['Tanggal_lahir'],$Pemain->Tanggal_lahir);
  $this->assertNotEquals($updatedData['Ijasah'],$Pemain->Ijasah);
