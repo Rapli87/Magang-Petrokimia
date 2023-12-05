@@ -222,6 +222,9 @@ Route::get('admin/user/Pj-Supporter-Siswa/edit/{id}', [pjsupportersiswaControlle
 Route::get('admin/user/Pj-Supporter-Siswa/delete/{id}', [pjsupportersiswaController::class,'delete'])->name('Pj-Supporter-Siswa.delete')-> middleware('UserAccess:2');
 Route::post('admin/user/Pj-Supporter-Siswa/update/{id}',[pjsupportersiswaController::class,'update'])->name('Pj-Supporter-Siswa.update')-> middleware('UserAccess:2');
 Route::get('admin/user/Pj-Supporter-Siswa/show/{id}', [pjsupportersiswaController::class,'show'])->name('Pj-Supporter-Siswa.show')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Supporter-Siswa/create/{id}', [pjsupportersiswaController::class,'create'])->name('Pj-Supporter-Siswa.create')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Supporter-Siswa/destroy/{id}', [pjsupportersiswaController::class, 'destroy'])->name('Pj-Supporter-Siswa.destroy')->middleware('UserAccess:2');
+Route::get('admin/user/Pj-Supporter-Siswa/index', [pjsupportersiswaController::class,'index'])->name('Pj-Supporter-Siswa.index')-> middleware('UserAccess:2');
 
 Route::resource('admin/user/Pj-Medis',pjmedisController::class)->middleware('UserAccess:2');
 Route::post('admin/user/Pj-Medis/store', [pjmedisController::class, 'store'])->name('Pj-Medis.store')-> middleware('UserAccess:2');
@@ -229,6 +232,9 @@ Route::get('admin/user/Pj-Medis/edit/{id}', [pjmedisController::class,'edit'])->
 Route::get('admin/user/Pj-Medis/delete/{id}', [pjmedisController::class,'delete'])->name('Pj-Medis.delete')-> middleware('UserAccess:2');
 Route::post('admin/user/Pj-Medis/update/{id}',[pjmedisController::class,'update'])->name('Pj-Medis.update')-> middleware('UserAccess:2');
 Route::get('admin/user/Pj-Medis/show/{id}', [pjmedisController::class,'show'])->name('Pj-Medis.show')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Medis/create/{id}', [pjmedisController::class,'create'])->name('Pj-Medis.create')-> middleware('UserAccess:2');
+Route::get('admin/user/Pj-Medis/destroy/{id}', [pjmedisController::class, 'destroy'])->name('Pj-Medis.destroy')->middleware('UserAccess:2');
+Route::get('admin/user/Pj-Medis/index', [pjmedisController::class,'index'])->name('Pj-Medis.index')-> middleware('UserAccess:2');
 
 Route::resource('admin/user/Jurnalis',jurnalisController::class)->middleware('UserAccess:2');
 Route::post('admin/user/Jurnalis/store', [jurnalisController::class, 'store'])->name('Jurnalis.store')-> middleware('UserAccess:2');
@@ -236,6 +242,10 @@ Route::get('admin/user/Jurnalis/edit/{id}', [jurnalisController::class,'edit'])-
 Route::get('admin/user/Jurnalis/delete/{id}', [jurnalisController::class,'delete'])->name('Jurnalis.delete')-> middleware('UserAccess:2');
 Route::post('admin/user/Jurnalis/update/{id}',[jurnalisController::class,'update'])->name('Jurnalis.update')-> middleware('UserAccess:2');
 Route::get('admin/user/Jurnalis/show/{id}', [jurnalisController::class,'show'])->name('Jurnalis.show')-> middleware('UserAccess:2');
+Route::get('admin/user/Jurnalis/create/{id}', [jurnalisController::class,'create'])->name('Jurnalis.create')-> middleware('UserAccess:2');
+Route::get('admin/user/Jurnalis/destroy/{id}', [jurnalisController::class, 'destroy'])->name('Jurnalis.destroy')->middleware('UserAccess:2');
+Route::get('admin/user/Jurnalis/index',[jurnalisController::class,'index'])->name('Jurnalis.index')->middleware('UserAccess::2');
+
 
 Route::resource('admin/user/informasiumum', InformasiumumController::class)->middleware('UserAccess:2');
 
