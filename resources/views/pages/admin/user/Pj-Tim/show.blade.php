@@ -66,6 +66,9 @@
                             <h5 class="fs-18 my-1">Alamat:</h5>
                             <p class="text-muted fs-15">{{ $pjtim->alamat }}</p>
 
+                            <h5 class="fs-18 my-1">Filerekomendasi:</h5>
+                            <p class="text-muted fs-15">{{ $pjtim->filerekomendasi }}</p>
+
                             <h5 class="fs-18 my-1">Foto:</h5>
                             <p class="text-muted fs-15">{{ $pjtim->foto }}</p>
 

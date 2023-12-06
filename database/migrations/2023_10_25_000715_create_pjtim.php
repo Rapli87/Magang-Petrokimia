@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pjtim', function (Blueprint $table) {
             $table->id();
             $table->integer('pj_tim_id')->nullable();
-            $table->integer('id_sekolah'); 
+            $table->integer('id_sekolah')->nullable(); 
             $table->string('nama');
             $table->string('jabatan'); 
             $table->string('nip');

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pjsekolah', function (Blueprint $table) {
             $table->id();
             $table->integer('pj_sekolah_id')->nullable();
-            $table->unsignedBigInteger('id_sekolah');
+            $table->unsignedBigInteger('id_sekolah')->nullable();
             $table->string('nama_kepala_sekolah');
             $table->string('alamat_kepala_sekolah'); 
             $table->string('telp');

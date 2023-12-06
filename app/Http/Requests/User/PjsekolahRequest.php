@@ -22,7 +22,7 @@ class PjsekolahRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'pj_sekolah_id' => 'required|max:255',
+            'pj_sekolah_id' => 'max:255',
             'nama_kepala_sekolah' => 'required|max:255',
             'alamat_kepala_sekolah' => 'required|max:255',
             'telp' => 'required|max:255',

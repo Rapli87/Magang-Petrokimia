@@ -99,6 +99,21 @@
                                             </div>
                                         @enderror
                                     </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="filerekomendasi" class="form-label">filerekomendasi</label>
+                                        <input type="file"
+                                            class="form-control @error('filerekomendasi') is-invalid @enderror"
+                                            name="filerekomendasi">
+                                    </div>
+                             
+                                    @error('filerekomendasi')
+                                        <div class="invalid-feedback">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+
+                                    
                                     <div class="mb-3">
                                         <label for="foto" class="form-label">foto</label>
                                         <input type="file"

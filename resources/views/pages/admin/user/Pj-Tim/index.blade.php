@@ -88,6 +88,15 @@
                                     </div>
 
                                     <div class="mb-2">
+                                        <label for="filerekomendasi" class="form-label">filerekomendasi</label>
+                                        <input class="form-control" type="file" required="" name="filerekomendasi"
+                                           
+                                        @error('filerekomendasi')
+                                            <span style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-2">
                                         <label for="foto" class="form-label">foto</label>
                                         <input class="form-control" type="file" required="" name="foto"
                                            
@@ -152,6 +161,7 @@
                                                     <th>Hp</th>
                                                     <th>Email</th>
                                                     <th>Foto</th>
+                                                    <th>filerekomendasi</th>
                                                     <th>Ktp</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -166,6 +176,7 @@
                                                         <td>{{ $data->nip }}</td>
                                                         <td>{{ $data->hp }}</td>
                                                         <td>{{ $data->email }}</td>
+                                                        <td>{{ $data->filerekomendasi }}</td>
                                                         <td>{{ $data->foto }}</td>
                                                         <td>{{ $data->ktp }}</td>
                                                         <td>

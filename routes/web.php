@@ -91,14 +91,18 @@ Route::get('team-single', [HomeController::class, 'team_single'])
     ->name('pages.team-single');
 
 // refferal 
-Route::group(['middleware' =>['is_login']], function(){
+// Route::group(['middleware' =>['is_login']], function(){
     Route::get('/register', [UserController::class, 'loadRegister'])->name('register');
     Route::post('/user-register', [UserController::class, 'registered'])->name('registered');
     Route::get('/referral-register',[UserController::class, 'loadReferralRegister']);
     Route::get('/email-verification/{token}',[UserController::class, 'emailVerification']);
     Route::get('/login', [UserController::class, 'loadLogin']);
     Route::post('/login', [UserController::class, 'userLogin'])->name('login');
-});
+
+    
+
+
+// });
 
 Route::group(['middleware' =>['is_logout']], function(){
     //dashboard utama admin (access 1)
@@ -271,6 +275,14 @@ Route::resource('admin/user/informasiumum', InformasiumumController::class)->mid
     Route::Post('admin/Jadwal/update/{id}', [JadwalController::class, 'update'])->name('Jadwal.update')-> middleware('UserAccess:1');
     Route::delete('admin/Jadwal/destroy/{id}', [JadwalController::class, 'destroy'])->name('Jadwal.destroy')-> middleware('UserAccess:1');
 
+    Route::get('admin/Auth-User', [AuthUserController::class, 'index'])->name('Auth-User.index')-> middleware('UserAccess:1');
+Route::get('admin/Auth-User/show/{id}', [AuthUserController::class, 'show'])->name('Auth-User.show')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/delete/{id}',[AuthUserController::class, 'delete'])->name('Auth-User.delete')-> middleware('UserAccess:1');
+    Route::put('admin/Auth-User/update/{id}', [AuthUserController::class, 'update'])->name('Auth-User.update')-> middleware('UserAccess:1');
+    Route::post('admin/Auth-User/registered', [AuthUserController::class, 'registered'])->name('Auth-User.registered')-> middleware('UserAccess:1');
+    Route::post('admin/Auth-User/loadReferralRegister',[AuthUserController::class, 'loadReferralRegister'])->name('Auth-User.loadReferralRegister')-> middleware('UserAccess:1');
+
+
 
 
 
@@ -281,13 +293,23 @@ Route::resource('admin/user/informasiumum', InformasiumumController::class)->mid
     // Route::Post('admin/Group-Klasmen/update/{id}', [GrubController::class, 'update'])->name('Group-klasmen.update')-> middleware('UserAccess:1');
     // Route::delete('admin/Group-Klasmen/destroy/{id}', [GrubController::class, 'destroy'])->name('Group-klasmen.destroy')-> middleware('UserAccess:1');
     // Route::get('admin/Group-klasmen', [GrubController::class, 'index'])->name('Group-klasmen.index')-> middleware('UserAccess:1');
-    Route::get('admin/Auth-User', [AuthUserController::class, 'index'])->name('Auth-User.index')-> middleware('UserAccess:1');
-    Route::get('admin/Auth-User/delete/{id}',[AuthUserController::class, 'delete'])->name('Auth-User.delete')-> middleware('UserAccess:1');
-    Route::get('admin/Auth-User/show/{id}', [AuthUserController::class, 'show'])->name('Auth-User.show')-> middleware('UserAccess:1');
-    Route::put('admin/Auth-User/update/{id}', [AuthUserController::class, 'update'])->name('Auth-User.update')-> middleware('UserAccess:1');
+    // Route::get('admin/Auth-User', [AuthUserController::class, 'index'])->name('Auth-User.index')-> middleware('UserAccess:1');
+
+
+
+
+
+
+    
+    // Route::get('/register', [UserController::class, 'loadRegister'])->name('register');
+    // Route::post('/user-register', [UserController::class, 'registered'])->name('registered');
+    // Route::get('/referral-register',[UserController::class, 'loadReferralRegister']);
+    // Route::get('/email-verification/{token}',[UserController::class, 'emailVerification']);
+    // Route::get('/login', [UserController::class, 'loadLogin']);
+    // Route::post('/login', [UserController::class, 'userLogin'])->name('login');;
 
     //user admin
-    // Route::resource('admin/users', UserController::class)-> middleware('UserAccess:1');
+    Route::resource('admin/users', AuthUserController::class)-> middleware('UserAccess:1');
     Route::resource('user/users', UserController::class)-> middleware('UserAccess:2');
     //route unisharp
     Route::group(['prefix' => 'laravel-filemanager'], function () {
