@@ -41,6 +41,7 @@ class pjsupporterguruController extends Controller
     public function store(PjsupporterguruRequest $request)
     {
         $data = $request->all();
+
         $data['data_supporterguru_id'] = $request->input('data_supporterguru_id');
       
         $data['foto'] = $request->file('foto')->store(
