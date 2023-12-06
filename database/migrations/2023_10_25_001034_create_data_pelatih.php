@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('data_pelatih_id')->nullable();
             $table->string('nama');
+            $table->integer('id_sekolah')->nullable();
             $table->integer('id_peserta')->nullable(); 
             $table->string('hp');
             $table->string('alamat');

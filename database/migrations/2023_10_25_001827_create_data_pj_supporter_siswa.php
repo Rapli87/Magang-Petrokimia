@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('data_pj_supporter_siswa', function (Blueprint $table) {
             $table->id();
             $table->integer('data_supportersiswa_id')->nullable();
+            $table->integer('id_sekolah')->nullable();
             $table->string('nama'); 
             $table->string('hp');
             $table->string('alamat');

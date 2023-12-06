@@ -14,6 +14,7 @@ class DataOfficial extends Model
 protected $table = 'data_official';
 protected $fillable = [
         'id',
+        'id_sekolah',
         'data_official_id',
         'nama',
         'hp',
@@ -33,4 +34,10 @@ protected $fillable = [
     {
         return $this->belongsTo(Grub::class, 'grub_id', 'id');
     }
+
+    public function sekolah()
+    {
+        return $this->belongsTo(DataSekolah::class, ' id_sekolah', 'id');
+    }
+    
 }

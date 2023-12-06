@@ -23,12 +23,15 @@ class PjtimRequest extends FormRequest
     {
         return [
             //
-            'pj_tim_id' => 'required|max:255',
+            'id' => 'max:255', // 'id' => 'required|max:255
+            'id_sekolah' => 'max:255', // 'id_sekolah' => 'required|max:255
+            'pj_tim_id' => 'max:255',
             'nama' => 'required|max:255',
             'jabatan' => 'required|max:255',
             'nip' => 'required|max:255',
             'hp' =>'required|max:255',
             'email' => 'required|max:255',
+            'filerekomendasi'=>'required|image|mimes:jpeg,png,jpg,gif,tmp|max:2048',
             'foto' => 'required|image|mimes:jpeg,png,jpg,gif,tmp|max:2048', 
             'ktp' => 'required|image|mimes:jpeg,png,jpg,gif,tmp|max:2048', 
         ];

@@ -30,10 +30,13 @@
                                         <label for="pj_tim_id">Nomor Sekolah</label>
                                         <div class="col-md-12">
                                             <select class="form-select" id="pj_tim_id" name="pj_tim_id">
-                                                <option value="">Pilih Nomer Sekolah</option>
-                                                @for($i = 1; $i <= 50; $i++)
-                                                    <option value="{{ $i }}">{{ $i }}</option>
-                                                @endfor
+                                                <option selected>Pilih Nomor Sekolah</option>
+                                            @foreach ( $sekolah as  $sekolahs)
+                                                <option value="{{  $sekolahs->id }}">{{ $sekolahs->Nama_Sekolah }}</option> 
+                                                
+                                            @endforeach
+                                            
+
                                             </select>
                                             @error('pj_tim_id')
                                                 <span style="color: red">{{ $message }}</span>
@@ -80,6 +83,15 @@
                                         <input class="form-control" type="email" required="" name="email"
                                             placeholder="Enter your password">
                                         @error('email')
+                                            <span style="color: red">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+
+                                    <div class="mb-2">
+                                        <label for="filerekomendasi" class="form-label">filerekomendasi</label>
+                                        <input class="form-control" type="file" required="" name="filerekomendasi"
+                                           
+                                        @error('filerekomendasi')
                                             <span style="color: red">{{ $message }}</span>
                                         @enderror
                                     </div>
@@ -149,6 +161,7 @@
                                                     <th>Hp</th>
                                                     <th>Email</th>
                                                     <th>Foto</th>
+                                                    <th>filerekomendasi</th>
                                                     <th>Ktp</th>
                                                     <th>Action</th>
                                                 </tr>
@@ -163,6 +176,7 @@
                                                         <td>{{ $data->nip }}</td>
                                                         <td>{{ $data->hp }}</td>
                                                         <td>{{ $data->email }}</td>
+                                                        <td>{{ $data->filerekomendasi }}</td>
                                                         <td>{{ $data->foto }}</td>
                                                         <td>{{ $data->ktp }}</td>
                                                         <td>

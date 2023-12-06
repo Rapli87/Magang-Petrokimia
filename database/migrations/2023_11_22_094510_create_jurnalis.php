@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('jurnalis', function (Blueprint $table) {
             $table->id();
             $table->integer('data_jurnallis_id')->nullable();
+            $table->integer('id_sekolah')->nullable();
             $table->string('nama'); 
             $table->string('hp');
             $table->string('alamat');

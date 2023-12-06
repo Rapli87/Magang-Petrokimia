@@ -30,16 +30,20 @@
                                         <label for="pj_sekolah_id">Nomor Sekolah</label>
                                         <div class="col-md-12">
                                             <select class="form-select" id="pj_sekolah_id" name="pj_sekolah_id">
-                                                <option value="">Pilih Nomer Sekolah</option>
-                                                @for($i = 1; $i <= 50; $i++)
-                                                    <option value="{{ $i }}">{{ $i }}</option>
-                                                @endfor
+                                                <option selected>Pilih Nomor Sekolah</option>
+                                            @foreach ( $sekolah as  $sekolahs)
+                                                <option value="{{  $sekolahs->id }}">{{ $sekolahs->Nama_Sekolah }}</option> 
+                                                
+                                            @endforeach
+                                            
+
                                             </select>
                                             @error('pj_sekolah_id')
                                                 <span style="color: red">{{ $message }}</span>
                                             @enderror
                                         </div>
                                     </div>
+                                    
                                     
                                         <div class="mb-2">
                                         <label for="nama_kepala_sekolah" class="form-label">nama_kepala_sekolah</label>

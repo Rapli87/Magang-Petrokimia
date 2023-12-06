@@ -13,6 +13,7 @@ class Datamanajer extends Model
 protected $fillable = [
         'id',
         'data_manajer_id',
+        'id_sekolah',
         'nama',
         'hp',
         'alamat',
@@ -31,4 +32,10 @@ protected $fillable = [
     {
         return $this->belongsTo(Grub::class, 'grub_id', 'id');
     }
+
+    public function sekolah()
+{
+    return $this->belongsTo(DataSekolah::class, ' id_sekolah', 'id');
+}
+
 }

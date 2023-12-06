@@ -61,9 +61,10 @@
                                                                 <div class="col-md-9">
                                                                     <select class="form-select" id="data_sekolah_id" name="data_sekolah_id">
                                                                         <option value="">Pilih Nomer Sekolah</option>
-                                                                        @for($i = 1; $i <= 50; $i++)
-                                                                            <option value="{{ $i }}">{{ $i }}</option>
-                                                                        @endfor
+                                                                        @foreach ( $sekolahs as  $sekolah)
+                                                                        <option value="{{  $sekolah->id }}">{{ $sekolah->Nama_Sekolah }}</option> 
+                                                                        
+                                                                    @endforeach
                                                                     </select>
                                                                     @error('data_sekolah_id')
                                                                         <span style="color: red">{{ $message }}</span>

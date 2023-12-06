@@ -7,11 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pemain extends Model
 {
+    use HasFactory;
     protected $table = 'pemain';
 
     protected $fillable = [
         'id',
         'name',
+        'id_sekolah',
         'data_sekolah_id',
         'pj_sekolah_id',
         'pj_tim_id',
@@ -33,6 +35,12 @@ class Pemain extends Model
        
         
     ];
+
+    public function sekolah()
+    {
+        return $this->belongsTo(DataSekolah::class, 'id_sekolah', 'id');
+    }
+    
 
     // Mendefinisikan relasi bahwa setiap Pemain dimiliki oleh satu DataSekolah
     public function dataSekolah()

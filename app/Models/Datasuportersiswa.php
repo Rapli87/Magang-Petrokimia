@@ -13,6 +13,7 @@ class Datasuportersiswa extends Model
     protected $table = 'data_pj_supporter_siswa';
 protected $fillable = [
         'id',
+        'id_sekolah', 
         'data_supportersiswa_id',
         'nama',
         'hp',
@@ -26,5 +27,9 @@ protected $fillable = [
     public function pemain()
     {
         return $this->hasMany(Pemain::class, 'data_supportersiswa_id', 'id');
+    }
+    public function sekolah()
+    {
+        return $this->belongsTo(DataSekolah::class, 'id_sekolah', 'id');
     }
 }
