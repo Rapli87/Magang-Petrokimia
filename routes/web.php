@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\{
     KlasemenController,
     LatestVideoController,
     ResultController,
+    ResultSingleController,
     SponsorshipController,
     SubLatestVideoController,
     TestimonialController,
@@ -127,6 +128,7 @@ Route::group(['middleware' =>['is_logout']], function(){
     Route::resource('admin/timelines', TimelineController::class)-> middleware('UserAccess:1');
     Route::resource('admin/group-klasemens', KlasemenController::class)-> middleware('UserAccess:1');
     Route::resource('admin/results', ResultController::class)->middleware('UserAccess:1');
+    Route::resource('admin/result-singles', ResultSingleController::class)->middleware('UserAccess:1');
     Route::resource('admin/competitions', CompetitionController::class)->middleware('UserAccess:1');
     
   

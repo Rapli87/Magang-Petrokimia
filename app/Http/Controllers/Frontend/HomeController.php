@@ -12,6 +12,7 @@ use App\Models\Testimonial;
 use App\Models\Timeline;
 use App\Models\UpcomingMatch;
 use App\Models\Result;
+use App\Models\ResultSingle;
 use App\Models\Sponsorship;
 use App\Models\Klasemen;
 use Illuminate\Http\Request;
@@ -134,7 +135,6 @@ class HomeController extends Controller
     {
         // Mengambil semua hasil pertandingan
         $results = Result::all();
-
         $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
 
         return view('pages.frontend.result.result', compact('results', 'sponsorships'));
@@ -142,7 +142,9 @@ class HomeController extends Controller
     public function result_single(Request $request)
     {
         $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
-        return view('pages.frontend.result.result-single', compact('sponsorships'));
+        $resultSingle = ResultSingle::first();  // Contoh pengambilan data, sesuaikan dengan logika query Anda
+
+        return view('pages.frontend.result.result-single', compact('sponsorships', 'resultSingle'));
     }
     public function team(Request $request)
     {
