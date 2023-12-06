@@ -122,67 +122,54 @@
                             <div class="overly-bg"></div>
                             <div class="title-head">
                                 <h4>Last Match Result</h4>
-                                <span class="date">Selasa, 22 Agustus 2023</span>
+                                @if($lastMatch)
+                                    {{-- <span class="date">{{ $lastMatch->match_date->format('l, d F Y') }}</span> --}}
+                                    <span class="date">{{ \Carbon\Carbon::parse($lastMatch->match_date)->setTimezone('Asia/Jakarta')->isoFormat('dddd, DD MMMM YYYY HH:mm [WIB]') }}</span>
+                                @endif
                             </div>
                             <div class="today-score">
-                                <div class="today-match-team">
-                                    <img src="frontend/images/today-match/LogoSekolah/SMAN 1 GRESIK.png" alt="" />
-                                    <h4>SMAN 1 GRESIK</h4>
-                                    <span>Rizal (12')</span>
-                                </div>
-                                <div class="today-final-score">
-                                    1 <span>-</span> 0
-                                    <h4>final score</h4>
-                                </div>
-                                <div class="today-match-team">
-                                    <img src="frontend/images/today-match/LogoSekolah/SMAN 2 LAMONGAN.png" alt="" />
-                                    <h4>SMAN 2 LAMONGAN</h4>
-                                    <span>-</span>
-                                </div>
+                                @if($lastMatch)
+                                    <div class="today-match-team">
+                                        <img src="{{ asset('storage/' . $lastMatch->team1_logo) }}" alt="" />
+                                        <h4>{{ $lastMatch->team1_name }}</h4>
+                                        {{-- kode dibawah di komen karena seharusnya menampilkan nama pencetak gol dan menit gol --}}
+                                        {{-- <span>{{ $lastMatch->team1_score }} ({{ $lastMatch->team1_score }}')</span> --}}
+                                    </div>
+                                    <div class="today-final-score">
+                                        {{ $lastMatch->team1_score }} <span>-</span> {{ $lastMatch->team2_score }}
+                                        <h4>final score</h4>
+                                    </div>
+                                    <div class="today-match-team">
+                                        <img src="{{ asset('storage/' . $lastMatch->team2_logo) }}" alt="" />
+                                        <h4>{{ $lastMatch->team2_name }}</h4>
+                                        {{-- <span>{{ $lastMatch->team2_score }} ({{ $lastMatch->team2_score }}')</span> --}}
+                                    </div>
+                                @else
+                                    <p>No recent match result.</p>
+                                @endif
                             </div>
                             <div class="title-head">
                                 <h4>Previous Results</h4>
                             </div>
                             <div class="recent-match-results">
-                                <div class="single-result">
-                                    <div class="team-result clearfix">
-                                        <div class="text-left match-result-list single-part"><img class="result-img"
-                                                src="frontend/images/today-match/LogoSekolah/SMAN 1 KEBOMAS.png"
-                                                alt="">SMAN 1 KEBOMAS</div>
-                                        <div class="text-center match-score single-part">
-                                            <span class="score">4</span> - <span class="score">2</span>
+                                @foreach($previousResults as $result)
+                                    <div class="single-result">
+                                        <div class="team-result clearfix">
+                                            <div class="text-left match-result-list single-part">
+                                                <img class="result-img" src="{{ asset('storage/' . $result->team1_logo) }}" alt="">
+                                                {{ $result->team1_name }}
+                                            </div>
+                                            <div class="text-center match-score single-part">
+                                                <span class="score">{{ $result->team1_score }}</span> -
+                                                <span class="score">{{ $result->team2_score }}</span>
+                                            </div>
+                                            <div class="text-left match-result-list single-part">
+                                                <img class="result-img" src="{{ asset('storage/' . $result->team2_logo) }}" alt="">
+                                                {{ $result->team2_name }}
+                                            </div>
                                         </div>
-                                        <div class="text-left match-result-list single-part"><img class="result-img"
-                                                src="frontend/images/today-match/LogoSekolah/SMAN 2 MOJOKERTO.jpg"
-                                                alt="">SMAN 2 MOJOKERTO</div>
                                     </div>
-                                </div>
-                                <div class="single-result">
-                                    <div class="team-result clearfix">
-                                        <div class="text-left match-result-list single-part"><img class="result-img"
-                                                src="frontend/images/today-match/LogoSekolah/SMK YPI DARUSSALAM 1 CERME.jpg"
-                                                alt="">SMK YPI DARUSSALAM 1 CERME</div>
-                                        <div class="text-center match-score single-part">
-                                            <span class="score">7</span> - <span class="score">4</span>
-                                        </div>
-                                        <div class="text-left match-result-list single-part"><img class="result-img"
-                                                src="frontend/images/today-match/LogoSekolah/SMAN 1 WRINGINANOM.jpg"
-                                                alt="">SMAN 1 WRINGINANOM</div>
-                                    </div>
-                                </div>
-                                <div class="single-result">
-                                    <div class="team-result clearfix">
-                                        <div class="text-left match-result-list single-part"><img class="result-img"
-                                                src="frontend/images/today-match/LogoSekolah/SMAN 1 CERME.jpg"
-                                                alt="">SMAN 1 CERME</div>
-                                        <div class="text-center match-score single-part">
-                                            <span class="score">Coming Soon</span>
-                                        </div>
-                                        <div class="text-left match-result-list single-part"><img class="result-img"
-                                                src="frontend/images/today-match/LogoSekolah/SMA SEMEN GRESIK.jpg"
-                                                alt="">SMA SEMEN GRESIK</div>
-                                    </div>
-                                </div>
+                                @endforeach
                                 <div class="view-all-result">
                                     <a href="{{ route('pages.result') }}">View All <i class="fa fa-angle-double-right"
                                             aria-hidden="true"></i></a>
@@ -191,6 +178,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
             <div class="separator-100"></div>
             <div class="row">
@@ -275,7 +263,7 @@
                 <!-- Di dalam loop -->
                 @foreach ($klasemens->groupBy('group') as $group => $klasemenGroup)
                     <div class="col-md-4">
-                        <h3 class="title-bg">Klasmen Group {{ $group }}</h3>
+                        <h3 class="title-bg">Klasemen Group {{ $group }}</h3>
                         <div class="point-list text-center">
                             <table class="point-table">
                                 <tbody>
@@ -304,7 +292,7 @@
                                     <!-- Akhir dari loop klasemenGroup -->
                                 </tbody>
                             </table>
-                            <a class="view-more text-left" href="{{ route('pages.klasmen') }}">View More <i
+                            <a class="view-more text-left" href="{{ route('pages.klasemen') }}">View More <i
                                     class="fa fa-angle-double-right" aria-hidden="true"></i></a>
                         </div>
                     </div>

@@ -54,10 +54,10 @@
                             <a href="{{route('Group-klasmen.index')}}">Group Klasmen</a>
                         </li> --}}
                         <li>
-                            <a href="{{ url('admin/group-klasemens') }}">Group Klasmen</a>
+                            <a href="{{ url('admin/group-klasemens') }}">Group Klasemen</a>
                         </li>
                         <li>
-                            <a href="pages-profile.html">Hasil Pertandingan</a>
+                            <a href="{{ url('admin/results') }}">Hasil Pertandingan</a>
                         </li>
                         <li>
                             <a href="{{ url('admin/upcoming-match') }}">Pertandingan Selanjutnya</a>
@@ -67,6 +67,9 @@
                         </li>
                         <li>
                             <a href="{{route('Bagan-Championship.index')}}">Bagan Championship</a>
+                        </li>
+                        <li>
+                            <a href="{{ url('admin/competitions') }}">Kompetisi</a>
                         </li>
                         <li>
                             <a href="{{route('Jadwal.index')}}">Jadwal</a>

@@ -5,14 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Sponsorhip extends Model
+class Competition extends Model
 {
     use HasFactory;
 
-    protected $table = "sponsorships";
-    protected $primaryKey = "id";
+    protected $table = 'competitions';
+    
     protected $fillable = [
-        'name_sponsorship',
-        'image_sponsorship'
+        'date',
+        'match_number',
+        'match',
+        'time',
+        'location',
+        'round'
     ];
 }

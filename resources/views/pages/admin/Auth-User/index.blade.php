@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', 'Auth User | PGFC Admin') 
 @section('content')
     <div class="content-page">
         <div class="content">
@@ -118,14 +119,23 @@
                                 </thead>
 
                                 <tbody>
-                                    @foreach ( $Datauser->sortBy('id') as $data)
-                                    <tr class="text-center">
+
+                                
+                                    @foreach ($Datauser->sortBy('id') as $data)
+                                        <tr class="text-center">
+
                                             <td>{{ $data->id }}</td>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->email }}</td>
                                             <td>{{ $data->password }}</td>
                                             <td>{{ $data->referral_code }}</td>
-                                            <td>{{ $data->is_verified }}</td>
+                                            <td>
+                                                @if ($data->is_verified == '0')
+                                                    <span class="badge bg-danger">Not Verified</span>
+                                                @else
+                                                    <span class="badge bg-success">Verified</span>
+                                                @endif
+                                            </td>
 
                                         </tr>
                                     @endforeach
@@ -171,7 +181,13 @@
                                             <td>{{ $data->email }}</td>
                                             <td>{{ $data->password }}</td>
                                             <td>{{ $data->referral_code }}</td>
-                                            <td>{{ $data->is_verified }}</td>
+                                            <td>
+                                                @if ($data->is_verified == '0')
+                                                    <span class="badge bg-danger">Not Verified</span>
+                                                @else
+                                                    <span class="badge bg-success">Verified</span>
+                                                @endif
+                                            </td>
                                             <td>
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-warning">Action</button>
@@ -185,9 +201,12 @@
                                                                 href="{{ route('Auth-User.show', ['id' => $data->id]) }}">View</a>
                                                         </li>
 
-                                                        <li><a class="dropdown-item"
-                                                                href="{{ route('Auth-User.delete', ['id' => $data->id]) }}">Hapus</a>
-                                                        </li>
+                                                        @if (Auth::user()->id != $data->id)
+                                                            <!-- Periksa apakah pengguna yang terotentikasi tidak sama dengan pengguna yang akan dihapus -->
+                                                            <li><a class="dropdown-item"
+                                                                    href="{{ route('Auth-User.delete', ['id' => $data->id]) }}">Hapus</a>
+                                                            </li>
+                                                        @endif
 
                                                     </ul>
                                                 </div>

@@ -52,7 +52,7 @@
                 </li>
             </ul>
         </div> --}}
-        <div class="recent-post-area">
+        {{-- <div class="recent-post-area">
             <span class="title"> Recent Post</span>
             <ul class="news-post">
                 <li>
@@ -119,7 +119,7 @@
                     </div>
                 </li>
             </ul>
-        </div>
+        </div> --}}
         {{-- <div class="tag-area">
             <span class="title">Product Tags</span>
             <ul>

@@ -42,9 +42,14 @@
         					<th class="team-score"><span class="goal-count">1-0</span></th>
         					<th class="team-name stats2">
         						<a href="#"><img class="result-img" src="frontend/images/today-match/LogoSekolah/SMAN 2 LAMONGAN.png">SMAN 2 LAMONGAN</a>
-        						<span></span>
+        						<span>-</span>
         					</th>
         				</tr>
+    					<tr>
+    						<td><span class="stats1">5</span></td>
+    						<td><span class="stat-title">Penalty</span></td>
+    						<td><span class="stats2">4</span></td>
+    					</tr>
     					<tr>
     						<td><span class="stats1">63.9%</span></td>
     						<td><span class="stat-title">Ball Possession</span></td>

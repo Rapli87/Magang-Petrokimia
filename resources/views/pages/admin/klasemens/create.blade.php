@@ -44,15 +44,23 @@
                                             <div class="mb-3">
                                                 <div class="form-group">
                                                     <label for="group">Grup:</label>
-                                                    <input type="text" name="group"
-                                                        class="form-control @error('group') is-invalid @enderror">
+                                                    <select name="group" class="form-control @error('group') is-invalid @enderror">
+                                                        <option value="A">Group A</option>
+                                                        <option value="B">Group B</option>
+                                                        <option value="C">Group C</option>
+                                                        <option value="D">Group D</option>
+                                                        <option value="E">Group E</option>
+                                                        <option value="F">Group F</option>
+                                                        <option value="G">Group G</option>
+                                                        <option value="H">Group H</option>
+                                                    </select>
                                                     @error('group')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
                                                         </div>
                                                     @enderror
                                                 </div>
-                                            </div>
+                                            </div>                                            
 
                                             <div class="mb-3">
                                                 <div class="form-group">
