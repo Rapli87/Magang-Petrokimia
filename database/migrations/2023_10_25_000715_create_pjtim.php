@@ -14,11 +14,13 @@ return new class extends Migration
         Schema::create('pjtim', function (Blueprint $table) {
             $table->id();
             $table->integer('pj_tim_id')->nullable();
+            $table->integer('id_sekolah')->nullable(); 
             $table->string('nama');
             $table->string('jabatan'); 
             $table->string('nip');
             $table->string('hp');
             $table->string('email');
+            $table->string('filerekomendasi')->nullable();
             $table->string('foto');
             $table->string('ktp');
             $table->timestamps();

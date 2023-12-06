@@ -22,14 +22,14 @@ class PemainRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data_sekolah_id' => 'required|max:255',
-            'pj_sekolah_id' => 'required|max:255',
-            'pj_tim_id' => 'required|max:255',
-            'data_pelatih_id'=> 'required|max:255',
-            'data_official_id'=> 'required|max:255',
-            'data_manajer_id'=> 'required|max:255',
-            'data_supportersiswa_id'=> 'required|max:255',
-            'data_supporterguru_id'=> 'required|max:255',
+            'data_sekolah_id' => 'max:255',
+            'pj_sekolah_id' => 'max:255',
+            'pj_tim_id' => 'max:255',
+            'data_pelatih_id'=> 'max:255',
+            'data_official_id'=> 'max:255',
+            'data_manajer_id'=> 'max:255',
+            'data_supportersiswa_id'=> 'max:255',
+            'data_supporterguru_id'=> 'max:255',
 
             'name' => 'required|max:255',
             'No_punggung' => 'required|max:255',

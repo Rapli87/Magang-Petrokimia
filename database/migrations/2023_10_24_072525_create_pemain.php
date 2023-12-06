@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('pemain', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->integer('id_sekolah')->nullable();
             $table->integer('data_sekolah_id')->nullable(); 
             $table->integer('pj_sekolah_id')->nullable();
             $table->integer('pj_tim_id')->nullable();

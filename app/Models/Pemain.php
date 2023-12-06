@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Pemain extends Model
 {
+    use HasFactory;
     protected $table = 'pemain';
 
     protected $fillable = [

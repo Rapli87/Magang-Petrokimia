@@ -119,8 +119,11 @@
                                 </thead>
 
                                 <tbody>
+
+                                
                                     @foreach ($Datauser->sortBy('id') as $data)
                                         <tr class="text-center">
+
                                             <td>{{ $data->id }}</td>
                                             <td>{{ $data->name }}</td>
                                             <td>{{ $data->email }}</td>
@@ -171,7 +174,7 @@
                                 </thead>
 
                                 <tbody>
-                                    @foreach ($Datauser->sortBy('id') as $data)
+                                    @foreach ( $Datauser->sortBy('id') as $data)
                                         <tr class="text-center">
                                             <td>{{ $data->id }}</td>
                                             <td>{{ $data->name }}</td>

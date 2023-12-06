@@ -20,6 +20,7 @@ protected $fillable = [
         'nip',
         'hp',
         'email',
+        'filerekomendasi',
         'foto',
         'ktp',
         

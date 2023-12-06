@@ -12,7 +12,7 @@ class ManajerController extends Controller
 {
     public function index(Request $request)
     {
-        $manajer = Datamanajer::with('grub','sekolah')->get();
+        $manajer = Datamanajer::with('sekolah')->get();
         $sekolah = DataSekolah::all();
         return view('pages.admin.user.manajer.index', ['manajer' => $manajer],['sekolah' => $sekolah]);
     }
@@ -26,7 +26,7 @@ class ManajerController extends Controller
     }
 
     public function show($id) {
-        $manajer = Datamanajer::with('grub,pemain')->find($id);
+        $manajer = Datamanajer::with('pemain')->find($id);
     
         if (!$manajer) {
             abort(404);

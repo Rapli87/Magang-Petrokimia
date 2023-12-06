@@ -18,7 +18,7 @@ class PjtimController extends Controller
     }
     
 
-    public function create()
+public function create()
     {
         $pjtim = PjTim::with('sekolah')->get();
         $sekolahs = DataSekolah::all();
@@ -40,6 +40,10 @@ class PjtimController extends Controller
     {
         $data = $request->all();
         $data['pj_tim_id'] = $request->input('pj_tim_id');
+        $data['filerekomendasi'] = $request->file('filerekomendasi')->store(
+            'user/pjtim/filerekomendasi',
+            'public'
+        );
         $data['foto'] = $request->file('foto')->store(
             'user/pjtim/foto',
             'public'
@@ -74,6 +78,10 @@ class PjtimController extends Controller
     public function update(PjtimRequest $request, string $id)
     {
         $data = $request->all();
+        $data['filerekomendasi'] = $request->file('filerekomendasi')->store(
+            'user/pjtim/filerekomendasi',
+            'public'
+        );
         $data['foto'] = $request->file('foto')->store(
             'user/pjtim/foto',
             'public'
