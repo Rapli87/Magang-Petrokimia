@@ -22,4 +22,9 @@ class Result extends Model
         'match_date',
         'match_venue',
     ];
+
+    public function resultSingle()
+    {
+        return $this->hasOne(ResultSingle::class, 'result_id');
+    }
 }

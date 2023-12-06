@@ -20,7 +20,7 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript:void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="{{ route('results.index') }}">Hasil Pertandingan</a></li>
+                                    <li class="breadcrumb-item"><a href="{{ route('results.index') }}">Detail Hasil Pertandingan</a></li>
                                     <li class="breadcrumb-item active">Detail Hasil Pertandingan</li>
                                 </ol>
                             </div>
@@ -71,5 +71,5 @@
         <!-- ============================================================== -->
         <!-- End Page content -->
         <!-- ============================================================== -->
-    </div>
+    {{-- </div> --}}
 @endsection

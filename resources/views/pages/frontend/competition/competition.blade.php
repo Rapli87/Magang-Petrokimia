@@ -88,17 +88,17 @@
 
                         @foreach ($roundCompetitions as $competition)
                             <tr>
-                                {{-- <td>{{ \Carbon\Carbon::parse($competition->date)->format('d F Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($competition->date)->format('d F Y') }}</td>
                                 <td>{{ $competition->match_number }}</td>
                                 <td>{{ $competition->match }}</td>
                                 <td>{{ \Carbon\Carbon::parse($competition->time)->format('H:i') }} WIB</td>
-                                <td>{{ $competition->location }}</td> --}}
-                                <td>{{ $competition->date ?: '-' }}</td>
+                                <td>{{ $competition->location }}</td>
+                                {{-- <td>{{ $competition->date ?: '-' }}</td>
                                 <td>{{ $competition->match_number ?: '-' }}</td>
                                 <td>{{ $competition->match ?: '-' }}</td>
                                 <td>{{ $competition->time ? \Carbon\Carbon::parse($competition->time)->format('H:i') . ' WIB' : '-' }}
                                 </td>
-                                <td>{{ $competition->location ?: '-' }}</td>
+                                <td>{{ $competition->location ?: '-' }}</td> --}}
                             </tr>
                         @endforeach
                     @endforeach

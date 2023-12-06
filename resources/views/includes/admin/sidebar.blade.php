@@ -63,7 +63,7 @@
                             <a href="{{ url('admin/upcoming-match') }}">Pertandingan Selanjutnya</a>
                         </li>
                         <li>
-                            <a href="pages-invoice.html">Statistik</a>
+                            <a href="{{ url('admin/result-singles') }}">Statistik</a>
                         </li>
                         <li>
                             <a href="{{route('Bagan-Championship.index')}}">Bagan Championship</a>
