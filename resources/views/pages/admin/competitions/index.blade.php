@@ -1,13 +1,6 @@
 @extends('layouts.admin')
 
-@if (auth()->user()->role == 1)
-    @section('title', 'Users | PGFC Admin')  
-@endif
-
-@if (auth()->user()->role == 2)
-    @section('title', 'Users | PGFC Users')     
-@endif
-
+@section('title', 'Jadwal Pertandingan | PGFC Admin')
 @push('addon-style')
     <!-- Datatables css -->
     <link href="{{ url('backend/assets/vendor/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" rel="stylesheet"
@@ -42,11 +35,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Users</a>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Jadwal Pertandingan</a>
                                     </li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Users </h4>
+                            <h4 class="page-title">Jadwal Pertandingan </h4>
                         </div>
                     </div>
                 </div>
@@ -59,7 +52,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                     </div>
                 @endif
-
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -67,73 +59,56 @@
                                 <div class="card-body">
                                     <table id="fixed-columns-datatable"
                                         class="table table-striped nowrap row-border order-column w-100">
-                                        @if (auth()->user()->role == 1)
-                                            <a href="{{ route('users.create') }}" class="btn btn-primary mb-2">
-                                                <i class="ri-add-circle-line text-ligth"> Create Users </i>
-                                            </a>
-                                        @endif
-                                        <thead class="text-center">
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Email Verification</th>
-                                                <th>Status Verification</th>
-                                                <th>Password</th>
-                                                <th>Refferal Code</th>
-                                                <th>Remember Token</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-
-                                        <tbody class="text-center">
-                                            @foreach ($users as $item)
+                                        <a href="{{ route('competitions.create') }}" class="btn btn-primary mb-2">
+                                            <i class="ri-add-circle-line text-ligth"> Tambah Data </i>
+                                        </a>
+                                        {{-- <table id="fixed-columns-datatable"
+                                            class="table table-striped nowrap row-border order-column w-100"> --}}
+                                            <thead>
                                                 <tr>
-                                                    <td>{{ $loop->iteration }}</td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->email_verified_at }}</td>
-
-                                                    <td>
-                                                        @if ($item->is_verified == '0')
-                                                            <span class="badge bg-danger">Not Verified</span>
-                                                        @else
-                                                            <span class="badge bg-success">Verified</span>
-                                                        @endif
-                                                    </td>
-                                                    
-
-                                                    <td>{{ $item->password }}</td>
-                                                    <td>{{ $item->referral_code }}</td>
-                                                    <td>{{ $item->remember_token }}</td>
-                                                    <td>
-                                                        <a href="{{ route('users.edit', $item->id) }}"
-                                                            class="btn btn-warning">
-                                                            <i class="ri-pencil-line text-light"></i>
-                                                        </a>
-                                                        @if (auth()->user()->role == 1)
-                                                            @if ($item->id != auth()->user()->id)
-                                                                <form action="{{ route('users.destroy', $item->id) }}"
-                                                                    method="POST" class="d-inline">
-                                                                    @csrf
-                                                                    @method('delete')
-                                                                    <button class="btn btn-danger"
-                                                                        onclick="return confirm('Yakin ingin menghapus data?')">
-                                                                        <i class="ri-delete-bin-line text-light"></i>
-                                                                    </button>
-                                                                </form>
-                                                            @endif
-                                                        @endif
-                                                    </td>
+                                                    <th>No</th>
+                                                    <th>Date</th>
+                                                    <th>Match Number</th>
+                                                    <th>Match</th>
+                                                    {{-- <th>Time</th> --}}
+                                                    <th>Location</th>
+                                                    <th>Round</th>
+                                                    <th>Actions</th>
                                                 </tr>
-                                            @endforeach
-                                            {{-- @empty
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($competitions as $competition)
                                                     <tr>
-                                                        <td colspan="5" class="text-center">Data Kosong</td>
+                                                        <td>{{ $loop->iteration }}</td>
+                                                        <td>{{ $competition->date }}</td>
+                                                        <td>{{ $competition->match_number }}</td>
+                                                        <td>{{ $competition->match }}</td>
+                                                        {{-- <td>{{ $competition->time }}</td> --}}
+                                                        <td>{{ $competition->location }}</td>
+                                                        <td>{{ $competition->round }}</td>
+                                                        <td>
+                                                            {{-- tambah show --}}
+                                                            <a href="{{ route('competitions.show', $competition->id) }}"
+                                                                class="btn btn-info">
+                                                                <i class="ri-eye-line text-ligth"></i>
+                                                            </a>
+                                                            <a href="{{ route('competitions.edit', $competition->id) }}"
+                                                                class="btn btn-warning">
+                                                                <i class="ri-pencil-line text-ligth"></i>
+                                                            </a>
+                                                            <form action="{{ route('competitions.destroy', $competition->id) }}"
+                                                                method="POST" class="d-inline">
+                                                                @csrf
+                                                                @method('delete')
+                                                                <button class="btn btn-danger">
+                                                                    <i class="ri-delete-bin-line text-ligth"></i>
+                                                                </button>
+                                                            </form>
+                                                        </td>
                                                     </tr>
-                                                @endforelse --}}
-                                        </tbody>
-                                    </table>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                 </div>
                             </div> <!-- end card body-->
                         </div> <!-- end card -->

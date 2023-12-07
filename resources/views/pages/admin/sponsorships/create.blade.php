@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Tambah Sponsorhip | PGFC Admin')
+@section('title', 'Tambah Sponsorship | PGFC Admin')
 
 @section('content')
     <div class="content-page">
@@ -12,11 +12,11 @@
                             <div class="page-title-right">
                                 <ol class="breadcrumb m-0">
                                     <li class="breadcrumb-item"><a href="javascript: void(0);">PGFC</a></li>
-                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Tambah Sponsorhip</a>
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Tambah Sponsorship</a>
                                     </li>
                                 </ol>
                             </div>
-                            <h4 class="page-title">Tambah Sponsorhip </h4>
+                            <h4 class="page-title">Tambah Sponsorship </h4>
                         </div>
                     </div>
                 </div>

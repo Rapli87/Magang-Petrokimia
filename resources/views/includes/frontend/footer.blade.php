@@ -42,7 +42,7 @@
                     <ul class="sitemap-widget">
                         <li class="active"><a href="{{ route('index') }}">Home</a></li>
                         <li><a href="{{ route('pages.about') }}">About</a></li>
-                        <li><a href="{{ route('pages.klasmen') }}">Point Table</a></li> 
+                        <li><a href="{{ route('pages.klasemen') }}">Klasemen</a></li> 
                                        <li><a href="{{ route('pages.competition') }}">Competition</a></li> 
                         <li><a href="{{ route('pages.blog') }}">Blog</a></li>
                         <li><a href="{{ route('pages.contact') }}">Contact</a></li>
