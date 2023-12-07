@@ -8,10 +8,10 @@
 </head>
 <body>
 
-    <p>Hii {{ $data['name'] }} Welcome to Referral System.</p>
+    <p>Hii {{ $data['name'] }} Welcome to PGFC System.</p>
     <p>Please <a href="{{ $data['url'] }}">Click here</a> to verify your mail.</p>
 
-    <p>Thank You!</p>
+    <p>Thank You! {{ $data['name'] }}</p>
     
 </body>
 </html>

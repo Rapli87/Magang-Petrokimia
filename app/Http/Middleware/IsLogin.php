@@ -21,6 +21,10 @@ class IsLogin
                 return redirect()->route('dashboard-admin');
             } else if (auth()->user()->role == 2) {
                 return redirect()->route('dashboard-user');
+        }else if (auth()->user()->role == null) {
+            `print("anda belum login | silahkan login terlebih dahulu |Atau hubungi admin Sekolah Anda")`;
+            
+            
         }
     }
                 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -215,7 +215,7 @@ class UserController extends Controller
                 Network::insert([
                     'referral_code' => $request->referral_code,
                     'user_id' => $user_id,
-                    'parent_user_id' => $userData[0]['id'],
+                    'parent_user_id' => $userData[0]['parent_user_id'],
 
                 ]);
     

@@ -28,10 +28,10 @@
 
                                        
                                     <div class="mb-2">
-                                        <label for="data_official_id">Nomor Sekolah</label>
+                                        <label for="data_official_id">Nama Sekolah</label>
                                         <div class="col-md-12">
                                             <select class="form-select" id="data_official_id" name="data_official_id">
-                                                <option selected>Pilih Nomor Sekolah</option>
+                                                <option selected>Pilih Nama Sekolah</option>
                                             @foreach ( $sekolah as  $sekolahs)
                                                 <option value="{{  $sekolahs->id }}">{{ $sekolahs->Nama_Sekolah }}</option> 
                                                 

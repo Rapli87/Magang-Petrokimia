@@ -23,10 +23,10 @@ use App\Http\Controllers\Admin\{
     TestimonialController,
     TimelineController,
     UpcomingMatchController,
-    UserController
+    TambahdatauserController,
 };
 
-use App\Http\Controllers\Admin\TambahUserController;
+
 use App\Http\Controllers\Frontend\{
     ArticleController as FrontendArticleController,
     CategoryController as FrontendCategoryController,
@@ -43,6 +43,8 @@ use App\Http\Controllers\User\pjsupporterguruController;
 use App\Http\Controllers\User\PjtimController;
 use App\Http\Controllers\User\PelatihController;
 use App\Http\Controllers\User\pjsupportersiswaController;
+use App\Http\Controller\User\UserController;
+use App\Http\Controllers\User\UserController as UserUserController;
 use App\Models\Article;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -95,26 +97,47 @@ Route::get('team-single', [HomeController::class, 'team_single'])
 
 // refferal 
 // Route::group(['middleware' =>['is_login']], function(){
-    Route::get('/register', [UserController::class, 'loadRegister'])->name('register');
-    Route::post('/user-register', [UserController::class, 'registered'])->name('registered');
-    Route::get('/referral-register',[UserController::class, 'loadReferralRegister']);
-    Route::get('/email-verification/{token}',[UserController::class, 'emailVerification']);
-    Route::get('/login', [UserController::class, 'loadLogin']);
-    Route::post('/login', [UserController::class, 'userLogin'])->name('login');
+    Route::get('/register', [UserUserController::class, 'loadRegister'])->name('register');
+    Route::post('/user-register', [UserUserController::class, 'registered'])->name('registered');
+    Route::get('/referral-register',[UserUserController::class, 'loadReferralRegister'])->name('referral-register');
+    Route::get('/email-verification/{token}',[UserUserController::class, 'emailVerification'])->name('email-verification');
+    Route::get('/login', [UserUserController::class, 'loadLogin'])->name('login');
+    Route::post('/login', [UserUserController::class, 'userLogin'])->name('login');
 
-    
-
+    // Route::get('admin/Auth-User', [AuthUserController::class, 'index'])->name('Auth-User.index');
+    // Route::get('admin/Auth-User/show/{id}', [AuthUserController::class, 'show'])->name('Auth-User.show');
+    //     Route::get('admin/Auth-User/delete/{id}',[AuthUserController::class, 'delete'])->name('Auth-User.delete');
+    //     Route::put('admin/Auth-User/update/{id}', [AuthUserController::class, 'update'])->name('Auth-User.update');
+    //     Route::post('admin/Auth-User', [TambahdatauserController::class, 'registered'])->name('Auth-User.registered');
+    Route::post('/user-register', [TambahdatauserController::class, 'registered'])->name('registered')->middleware('UserAccess:1');
+   Route::get('/referral-register',[TambahdatauserController::class, 'loadReferralRegister'])->name('referral-register')-> middleware('UserAccess:1');
+    Route::get('/email-verification/{token}',[TambahdatauserController::class, 'emailVerification'])->name('email-verification')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User', [TambahdatauserController::class, 'index'])->name('Auth-User.index')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/show/{id}', [TambahdatauserController::class, 'show'])->name('Auth-User.show')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/delete/{id}',[TambahdatauserController::class, 'delete'])->name('Auth-User.delete')-> middleware('UserAccess:1');
+    Route::put('admin/Auth-User/update/{id}', [TambahdatauserController::class, 'update'])->name('Auth-User.update')-> middleware('UserAccess:1');
+    Route::post('admin/Auth-User', [TambahdatauserController::class, 'registered'])->name('Auth-User.registered')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/create', [TambahdatauserController::class, 'create'])->name('Auth-User.create')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/edit/{id}', [TambahdatauserController::class, 'edit'])->name('Auth-User.edit')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/destroy/{id}', [TambahdatauserController::class, 'destroy'])->name('Auth-User.destroy')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/index', [TambahdatauserController::class, 'index'])->name('Auth-User.index')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/show', [TambahdatauserController::class, 'show'])->name('Auth-User.show')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/edit', [TambahdatauserController::class, 'edit'])->name('Auth-User.edit')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/update', [TambahdatauserController::class, 'update'])->name('Auth-User.update')-> middleware('UserAccess:1');
+    Route::get('admin/Auth-User/destroy', [TambahdatauserController::class, 'destroy'])->name('Auth-User.destroy')-> middleware('UserAccess:1');
+  
+     
 
 // });
 
 Route::group(['middleware' =>['is_logout']], function(){
     //dashboard utama admin (access 1)
-    Route::get('admin/dashboard', [UserController::class, 'loadDashboardAdmin'])->name('dashboard-admin')-> middleware('UserAccess:1');
+    Route::get('admin/dashboard', [UserUserController::class, 'loadDashboardAdmin'])->name('dashboard-admin')-> middleware('UserAccess:1');
     //dashboard utama user
-    Route::get('user/dashboard', [UserController::class, 'loadDashboardUser'])->name('dashboard-user')-> middleware('UserAccess:2');
+    Route::get('user/dashboard', [UserUserController::class, 'loadDashboardUser'])->name('dashboard-user')-> middleware('UserAccess:2');
     //dashboard blog
-    Route::get('admin/dashboard-blog', [UserController::class, 'loadDashboardBlog'])->name('dashboard-blog')-> middleware('UserAccess:1');
-    Route::get('/logout', [UserController::class, 'logout'])->name('logout');
+    Route::get('admin/dashboard-blog', [UserUserController::class, 'loadDashboardBlog'])->name('dashboard-blog')-> middleware('UserAccess:1');
+    Route::get('/logout', [UserUserController::class, 'logout'])->name('logout');
     //pages
     Route::resource('admin/upcoming-match', UpcomingMatchController::class)-> middleware('UserAccess:1');
     //cms panel
@@ -281,13 +304,6 @@ Route::resource('admin/user/informasiumum', InformasiumumController::class)->mid
     Route::Post('admin/Jadwal/update/{id}', [JadwalController::class, 'update'])->name('Jadwal.update')-> middleware('UserAccess:1');
     Route::delete('admin/Jadwal/destroy/{id}', [JadwalController::class, 'destroy'])->name('Jadwal.destroy')-> middleware('UserAccess:1');
 
-    Route::get('admin/Auth-User', [AuthUserController::class, 'index'])->name('Auth-User.index')-> middleware('UserAccess:1');
-Route::get('admin/Auth-User/show/{id}', [AuthUserController::class, 'show'])->name('Auth-User.show')-> middleware('UserAccess:1');
-    Route::get('admin/Auth-User/delete/{id}',[AuthUserController::class, 'delete'])->name('Auth-User.delete')-> middleware('UserAccess:1');
-    Route::put('admin/Auth-User/update/{id}', [AuthUserController::class, 'update'])->name('Auth-User.update')-> middleware('UserAccess:1');
-    Route::post('admin/Auth-User/registered', [AuthUserController::class, 'registered'])->name('Auth-User.registered')-> middleware('UserAccess:1');
-    Route::post('admin/Auth-User/loadReferralRegister',[AuthUserController::class, 'loadReferralRegister'])->name('Auth-User.loadReferralRegister')-> middleware('UserAccess:1');
-
 
 
 
@@ -315,8 +331,8 @@ Route::get('admin/Auth-User/show/{id}', [AuthUserController::class, 'show'])->na
     // Route::post('/login', [UserController::class, 'userLogin'])->name('login');;
 
     //user admin
-    Route::resource('admin/users', AuthUserController::class)-> middleware('UserAccess:1');
-    Route::resource('user/users', UserController::class)-> middleware('UserAccess:2');
+    Route::resource('admin/users', TambahdatauserController::class)-> middleware('UserAccess:1');
+    Route::resource('user/users',   UserUserController::class)-> middleware('UserAccess:2');
     //route unisharp
     Route::group(['prefix' => 'laravel-filemanager'], function () {
         \UniSharp\LaravelFilemanager\Lfm::routes();

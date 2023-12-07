@@ -21,7 +21,7 @@
                             </ol>
                         </div>
                         {{-- <h4 class="page-title">Welcome {{ Auth::user()->name }}!</h4> --}}
-                        <h4 class="page-title">Welcome Manajer!</h4>
+                        <h4 class="page-title">Welcome User!</h4>
                     </div>
                 </div>
             </div>
