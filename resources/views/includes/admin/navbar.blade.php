@@ -7,6 +7,7 @@
              <!-- Topbar Brand Logo -->
              <div class="logo-topbar">
                 <!-- Logo light -->
+                
                 <a href="{{ route('dashboard-admin') }}" class="logo-light">
                     <span class="logo-lg">
                         <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo">
