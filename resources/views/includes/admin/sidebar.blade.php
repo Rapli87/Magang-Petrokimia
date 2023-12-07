@@ -6,7 +6,9 @@
     <!-- Brand Logo Light -->
     <a href="{{ route('dashboard-admin') }}" class="logo logo-light">
         <span class="logo-lg">
-            <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo">
+            {{-- <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo"> --}}
+            {{-- <img src="frontend/images/logo-pgfc.png" alt="logo" height="22"> --}}
+            <img src="{{ url('frontend/images/logo-pgfc.png')}}" alt="logo">
         </span>
         <span class="logo-sm">
             <img src="{{ url('backend/assets/images/logo-sm.png') }}" alt="small logo">
@@ -161,7 +163,11 @@
     <!-- Brand Logo Light -->
     <a href="{{ route('dashboard-user') }}" class="logo logo-light">
         <span class="logo-lg">
-            <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo">
+            {{-- <img src="{{ url('backend/assets/images/logo.png') }}" alt="logo"> --}}
+                                                {{-- <img src="frontend/images/logo-pgfc.png" alt="logo" height="22"> --}}
+
+<img src="{{ url('frontend/images/logo-pgfc.png')}}" alt="logo">
+
         </span>
         <span class="logo-sm">
             <img src="{{ url('backend/assets/images/logo-sm.png') }}" alt="small logo">
