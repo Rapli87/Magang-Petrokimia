@@ -3,16 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Network;
 use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
-
-class AuthUserController extends Controller
+class TambahdatauserController extends Controller
 {
     public function index()
     {
@@ -90,15 +89,16 @@ class AuthUserController extends Controller
                     'referral_code' => $referralCode,
                     'remember_token' => $token
                 ]);
-                Network::insert([
-                    'referral_code' => $request->referral_code,
-                    'user_id' => $user_id,
-                    'parent_user_id' => $userData[0]['id'],
-                ]);
+                // Network::insert([
+                //     'referral_code' => $request->referral_code,
+                //     'user_id' => $user_id,
+                //     // 'parent_user_id' => $userData[0]['id'],
+                //     'parent_user_id' => $request->parent_user_id,
+                // ]);
 
             }
             else{
-                return back()->with('error', 'Please enter Valid Referral Code!');
+                return back()->with('error', 'Please enter Valid  Code Token!');
             }
 
         }
@@ -122,6 +122,7 @@ class AuthUserController extends Controller
                 'name' => $request->name,
                 'email' => $request->email,
                 'password' => $request->password,
+                'referral_code' => $referralCode,
                 'title' => 'Registered',
             ];
             
@@ -226,4 +227,3 @@ class AuthUserController extends Controller
         return view ('auth.logout');
     }
 }
-

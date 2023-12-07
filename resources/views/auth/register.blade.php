@@ -69,7 +69,7 @@
                                             <div class="mb-3">
                                                 <label for="referral_code" class="form-label">Kode Token</label>
                                                 <input class="form-control" type="text" name="referral_code"
-                                                    placeholder="Enter Refferal Code (Optional)">
+                                                    placeholder="Masukkan Code Token">
                                                 @error('referral_code')
                                                     <span style="color: red">{{ $message }}</span>
                                                 @enderror

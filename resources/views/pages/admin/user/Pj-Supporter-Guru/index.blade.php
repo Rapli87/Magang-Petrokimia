@@ -59,10 +59,10 @@
                                                     <div class="row">
                                                         <div class="col-12">
                                                             <div class="row mb-3">
-                                                                <label class="col-md-3 col-form-label" for="data_supporterguru_id">Nomor Sekolah</label>
+                                                                <label class="col-md-3 col-form-label" for="data_supporterguru_id">Nama Sekolah</label>
                                                                 <div class="col-md-9">
                                                                     <select class="form-select" id="data_supporterguru_id" name="data_supporterguru_id">
-                                                                        <option value="">Pilih Nomer Sekolah</option>
+                                                                        <option value="">Pilih Nama Sekolah</option>
                                                                         @foreach ( $sekolah as  $sekolahs)
                                                                         <option value="{{  $sekolahs->id }}">{{ $sekolahs->Nama_Sekolah }}</option> 
                                                                         

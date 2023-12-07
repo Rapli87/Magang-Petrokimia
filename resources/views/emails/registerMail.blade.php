@@ -8,12 +8,13 @@
 </head>
 <body>
 
-    <p>Hii {{ $data['name'] }}, Welcome to Refferal System!</p>
+    <p>Hii {{ $data['name'] }}, Welcome to PGFC System!</p>
     <p><b>Email:-</b>{{ $data['email'] }}</p>
     <p><b>Password:-</b>{{ $data['password'] }}</p>
-    <p>You Can add users your Network By share your <a href="{{ $data['url'] }}">Refferal Link</a></p>
+    <p><b>Kode Token:-</b>{{$data['referral_code']}}</p>
+    <p>Daftarkan Pemain Futsal Anda Di Link <a href="{{ $data['url'] }}">Daftar Disini</a></p>
 
-    <p>Thank You!</p>
+    <p>Thank You!  <p>Hii {{ $data['name'] }}</p></p>
     
 </body>
 </html>
