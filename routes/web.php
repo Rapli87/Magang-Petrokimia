@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\{
     DetailBaganController,
     DetailJadwalController,
     DetailPemainController,
-    // GalleryController,
+    GalleryController,
     GrubController,
     JadwalController,
     KlasemenController,
@@ -86,7 +86,9 @@ Route::get('klasemen', [HomeController::class, 'klasemen'])
     ->name('pages.klasemen');
 Route::get('result', [HomeController::class, 'result'])
     ->name('pages.result');
-Route::get('result-single', [HomeController::class, 'result_single'])
+// Route::get('result-single', [HomeController::class, 'result_single'])
+//     ->name('pages.result-single');
+Route::get('result-single/{result_id}', [HomeController::class, 'result_single'])
     ->name('pages.result-single');
 Route::get('team', [HomeController::class, 'team'])
     ->name('pages.team');

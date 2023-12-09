@@ -71,7 +71,7 @@
                                         <span class="match-date">{{ $match->match_venue }}</span>
                                     </td>
                                     <td class="view-statictics text-center">
-                                        <a href="{{ route('pages.result-single') }}">View Statictics >></a>
+                                        <a href="{{ route('pages.result-single', ['result_id' => $match->id]) }}">View Statistics >></a>
                                     </td>
                                 </tr>
                             @endforeach
