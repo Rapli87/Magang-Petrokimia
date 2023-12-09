@@ -139,11 +139,11 @@ class HomeController extends Controller
 
         return view('pages.frontend.result.result', compact('results', 'sponsorships'));
     }
-    public function result_single(Request $request)
+    public function result_single($result_id)
     {
         $sponsorships = Sponsorship::take(6)->orderBy('created_at', 'asc')->get();
-        $resultSingle = ResultSingle::first();  // Contoh pengambilan data, sesuaikan dengan logika query Anda
-
+        // $resultSingle = ResultSingle::first();  // Contoh pengambilan data, sesuaikan dengan logika query Anda
+        $resultSingle = ResultSingle::where('result_id', $result_id)->firstOrFail();
         return view('pages.frontend.result.result-single', compact('sponsorships', 'resultSingle'));
     }
     public function team(Request $request)

@@ -89,10 +89,11 @@
                                     {{-- pencetak gol tim1 sesuaikan nama kolom dengan yang ada di model--}}
                                     <div class="mb-3">
                                         <label for="team1_scorers" class="form-label">Pencetak Gol Tim Home</label>
-                                        <input type="text"
+                                        <br>
+                                        <small>Tambahkan Menit Gol</small>
+                                        <textarea
                                             class="form-control @error('team1_scorers') is-invalid @enderror"
-                                            name="team1_scorers" placeholder="Pencetak Gol Tim Home"
-                                            value="{{ old('team1_scorers') }}">
+                                            name="team1_scorers" placeholder="Pencetak Gol Tim Home">{{ old('team1_scorers') }}</textarea>
                                         @error('team1_scorers')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -101,18 +102,17 @@
                                     </div>
                                     
                                     {{-- menit gol tim1--}}
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="team1_scorers_minute" class="form-label">Menit Gol Tim Home</label>
-                                        <input type="text"
+                                        <textarea
                                             class="form-control @error('team1_scorers_minute') is-invalid @enderror"
-                                            name="team1_scorers_minute" placeholder="Menit Gol Tim Home"
-                                            value="{{ old('team1_scorers_minute') }}">
+                                            name="team1_scorers_minute" placeholder="Menit Gol Tim Home">{{ old('team1_scorers_minute') }}</textarea>
                                         @error('team1_scorers_minute')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                    </div>
+                                    </div> --}}
 
                                     {{-- penalty tim1 --}}
                                     <div class="mb-3">
@@ -268,30 +268,29 @@
                                     {{-- pencetak gol tim2 --}}
                                     <div class="mb-3">
                                         <label for="team2_scorers" class="form-label">Pencetak Gol Tim Away</label>
-                                        <input type="text"
+                                        <br>
+                                        <small>Tambahkan Menit Gol</small>
+                                        <textarea
                                             class="form-control @error('team2_scorers') is-invalid @enderror"
-                                            name="team2_scorers" placeholder="Pencetak Gol Tim Away"
-                                            value="{{ old('team2_scorers') }}">
+                                            name="team2_scorers" placeholder="Pencetak Gol Tim Away">{{ old('team2_scorers') }}</textarea>
                                         @error('team2_scorers')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
                                     </div>
-
                                     {{-- menit gol tim2 --}}
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="team2_scorers_minute" class="form-label">Menit Gol Tim Away</label>
-                                        <input type="text"
+                                        <textarea
                                             class="form-control @error('team2_scorers_minute') is-invalid @enderror"
-                                            name="team2_scorers_minute" placeholder="Menit Gol Tim Away"
-                                            value="{{ old('team2_scorers_minute') }}">
+                                            name="team2_scorers_minute" placeholder="Menit Gol Tim Away">{{ old('team2_scorers_minute') }}</textarea>
                                         @error('team2_scorers_minute')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                    </div>
+                                    </div> --}}
 
                                     {{-- penalty tim2 --}}
                                     <div class="mb-3">

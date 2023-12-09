@@ -102,10 +102,10 @@
 
                                     <div class="mb-3">
                                         <label for="team1_scorers" class="form-label">Pencetak Gol Tim Home</label>
-                                        <input type="text"
-                                            class="form-control @error('team1_scorers') is-invalid @enderror"
-                                            name="team1_scorers" placeholder="Pencetak Gol Tim Home"
-                                            value="{{ old('team1_scorers', $resultSingle->team1_scorers) }}">
+                                        <br>
+                                        <small>Tambahkan Menit Gol</small>
+                                        <textarea class="form-control @error('team1_scorers') is-invalid @enderror" name="team1_scorers"
+                                            placeholder="Pencetak Gol Tim Home">{{ old('team1_scorers', $resultSingle->team1_scorers) }}</textarea>
                                         @error('team1_scorers')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -113,18 +113,17 @@
                                         @enderror
                                     </div>
 
-                                    <div class="mb-3">
-                                        <label for="team1_scorers_minutes" class="form-label">Menit Gol Tim Home</label>
-                                        <input type="text"
+                                    {{-- <div class="mb-3">
+                                        <label for="team1_scorers_minutes" class="form-label">Menit Gol Tim Away</label>
+                                        <textarea
                                             class="form-control @error('team1_scorers_minutes') is-invalid @enderror"
-                                            name="team1_scorers_minutes" placeholder="Menit Gol Tim Home"
-                                            value="{{ old('team1_scorers_minutes', $resultSingle->team1_scorers_minutes) }}">
+                                            name="team1_scorers_minutes" placeholder="Menit Gol Tim Home">{{ old('team1_scorers_minutes', $resultSingle->team1_scorers_minutes) }}</textarea>
                                         @error('team1_scorers_minutes')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                    </div>
+                                    </div> --}}
 
                                     <div class="mb-3">
                                         <label for="team1_penalty" class="form-label">Penalty Tim Home</label>
@@ -282,11 +281,11 @@
                                     </div>
 
                                     <div class="mb-3">
-                                        <label for="team2_scorers" class="form-label">Pencetak Gol Tim Away</label>
-                                        <input type="text"
-                                            class="form-control @error('team2_scorers') is-invalid @enderror"
-                                            name="team2_scorers" placeholder="Pencetak Gol Tim Away"
-                                            value="{{ old('team2_scorers', $resultSingle->team2_scorers) }}">
+                                        <label for="team2_scorers" class="form-label">Pencetak Gol Tim Home</label>
+                                        <br>
+                                        <small>Tambahkan Menit Gol</small>
+                                        <textarea class="form-control @error('team2_scorers') is-invalid @enderror" name="team2_scorers"
+                                            placeholder="Pencetak Gol Tim Home">{{ old('team2_scorers', $resultSingle->team2_scorers) }}</textarea>
                                         @error('team2_scorers')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
@@ -294,18 +293,17 @@
                                         @enderror
                                     </div>
 
-                                    <div class="mb-3">
+                                    {{-- <div class="mb-3">
                                         <label for="team2_scorers_minutes" class="form-label">Menit Gol Tim Away</label>
-                                        <input type="text"
+                                        <textarea
                                             class="form-control @error('team2_scorers_minutes') is-invalid @enderror"
-                                            name="team2_scorers_minutes" placeholder="Menit Gol Tim Away"
-                                            value="{{ old('team2_scorers_minutes', $resultSingle->team2_scorers_minutes) }}">
+                                            name="team2_scorers_minutes" placeholder="Menit Gol Tim Away">{{ old('team2_scorers_minutes', $resultSingle->team2_scorers_minutes) }}</textarea>
                                         @error('team2_scorers_minutes')
                                             <div class="invalid-feedback">
                                                 {{ $message }}
                                             </div>
                                         @enderror
-                                    </div>
+                                    </div> --}}
 
                                     <div class="mb-3">
                                         <label for="team2_penalty" class="form-label">Penalty Tim Away</label>
@@ -417,12 +415,14 @@
                                 <div class="col-lg-6">
                                     <div class="mb-3">
                                         <label for="result_id" class="form-label">Result ID</label>
-                                        <select class="form-control @error('result_id') is-invalid @enderror" name="result_id">
+                                        <select class="form-control @error('result_id') is-invalid @enderror"
+                                            name="result_id">
                                             <option value="" selected disabled>Select Result</option>
                                             @foreach ($results as $result)
                                                 <option value="{{ $result->id }}"
                                                     {{ old('result_id', $resultSingle->result_id) == $result->id ? 'selected' : '' }}>
-                                                    {{ $result->round }} - {{ $result->team1_name }} vs {{ $result->team2_name }}
+                                                    {{ $result->round }} - {{ $result->team1_name }} vs
+                                                    {{ $result->team2_name }}
                                                 </option>
                                             @endforeach
                                         </select>
@@ -432,10 +432,10 @@
                                             </div>
                                         @enderror
                                     </div>
-                                </div>   
-                            </div>                             
+                                </div>
+                            </div>
 
-                                <button type="submit" class="btn btn-primary">Update</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                     </div>
                 </div>
